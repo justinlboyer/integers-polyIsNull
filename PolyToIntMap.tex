@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+
+\usepackage{exsheets}
+
+%\usepackage[pdf]{pstricks}
+%\usepackage{pstricks-add}
+
+%\usepackage{tikz} 
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}  
+%\usepackage{amsthm} 
+\usepackage{array}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs} 
+%\usepackage{graphicx,hyperref}
+\usepackage{listings}
+%\usepackage{indentfirst}
+\usepackage[top=1.5cm, bottom=1.5cm, left=.5in, right=.5in]{geometry}
+\usepackage{enumerate}
+%\usepackage{multicol}
+
+\newcommand{\ssol}{\vspace{3em}}
+\newcommand{\lsol}{\vspace{10em}}
+\newcommand{\blnk}{{\underline {\hspace{1.5in}}}}
+
+%\usepackage{mcode}
+
+\setcounter{secnumdepth}{0} % Turns off automatic numbering of sections.
+
+\SetupExSheets{headings=block}
+
+
+
+\begin{document}
+%%%(change to appropriate class and semester)
+
+
+
+Justin Boyer\\
+Mapping from polynomials with integer coefficients to integers\\
+
+This write up:
+\begin{itemize}
+\item Defines a mapping to take a polynomial with integer coefficients into the integers.
+\item Shows that this mapping preserves addition and multiplication.  \emph{To do: Make it an ring homomorphism: Does it preserve the identity, i.e $ \Phi(1_F) = 1$}?
+\item Shows that a polynomial maps to zero if and only if the polynomial is divisible by $x-b$, where $b$ is the base of integer representation we are interested in using (commonly $b=10$).
+\end{itemize}
+
+
+\subsection*{The Mapping $\Phi$}
+Let $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$, where $a_i \in \mathbb{Z}$, for $i=0, 1, 2, \ldots, n$.\\
+
+Define:
+$$
+\Phi_b(f(x)) = \int f(x) \delta(b-x)dx = f(b)
+$$
+where $\delta$ is the dirac delta, and $b$ is the base of the integer representation we are mapping into.
+
+So if we were mapping into the base-10 representation of the integers, denoted $\mathbb{Z}_{10}$, we would have:
+$$
+\Phi_{10}(f(x))  = \int f(x) \delta(10-x) dx = f(10)
+$$
+It should be stated that $\Phi$ maps the polynomials with integer coefficients to the integers.
+\paragraph*{Example}
+$f(x)= 5x^4+4x^3+2x+1$, So $\Phi_{10}(f(x))= f(10) = 5(10)^4 + 4(10)^3 + 2(10) + 1 = 54021$  In other words $5x^4+4x^3+2x+1 \xrightarrow[\Phi_{10}]{} 54021$, which means $5x^4+4x^3+2x+1$ goes to $54021$ under $\Phi_{10}$.
+
+\subsection*{$\Phi$ preserves addition and multiplication}
+%In order to show that $\Phi$ is a ring homomorphism it is necessary to show that it is closed under addition and multiplication, \emph{but I also need to show $\Phi(1_F) = 1$}.
+
+Given two polynomials with integer coefficients $f_1, f_2$.
+\paragraph*{Closed under addition}
+\begin{align*}
+\Phi_b(f_1(x)+f_2(x)) &= \int (f_1(x) + f_2(x)) \delta(b-x) dx \\
+&= \int f_1(x) \delta(b-x) dx + \int f_2(x) \delta(b-x) dx \\
+&= f_1(b) + f_2(b)\\
+&= \Phi_b(f_1(x)) + \Phi_b(f_2(x))
+\end{align*}
+
+\paragraph{Closed under multiplication}
+\begin{align*}
+\Phi_b(f_1(x) f_2(x)) &= \int f_1(x) f_2(x) \delta(b-x) dx \\
+&= f_1(b) f_2(b) - \int f'_1(x) g_2(x)dx \text{ By integrating by parts }\\
+&= f_1(b) f_2(b)\\
+&= \Phi_b(f_1(x)) \Phi_b(f_2(x))
+\end{align*}
+
+Where $\int f'_1(x) g_2(x) dx = 0$ because $g_2(b) = f_2(b)$\footnote{$f_2(b) \in \mathbb{Z}$} when $x=b$, but $g_2(x)$ is zero everywhere else, so the integral has measure zero.
+
+
+\subsection*{A polynomial maps to zero if and only if the polynomial is divisible by $x-b$}
+Now I will show that a polynomial maps to zero if and only if the polynomial is divisible by $x-b$, where $b$ is the base used for the integers.  
+\paragraph*{If $x-b$ divides the polynomial then $\Phi \rightarrow 0$}
+Take $f(x)$  a polynomial with integer coefficients.  Since $x-b$ divides $f(x)$ we may write $f(x) = (x-b)g(x)$, where $g(x)$ is a nonzero polynomial with integer coefficients.
+\begin{align*}
+\Phi_b(f(x)) &= \Phi_b(x-b) \Phi_b(g(x)) \\
+&= (b-b) g(b) \\
+&= 0 
+\end{align*}
+
+
+\paragraph*{If a polynomial maps to zero under $\Phi_b$ then the polynomial is divisible by $x-b$}
+Take a non-zero polynomial with integer coefficients, $f(x)$. By the remainder theorem, $f(x)=q(x)(x-c) + f(c)$, for some polynomial with integer coefficients $q(x)$ and $c, f(c) \in \mathbb{Z}$.\\
+
+ Then by problem statement, $\Phi_b(f(x)) = f(b) = 0 $.  So $f(b) = q(b)(b-c) + f(c) = 0$. Because $q(b) \neq 0$ it is possible to write $b-c = \frac{-f(c)}{q(b)}$.\footnote{$q(b) \neq 0$, because if it did then $q(b) = 0 \Rightarrow f(c) = 0, \forall c$ then $q(b) = 0$ to begin with, which implies $f(x) = 0$ to initially.}  A solution exists if $f(c)=0$, well $f(b)=0$ so take $c=b$, which implies $b-b = \frac{f(b)}{q(b)} \Rightarrow 0 = \frac{0}{q(b)}$.  Therefore $c=b$ and if a polynomial maps to 0 under $\Phi_b$ it is divisible by $x-b$
+
+
+\end{document}
+
+
+\begin{pspicture}
+\psgrid[unit=.05\linewidth, subgriddiv=1, linewidth=.01 gridlabels=0pt, gridcolor=gray, griddots=10](0,0)(-10,-10)(10,10) 
+\psaxes[unit=.05\linewidth, linewidth=.1 labelFontSize=\scriptscriptstyle]{<->}(0,0)(-10.5,-10.5)(10.5,10.5)
+\end{pspicture}
+
+
+\begin{tikzpicture}[scale=.5]	
+\draw[help lines] (0,0) grid (20,20);
+\end{tikzpicture}
+
+
