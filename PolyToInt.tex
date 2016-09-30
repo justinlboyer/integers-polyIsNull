@@ -1,0 +1,273 @@
+\documentclass[12pt]{article}
+
+%\usepackage{exsheets}
+
+%\usepackage[pdf]{pstricks}
+%\usepackage{pstricks-add}
+\usepackage[toc,page]{appendix}
+%\usepackage{tikz} 
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}  
+%\usepackage{amsthm} 
+\usepackage{array}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs} 
+%\usepackage{graphicx,hyperref}
+\usepackage{listings}
+%\usepackage{indentfirst}
+\usepackage[top=1.5cm, bottom=1.5cm, left=.5in, right=.5in]{geometry}
+\usepackage{enumerate}
+%\usepackage{multicol}
+
+\newcommand{\ssol}{\vspace{3em}}
+\newcommand{\lsol}{\vspace{10em}}
+\newcommand{\blnk}{{\underline {\hspace{1.5in}}}}
+
+%\usepackage{mcode}
+
+\setcounter{secnumdepth}{0} % Turns off automatic numbering of sections.
+
+%\SetupExSheets{headings=block}
+
+
+
+\begin{document}
+%%%(change to appropriate class and semester)
+
+
+
+Justin Boyer\\
+Comparing the integers and the polynomials with integer coefficients\\
+
+%Idea: Compare often means divide, so look at these two when operated on with division.
+
+This write up:
+\begin{itemize}
+\item Rewrites the mapping to be more inclusive
+\item Cleans up misused language
+\item Simplifies the proof of division of poly
+\item Contains reflection of questions and thoughts on prime factorization in $\mathbb{Z}$ and $\mathbb{Z}[X]$
+\item Compares prime factorization in the ring of $\mathbb{Z}$ with prime factorization in $\mathbb{Z}[X]$
+\end{itemize}
+
+\section*{The Mapping $\Phi_b$}
+$$
+\Phi_b: \text{Polynomials with integer coefficients} \mapsto \text{The integers in base }b
+$$
+What I want to do is create a mapping that takes a polynomial with integer coefficients to a corresponding element in any base $b$.  For example I want this mapping to take $2x^2+3x+4 \xrightarrow[\Phi_{10}]{} 234$.\\  A mapping such as $\Phi_b$ could be achieved by simply  substituting $x$ in the polynomial $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$ with a constant $b$ (note: $a_i \in \mathbb{Z}$, for $i=0, 1, 2, \ldots, n$).  In the case of the example: $2x^2+3x+4 \xrightarrow[\Phi_{10}]{} 234$, I substituted $x$ with $10$.  Hence the symbol $\Phi_{10}$ denotes the map that takes the polynomial to the integers base $10$, which is the set of integers we are all used to.  In other words:
+$$ \Phi_b(f(x)) = f(b)$$
+
+All this map, $\Phi_b$ does is take a polynomial and replace every $x$ with an $b$.  For further insight into how this could be accomplished analytically please see the appendix.
+
+\paragraph*{Example}
+$f(x)= 5x^4+4x^3+2x+1$, So $\Phi_{10}(f(x))= f(10) = 5(10)^4 + 4(10)^3 + 2(10) + 1 = 54021$  In other words $5x^4+4x^3+2x+1 \xrightarrow[\Phi_{10}]{} 54021$, which means $5x^4+4x^3+2x+1$ goes to $54021$ under $\Phi_{10}$.
+
+\paragraph*{Note on notation}
+It is common to use $\mathbb{Z}[x]$ to denote the ring of polynomials with integer coefficients.  I will do my best to be explicit, but this notation might slip in some places. 
+
+
+\subsection*{$\Phi_b$ preserves addition and multiplication}
+%In order to show that $\Phi$ is a ring homomorphism it is necessary to show that it is closed under addition and multiplication, \emph{but I also need to show $\Phi(1_F) = 1$}.
+
+The following proofs use two polynomials with integer coefficients $f_1, f_2$.
+\paragraph*{$\Phi_b$ preserves addition}
+\begin{align*}
+\Phi_b(f_1(x)+f_2(x)) &= f_1(b) + f_2(b)\\
+&= \Phi_b(f_1(x)) + \Phi_b(f_2(x))
+\end{align*}
+
+\paragraph{$\Phi_b$ preserves multiplication}
+\begin{align*}
+\Phi_b(f_1(x) f_2(x)) &=  f_1(b) f_2(b)\\
+&= \Phi_b(f_1(x)) \Phi_b(f_2(x))
+\end{align*}
+
+
+\subsection*{A polynomial maps to zero if and only if the polynomial is divisible by $x-b$}
+%Now I will show that a polynomial maps to zero if and only if the polynomial is divisible by $x-b$, where $b$ is the base used for the integers.  
+%\paragraph*{If $x-b$ divides the polynomial then $\Phi \rightarrow 0$}
+%Take $f(x)$  a polynomial with integer coefficients.  Since $x-b$ divides $f(x)$ we may write $f(x) = (x-b)g(x)$, where $g(x)$ is a nonzero polynomial with integer coefficients.
+%\begin{align*}
+%\Phi_b(f(x)) &= \Phi_b(x-b) \Phi_b(g(x)) \\
+%&= (b-b) g(b) \\
+%&= 0 
+%\end{align*}
+
+%\paragraph*{If a polynomial maps to zero under $\Phi_b$ then the polynomial is divisible by $x-b$}
+%Take a non-zero polynomial with integer coefficients, $f(x)$. By the remainder theorem, $f(x)=q(x)(x-c) + f(c)$, for some polynomial with integer coefficients $q(x)$ and $c, f(c) \in \mathbb{Z}$.\\
+%
+% Then by problem statement, $\Phi_b(f(x)) = f(b) = 0 $.  So $f(b) = q(b)(b-c) + f(c) = 0$. Because $q(b) \neq 0$ it is possible to write $b-c = \frac{-f(c)}{q(b)}$.\footnote{$q(b) \neq 0$, because if it did then $q(b) = 0 \Rightarrow f(c) = 0, \forall c$ then $q(b) = 0$ to begin with, which implies $f(x) = 0$ to initially.}  A solution exists if $f(c)=0$, well $f(b)=0$ so take $c=b$, which implies $b-b = \frac{f(b)}{q(b)} \Rightarrow 0 = \frac{0}{q(b)}$.  Therefore $c=b$ and if a polynomial maps to 0 under $\Phi_b$ it is divisible by $x-b$
+
+Take $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$, where $a_i \in \mathbb{Z}$, for $i=0, 1, 2, \ldots, n$.  Let $r$ be the number such that $$f(r) = 0$$.
+
+By long division of polynomials
+$$ a_n x^n + \cdots + a_0 = (x-r)*(c_{n-1} x^{n-1} + \cdots c_0) + \text{constant}$$.
+
+Substituting $x=r$ into the both sides of the equation above we get
+$$ 0 = 0 + \text{constant}$$.
+
+So by necessity $\text{constant}=0$, therefore  $$ f(x) = (x-r)(c_{n-1} x^{n-1} + \cdots c_0)$$
+
+
+
+
+
+\section*{Prime Factorization}
+\paragraph*{What questions come to mind as I consider the comparison of prime factorization in the ring of integers and in the ring of polynomials.}
+I wonder what encryption would look like using polynomials instead of integers.  I wonder if the set of irreducibles are more dense (is this the correct word?) than the set of all prime numbers.  I wonder which are easier for a computer to calculate, irreducibles or primes.  I wonder if the formulas for primes port over to polynomials/irreducibles.
+
+
+\subsection*{A rough comparison of prime factorization}
+This section will compare prime factorization in the ring of integers and the ring of polynomials with integer coefficients.  Prime factorization is decomposing something into its constituent primes.  Among the integers we have the \emph{the fundamental theorem of arithmetic}, which says that every positive integer has a unique prime factorization.  In math speak this states that any positive integer $k \geq 2$, $k$ may be rewritten as 
+$$k = p_1^{l_1} p_2^{l_2} \cdots p_n^{l_n}$$ 
+where the $p_i$s are the $n$ prime factors, each of order $l_i$.  One way to understand this is to think of it as taking a positive integer, breaking it up into several unique parts, multiplying those parts together and getting the same positive integer back. \emph{A good metaphor could go here, tried baking, legos, cars, computers all of which were somewhat unsatisfactory}  \\
+
+Do the polynomials with integer in coefficients have a similar analogue?  If you don't know already try to figure out what that analogue would look like?\\
+
+Well we know we are looking to break up the polynomial into a bunch of parts, multiply those parts together and get our original polynomial.  This sure enough does exist we know it as the \emph{fundamental theorem of algebra}!  The fundamental theorem of algebra (roughly) states  that every $n$th degree polynomial has $n$ roots (some of which may be complex).  Tie this together with long division of polynomials and we find that we could rewrite a polynomial $f(x)$ as the product of its roots, i.e., 
+$$ f(x) = (x-r_1)^{l_1}(x-r_2)^{l_2}\cdots(x-r_i)^{l_i}$$
+where the $r_i$s are the roots of $f(x)$ and the $l_i$ are the multiplicities of the roots.\\
+
+But wait, I slipped something by you, what is the prime factorization of $f(x)= x^2 + 1$?  The roots are complex.  So what mathematicians have decided is that $x^2 + 1$ is prime, well not prime, mathematicians use a different word, \emph{irreducible}.  Irreducible just means that the polynomial can't be reduced, which means that no matter what linear term we use as a divisor on the polynomial we will always have a remainder.  So the only thing that divides an irreducible polynomial is the irreducible polynomial itself and 1, remind you of anything.
+
+
+
+
+
+
+
+
+% That' right, the \emph{fundamental theorem of arithmetic} and the \emph{fundamental theorem of algebra} communicate the same ideas   we would take the polynomial $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$ and mod 
+
+
+
+
+
+
+
+
+\section*{The Fundamental Theorem of Algebra}
+The Fundamental Theorem of Algebra as we typically teach and learn it states 
+\begin{enumerate}
+\item That every single variable polynomial of degree $n$ has exactly $n$ roots (counting multiplicity).
+\item The theorem also equivalently states that any polynomial with complex coefficients greater than degree 0 has at least one complex root.  
+\item Lastly it also states equivalently that the field of complex numbers is closed under algebra.
+\end{enumerate}
+
+First let's look at the last part, what does it mean for some field to be "algebraically closed.''
+
+A field\footnote{A field is an algebraic structure with a form of addition, subtraction, multiplication and division, satisfying the commutative and distributive properties} $K$ is called \emph{algebraically closed} if every non-constant polynomial $f(c) \in K[x]$ has a root in $K$.
+
+So a field, $K$ is algebraically closed if the roots of every non-constant polynomial (e.g. $x^2+1$) are in $K$.
+
+\paragraph*{Comprehension check:} With only rereading the definition and explanation of algebraic closure, think of an example of why the field of integers is not closed under algebra.\footnote{$x^2+1$ would work because the roots of $x^2+1$ are $x=\pm i$}
+
+Statements 2. and 3. are identical, 3. is just shorthand for stating 2. remember that a complex number with no imaginary part is a real number.
+
+That leads us to our usual understanding of this wonderful theorem.  Ironically, there is currently no purely algebraic proof of the Fundamental Theorem of Algebra.  
+
+\subsection*{Algebraic proof of The Fundamental Theorem of Algebra}
+The following is my attempt at illuminating the closest approximation to an algebraic proof of the Fundamental Theorem of Algebra.  That is to say I will attempt to prove in an understandable way that every non-constant polynomial with complex coefficients has a complex root.
+
+%It is necessary to assume the following
+%\begin{enumerate}
+%\item Every odd degree polynomial with real coefficients has at least one real root.\footnote{One may prove this with the Intermediate Value Theorem} \emph{Include example picture, proof using IVT in appendix}
+%\item Every polynomial of degree two with complex coefficients has a complex root.\footnote{Proven by the fact that every polynomial with real coefficients has a complex root} \emph{Include example picture}
+%\end{enumerate}
+%
+%\paragraph*{Lemma} 
+
+Think of a polynomial with complex coefficients (e.g. $x^2+4x+2$, or $(1+2i)x+3$), now think of another.  Now think of every polynomial with complex coefficients and let's let $C(x)$ represent one of them, we don't know which, but it is one of them.\\
+
+Recall the conjugate of a complex number, you just switch the addition or subtraction on the imaginary part (e.g. if $z = 1+2i$ the the conjugate of $z$ is $\bar{z} = 1 - 2i$).  Something neat happens when you multiply a complex number with its conjugate. Let's let $z=a+bi$ be any complex number, then the conjugate is $\bar{z}=a-bi$ and if we multiply them together we get $z\bar{z}=a^2+abi-abi-(bi)^2$ which becomes $z\bar{z}=a^2+b^2$, which is a real number, i.e., the imaginary part is 0 (or there is no imaginary part).\\
+
+So back to our polynomial with complex coefficients, $C(x)$ if we take $R(x) = C(x) \bar{C(x)}$, then $R(x)$ will be a polynomial with real coefficients, and the roots of $C(x)$ will also be the roots of $R(x)$.  To see this think about how we find roots, one way is to factor, so if we factor $C(x)$ into a bunch of linear terms, say $c_1(x)c_2(x)\cdotsc_n(x)$ then we could factor $R(x)$ into $c_1(x)c_2(x)\cdotsc_n(x)\bar{c_1(x)c_2(x) \cdots c_n(x)}=c_1(x)c_2(x)\cdotsc_n(x)\bar{c_1(x)}\bar{c_2(x)}\cdots \bar{c_n(x)}$.  Since, the roots of $C(x)$ are also the roots of $R(x)$, showing that every polynomial with real coefficients has a complex root will complete the proof!\\
+
+This can be hard to understand.  The reason this 
+
+
+
+
+
+
+\subsection*{Extending the proof to show that every polynomial over $\mathbb{C}$ splits over $\mathbb{C}$, i.e., it decomposes into linear factors}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{appendices}
+\section*{The Mapping $\Phi$}
+
+Let $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$, where $a_i \in \mathbb{Z}$, for $i=0, 1, 2, \ldots, n$.\\
+
+Define:
+$$
+\Phi_b(f(x)) = \int f(x) \delta(b-x)dx = f(b)
+$$
+where $\delta$ is the dirac delta, and $b$ is the base of the integer representation we are mapping into.
+
+So if we were mapping into the base-10 representation of the integers, denoted $\mathbb{Z}_{10}$, we would have:
+$$
+\Phi_{10}(f(x))  = \int f(x) \delta(10-x) dx = f(10)
+$$
+It should be stated that $\Phi$ maps the polynomials with integer coefficients to the integers.
+
+\subsection*{$\Phi$ preserves addition and multiplication}
+%In order to show that $\Phi$ is a ring homomorphism it is necessary to show that it is closed under addition and multiplication, \emph{but I also need to show $\Phi(1_F) = 1$}.
+
+Given two polynomials with integer coefficients $f_1, f_2$.
+\paragraph*{Preserves addition}
+\begin{align*}
+\Phi_b(f_1(x)+f_2(x)) &= \int (f_1(x) + f_2(x)) \delta(b-x) dx \\
+&= \int f_1(x) \delta(b-x) dx + \int f_2(x) \delta(b-x) dx \\
+&= f_1(b) + f_2(b)\\
+&= \Phi_b(f_1(x)) + \Phi_b(f_2(x))
+\end{align*}
+
+\paragraph{Preserves multiplication}
+\begin{align*}
+\Phi_b(f_1(x) f_2(x)) &= \int f_1(x) f_2(x) \delta(b-x) dx \\
+&= f_1(b) f_2(b) - \int f'_1(x) g_2(x)dx \text{ By integrating by parts }\\
+&= f_1(b) f_2(b)\\
+&= \Phi_b(f_1(x)) \Phi_b(f_2(x))
+\end{align*}
+
+Where $\int f'_1(x) g_2(x) dx = 0$ because $g_2(b) = f_2(b)$\footnote{$f_2(b) \in \mathbb{Z}$} when $x=b$, but $g_2(x)$ is zero everywhere else, so the integral has measure zero.
+
+
+\end{appendices}
+
+\end{document}
+
+
+\begin{pspicture}
+\psgrid[unit=.05\linewidth, subgriddiv=1, linewidth=.01 gridlabels=0pt, gridcolor=gray, griddots=10](0,0)(-10,-10)(10,10) 
+\psaxes[unit=.05\linewidth, linewidth=.1 labelFontSize=\scriptscriptstyle]{<->}(0,0)(-10.5,-10.5)(10.5,10.5)
+\end{pspicture}
+
+
+\begin{tikzpicture}[scale=.5]	
+\draw[help lines] (0,0) grid (20,20);
+\end{tikzpicture}
+
+
