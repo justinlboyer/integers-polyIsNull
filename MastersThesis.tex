@@ -1,0 +1,514 @@
+\documentclass[12pt]{article}
+
+\usepackage{exsheets}
+
+%\usepackage[pdf]{pstricks}
+%\usepackage{pstricks-add}
+\usepackage[toc,page]{appendix}
+%\usepackage{tikz} 
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}  
+%\usepackage{amsthm} 
+\usepackage{array}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs} 
+\usepackage{graphicx,hyperref}
+\usepackage{listings}
+%\usepackage{indentfirst}
+\usepackage[top=1.5cm, bottom=1.5cm, left=.5in, right=.5in]{geometry}
+\usepackage{enumerate}
+\usepackage{multicol}
+
+
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{wrapfig}
+
+\newcommand{\ssol}{\vspace{3em}}
+\newcommand{\lsol}{\vspace{10em}}
+\newcommand{\blnk}{{\underline {\hspace{1.5in}}}}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+
+
+%\usepackage{mcode}
+
+\setcounter{secnumdepth}{0} % Turns off automatic numbering of sections.
+
+%\SetupExSheets{headings=block}
+
+
+
+\begin{document}
+%%%(change to appropriate class and semester)
+
+
+
+Justin Boyer\\
+Comparing the integers and the polynomials with integer coefficients\\
+
+%Idea: Compare often means divide, so look at these two when operated on with division.
+
+This write up:
+\begin{itemize}
+\item Gives an understandable proof of the fundamental theorem of algebra
+\end{itemize}
+
+\section*{The Mapping $\Phi_b$}
+$$
+\Phi_b: \text{Polynomials with integer coefficients} \mapsto \text{The integers in base }b
+$$
+What I want to do is create a mapping that takes a polynomial with integer coefficients to a corresponding element in any base $b$.  For example I want this mapping to take $2x^2+3x+4 \xrightarrow[\Phi_{10}]{} 234$.\\  A mapping such as $\Phi_b$ could be achieved by simply  substituting $x$ in the polynomial $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$ with a constant $b$ (note: $a_i \in \mathbb{Z}$, for $i=0, 1, 2, \ldots, n$).  In the case of the example: $2x^2+3x+4 \xrightarrow[\Phi_{10}]{} 234$, I substituted $x$ with $10$.  Hence the symbol $\Phi_{10}$ denotes the map that takes the polynomial to the integers base $10$, which is the set of integers we are all used to.  In other words:
+$$ \Phi_b(f(x)) = f(b)$$
+
+All this map, $\Phi_b$ does is take a polynomial and replace every $x$ with an $b$.  For further insight into how this could be accomplished analytically please see the appendix.
+
+\paragraph*{Example}
+$f(x)= 5x^4+4x^3+2x+1$, So $\Phi_{10}(f(x))= f(10) = 5(10)^4 + 4(10)^3 + 2(10) + 1 = 54021$  In other words $5x^4+4x^3+2x+1 \xrightarrow[\Phi_{10}]{} 54021$, which means $5x^4+4x^3+2x+1$ goes to $54021$ under $\Phi_{10}$.
+
+\paragraph*{Note on notation}
+It is common to use $\mathbb{Z}[x]$ to denote the ring of polynomials with integer coefficients.  I will do my best to be explicit, but this notation might slip in some places. 
+
+
+\subsection*{$\Phi_b$ preserves addition and multiplication}
+%In order to show that $\Phi$ is a ring homomorphism it is necessary to show that it is closed under addition and multiplication, \emph{but I also need to show $\Phi(1_F) = 1$}.
+
+The following proofs use two polynomials with integer coefficients $f_1, f_2$.
+\paragraph*{$\Phi_b$ preserves addition}
+\begin{align*}
+\Phi_b(f_1(x)+f_2(x)) &= f_1(b) + f_2(b)\\
+&= \Phi_b(f_1(x)) + \Phi_b(f_2(x))
+\end{align*}
+
+\paragraph{$\Phi_b$ preserves multiplication}
+\begin{align*}
+\Phi_b(f_1(x) f_2(x)) &=  f_1(b) f_2(b)\\
+&= \Phi_b(f_1(x)) \Phi_b(f_2(x))
+\end{align*}
+
+
+\subsection*{A polynomial maps to zero if and only if the polynomial is divisible by $x-b$}
+%Now I will show that a polynomial maps to zero if and only if the polynomial is divisible by $x-b$, where $b$ is the base used for the integers.  
+%\paragraph*{If $x-b$ divides the polynomial then $\Phi \rightarrow 0$}
+%Take $f(x)$  a polynomial with integer coefficients.  Since $x-b$ divides $f(x)$ we may write $f(x) = (x-b)g(x)$, where $g(x)$ is a nonzero polynomial with integer coefficients.
+%\begin{align*}
+%\Phi_b(f(x)) &= \Phi_b(x-b) \Phi_b(g(x)) \\
+%&= (b-b) g(b) \\
+%&= 0 
+%\end{align*}
+
+%\paragraph*{If a polynomial maps to zero under $\Phi_b$ then the polynomial is divisible by $x-b$}
+%Take a non-zero polynomial with integer coefficients, $f(x)$. By the remainder theorem, $f(x)=q(x)(x-c) + f(c)$, for some polynomial with integer coefficients $q(x)$ and $c, f(c) \in \mathbb{Z}$.\\
+%
+% Then by problem statement, $\Phi_b(f(x)) = f(b) = 0 $.  So $f(b) = q(b)(b-c) + f(c) = 0$. Because $q(b) \neq 0$ it is possible to write $b-c = \frac{-f(c)}{q(b)}$.\footnote{$q(b) \neq 0$, because if it did then $q(b) = 0 \Rightarrow f(c) = 0, \forall c$ then $q(b) = 0$ to begin with, which implies $f(x) = 0$ to initially.}  A solution exists if $f(c)=0$, well $f(b)=0$ so take $c=b$, which implies $b-b = \frac{f(b)}{q(b)} \Rightarrow 0 = \frac{0}{q(b)}$.  Therefore $c=b$ and if a polynomial maps to 0 under $\Phi_b$ it is divisible by $x-b$
+
+Take $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$, where $a_i \in \mathbb{Z}$, for $i=0, 1, 2, \ldots, n$.  Let $r$ be the number such that $$f(r) = 0$$.
+
+By long division of polynomials
+$$ a_n x^n + \cdots + a_0 = (x-r)*(c_{n-1} x^{n-1} + \cdots c_0) + \text{constant}$$.
+
+Substituting $x=r$ into the both sides of the equation above we get
+$$ 0 = 0 + \text{constant}$$.
+
+So by necessity $\text{constant}=0$, therefore  $$ f(x) = (x-r)(c_{n-1} x^{n-1} + \cdots c_0)$$
+
+
+
+
+
+\section*{Prime Factorization}
+\paragraph*{What questions come to mind as I consider the comparison of prime factorization in the ring of integers and in the ring of polynomials.}
+I wonder what encryption would look like using polynomials instead of integers.  I wonder if the set of irreducibles are more dense (is this the correct word?) than the set of all prime numbers.  I wonder which are easier for a computer to calculate, irreducibles or primes.  I wonder if the formulas for primes port over to polynomials/irreducibles.
+
+
+\subsection*{A rough comparison of prime factorization}
+This section will compare prime factorization in the ring of integers and the ring of polynomials with integer coefficients.  Prime factorization is decomposing something into its constituent primes.  Among the integers we have the \emph{the fundamental theorem of arithmetic}, which says that every positive integer has a unique prime factorization.  In math speak this states that any positive integer $k \geq 2$, $k$ may be rewritten as 
+$$k = p_1^{l_1} p_2^{l_2} \cdots p_n^{l_n}$$ 
+where the $p_i$s are the $n$ prime factors, each of order $l_i$.  One way to understand this is to think of it as taking a positive integer, breaking it up into several unique parts, multiplying those parts together and getting the same positive integer back. \emph{A good metaphor could go here, tried baking, legos, cars, computers all of which were somewhat unsatisfactory}  \\
+
+Do the polynomials with integer in coefficients have a similar analogue?  If you don't know already try to figure out what that analogue would look like?\\
+
+Well we know we are looking to break up the polynomial into a bunch of parts, multiply those parts together and get our original polynomial.  This sure enough does exist we know it as the \emph{fundamental theorem of algebra}!  The fundamental theorem of algebra (roughly) states  that every $n$th degree polynomial has $n$ roots (some of which may be complex).  Tie this together with long division of polynomials and we find that we could rewrite a polynomial $f(x)$ as the product of its roots, i.e., 
+$$ f(x) = (x-r_1)^{l_1}(x-r_2)^{l_2}\cdots(x-r_i)^{l_i}$$
+where the $r_i$s are the roots of $f(x)$ and the $l_i$ are the multiplicities of the roots.\\
+
+But wait, I slipped something by you, what is the prime factorization of $f(x)= x^2 + 1$?  The roots are complex.  So what mathematicians have decided is that $x^2 + 1$ is prime, well not prime, mathematicians use a different word, \emph{irreducible}.  Irreducible just means that the polynomial can't be reduced, which means that no matter what linear term we use as a divisor on the polynomial we will always have a remainder.  So the only thing that divides an irreducible polynomial is the irreducible polynomial itself and 1, remind you of anything.
+
+
+
+
+
+
+
+
+% That' right, the \emph{fundamental theorem of arithmetic} and the \emph{fundamental theorem of algebra} communicate the same ideas   we would take the polynomial $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$ and mod 
+
+
+
+
+
+
+
+
+\section*{The Fundamental Theorem of Algebra}
+The Fundamental Theorem of Algebra as we typically teach and learn it states 
+\begin{enumerate}
+\item That every single variable polynomial of degree $n$ has exactly $n$ roots (counting multiplicity).
+\item The theorem also equivalently states that any polynomial with complex coefficients greater than degree 0 has at least one complex root.  
+\item Lastly it also states equivalently that the field of complex numbers is closed under algebra.
+\end{enumerate}
+
+First let's look at the last part, what does it mean for some field to be "algebraically closed.''
+
+A field\footnote{A field is an algebraic structure with a form of addition, subtraction, multiplication and division, satisfying the commutative and distributive properties} $K$ is called \emph{algebraically closed} if every non-constant polynomial $f(c) \in K[x]$ has a root in $K$.
+
+So a field, $K$ is algebraically closed if the roots of every non-constant polynomial (e.g. $x^2+1$) are in $K$.
+
+\paragraph*{Comprehension check:} With only rereading the definition and explanation of algebraic closure, think of an example of why the field of integers is not closed under algebra.\footnote{$x^2+1$ would work because the roots of $x^2+1$ are $x=\pm i$}
+
+Statements 2. and 3. are identical, 3. is just shorthand for stating 2. remember that a complex number with no imaginary part is a real number.
+
+That leads us to our usual understanding of this wonderful theorem.  Ironically, there is currently no purely algebraic proof of the Fundamental Theorem of Algebra.  
+
+\subsection*{Algebraic proof of The Fundamental Theorem of Algebra}
+I will attempt to prove that every non-constant polynomial with complex coefficients has a complex root in a manner that does not require rigorous mathematical study.\footnote{Many thanks to \url{https://www.artofproblemsolving.com/wiki/index.php?title=Fundamental_Theorem_of_Algebra##Algebraic_Proof}}\\
+
+%It is necessary to assume the following
+%\begin{enumerate}
+%\item Every odd degree polynomial with real coefficients has at least one real root.\footnote{One may prove this with the Intermediate Value Theorem} \emph{Include example picture, proof using IVT in appendix}
+%\item Every polynomial of degree two with complex coefficients has a complex root.\footnote{Proven by the fact that every polynomial with real coefficients has a complex root} \emph{Include example picture}
+%\end{enumerate}
+%
+%\paragraph*{Lemma} 
+
+Think of a polynomial with complex coefficients (e.g. $x^2+4x+2$, or $(1+2i)x+3$), now think of another.  Now think of every polynomial with complex coefficients and let's let $C(x)$ represent one of them, we don't know which, but it is one of them.\\
+
+Recall the conjugate of a complex number, you just switch the addition or subtraction on the imaginary part (e.g. if $z = 1+2i$ the the conjugate of $z$ is $\bar{z} = 1 - 2i$).  Something neat happens when you multiply a complex number with its conjugate. Let's let $z=a+bi$ be any complex number, then the conjugate is $\bar{z}=a-bi$ and if we multiply them together we get $z\bar{z}=a^2+abi-abi-(bi)^2$ which becomes $z\bar{z}=a^2+b^2$, which is a real number, i.e., the imaginary part is 0 (or there is no imaginary part).  Furthermore it is a positive real number!\\
+
+So back to our polynomial with complex coefficients, $C(x)$ if we take $R(x) = C(x) \bar{C(x)}$ (which is $C(x)$ multiplied by its conjugate) then $R(x)$ will be a polynomial with real coefficients, and the roots of $C(x)$ will also be the roots of $R(x)$.  To see this think about how we find roots, one way is to factor, so if we factor $C(x)$ into a bunch of linear terms, say $c_1(x)c_2(x)\cdots c_n(x)$ then we could factor $R(x)$ into $c_1(x)c_2(x)\cdots c_n(x)\overline{c_1(x)c_2(x) \cdots c_n(x)}= c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)} \bar{c_2(x)} \cdots \bar{c_n(x)}$.  Since, the roots of $C(x)$ are also the roots of $R(x)$, showing that every polynomial with real coefficients has a complex root will complete the proof!\\
+
+To summarize the above, since the goal is to show that any polynomial with complex coefficients has a complex root then I can build a polynomial with real coefficients by multiplying my polynomial with complex coefficients with its conjugate.  Then if I show that this new polynomial with real coefficients has a complex root, I'm done.\\
+
+Suppose the degree of $R(x)$ is $d=2^n q$, where $q$ is odd and $n \in \mathbb{N}$.   
+%$R(x)$ will always have an even degree, because the degree of $d(R(x))=d(C(x))*2$.  
+Then lets induct on $n$, in other words, we show that the first case is true, then we show that the each case follows from the previous, therefore each case must be true.
+
+Looking at the base case $n=0$, therefore $R(x)$ is degree $d=q$, where $q$ is odd. 
+
+\begin{wrapfigure}{r}{4cm}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.42605633802816917cm,y=0.4143835616438357cm]
+\draw[->,color=black] (-4.604132231404959,0.) -- (4.784297520661155,0.);
+\foreach \x in {-4.,-3.,-2.,-1.,1.,2.,3.,4.}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0.,-2.9905785123966946) -- (0.,4.249090909090907);
+\foreach \y in {-2.,-1.,1.,2.,3.,4.}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-4.604132231404959,-2.9905785123966946) rectangle (4.784297520661155,4.249090909090907);
+\draw[line width=1.2pt,color=qqwuqq,smooth,samples=100,domain=-4.604132231404959:4.784297520661155] plot(\x,{((\x)+2.0)*((\x)-1.0)*(\x)});
+\begin{scriptsize}
+\draw[color=qqwuqq] (-2.157851239669423,-2.7757024793388436) node {};
+\end{scriptsize}
+\end{tikzpicture}
+\end{wrapfigure}
+
+Recall that the leading coefficient will determine the overall slope of the equation.  The leading coefficient for $R(x)$ must be positive, why?\footnote{Because the leading coefficient is the coefficient of the highest degreed term in $C(x)$ multiplied with its conjugate, the product of which will be positive.}  So the polynomial $R(x)$ will "start'' somewhere in quadrant three (i.e., $\Lim{x \rightarrow -\infty} R(x) \rightarrow -\infty$), so when $x$ is negative and large enough, $R(x)<0$.  Then as we traverse the function $R(x)$ it will rise up and "end'' in quadrant one (i.e., $\Lim{x \rightarrow \infty} R(x) \rightarrow \infty$), so when $x$ is positive and large enough, $R(x)>0$.  By combining this analysis with the fact that this function is continuous we \emph{know} this function will intersect the x-axis.  The mathematical justification for \emph{knowing} is by implicating the intermediate value theorem, which states that a continuous function, $f$, with an interval $[a,b]$ as its domain, takes values $f(a)$ and $f(b)$ at each end of the interval, then it also takes any value between $f(a)$ and $f(b)$ at some point within the interval.  For the sake of completeness the corollary that applies beautifully here is \textbf{Bolzano's theorem}.  Bolzano's theorem states that if a continuous function has values of opposite sign inside an interval (which we have, i.e., at some point $x<0, R(x)<0$ and also $x>0, R(x)>0$), then it has a root in that interval.  For proofs of the intermediate value theorem and continuity of polynomials see the appendix.\\
+
+Now for the fun part.  Suppose again that $d=2^n q$, where $q$ is odd and $n>0$, however lets "believe" that the theorem has been proven when the degree is $2^{n-1}q'$ where $q'$ is odd.  Therefore, we can use the "fact" (induction hypothesis) that any polynomial less than or equal to degree $2^{n-1} q'$ has a complex root.
+
+Let's start by splitting $R(x)$ into all its linear terms like we did previously, i.e., $c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)}\bar{c_2(x)}\cdots \bar{c_n(x)}$, the $c_i(x)$ are linear functions with complex coefficients.  Now let $x_1$ be the root of $c_1(x)$, so on and so forth.  So the roots of $R(x)$ are $x_1, \ldots, x_d$.  Let $s$ be an arbitrary real number and let $y_{s,i,j} = x_i +x_j + s x_i x_j$, where $1 \leq i < j \leq d$. Now define:
+$$ G_s(x) =(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})(x-y_{s,2,3})\cdots (x-y_{s,2,d})\cdots (x-y_{s,d-1,d})$$
+This may be written succinctly as:
+$$ G_s(x) = \Pi_{1 \leq i < j \leq d} (x-y_{s,i,j})$$
+$G_s(x)$ is constructed so that the coefficients are symmetric in $x_1, \ldots
+, x_d$.  Let's look at a case when $d=2$
+\subsubsection*{Example of $G_s(x)$ when $d=2$}  If $d=2$ then we have $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$, so $G_s(x) = x- x_1 -x_2 - s x_1 x_2$, the degree of $G_s(x)$ is 1.  Therefore by the induction hypothesis, we know that it has a complex root, so $x_1 +x_2 + s x_1 x_2$ must be complex, which implies that $x_1+x_2$ and $x_1 x_2$ is complex.\\
+
+The same analysis that applied in the example when $d=2$ applies when $d>2$, we reduce the degree of the polynomial using $G_s(x)$, then use the induction hypothesis.\\
+
+So back to:
+$$ G_s(x) =(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})(x-y_{s,2,3})\cdots (x-y_{s,2,d})\cdots (x-y_{s,d-1,d})$$
+we need to prove that the degree of $G_s(x)$ is less than $d$.  Let's count them.
+
+There are $d-1$ terms that have $i=1$, however there are $d-2$ terms that have $i=2$, because $i<j$.  so there are $d-3$ terms that have $i=3$ and so on.
+$$ G_s(x) =\underbrace{(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})}_{d-1} \underbrace{(x-y_{s,2,3})\cdots (x-y_{s,2,d})}_{d-2} \cdots (x-y_{s,d-1,d})$$
+Thus we have a decreasing sequence, since we are trying to find the degree of $G_s(x)$ we take the $d-1$ terms and add them to $d-2$ terms, so on and so forth.  This gives us a familiar series:
+$$ 1 + 2 + 3 + 4 + \cdots + (d-2) + (d-1)$$.
+The sum of this series is $\frac{d(d-1)}{2}$.  Recall that $d=2^n q$, so $\frac{d(d-1)}{2} = \frac{2^n q (d-1)}{2} = 2^{n-1}q(d-1)$, but $q(d-1)$ is an odd number so $2^{n-1}q(d-1) = 2^{n-1}q'$.  
+
+We just showed that the degree of $G_s(x)$ is $2^{n-1}q'$, which allows us to use our induction hypothesis.  Therefore, $G_s(x)$ has at least one complex root.  Let us say that the root occurs when $i=r$,  $j=t$, therefore $y_{s,r,t} = x_r + x_t +s x_r x_t$ is complex for some $s$.  If $s=0$ then $x_r + x_t$ is complex.  Suppose $x_r + x_t$ is real, that would mean that the imaginary parts cancel out, but when we take $x_r x_t$ the imaginary parts would not cancel out, therefore $x_r x_t$ is also complex for some $s$.  Since both $x_r+x_t$ and $x_r x_t$ are complex numbers.  To show that $x_r$ and $x_t$ is complex we consider the equation $x^2 - (x_r +x_t)x + x_r x_t$, the roots of this quadratic equation are non other than $x_r$ and $x_t$, which by the induction hypothesis must be complex.  Thus we have shown that any polynomial with complex coefficients has a complex root.
+
+
+
+%$y_{s,1,1} = 2x_1 + s x_1^2$ and $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$ and $y_{s,2,2} = 2x_2 + s x_2^2$.  Therefore 
+%\begin{align*}
+%G_s(x) &= (x-y_{s,1,1})(x-y_{s,1,2})(x-y_{s,2,2}) \\
+%&= x^3 \\
+%& \hspace{1em} -(s(x_1^2+x_1 x_2+x_2^2 \\
+%& \hspace{10em} +3(x_1+x_2))x^2 \\
+%& \hspace*{1em} + (s^2(x_1 x_2^3 + x_1^3 x_2) \\
+%& \hspace{9em} + s(x_1^3 +x_2^3 \\
+%& \hspace{15em} + 5(x_1 x_2^2 + x_1^2 x_2)) \\
+%& \hspace{23em} +2(x_1^2+x_2^2) + 8x_1 x_2)x \\
+%& \hspace*{1em} -s^3 x_1^3 x_2^3 \\
+%& \hspace{5em} - 3s^2(x_1^2x_2^3 + x_1^3 x_2^2) \\
+%& \hspace{14em} -2s(x_1 x_2^3 + 4x_1^2 x_2^2 + x_1^3 x_2) \\
+%& \hspace{26em} -4(x_1 x_2^2 + x_1^2 x_2)
+%\end{align*}
+
+
+
+
+
+
+\subsection*{Extending the proof to show that every polynomial over $\mathbb{C}$ splits over $\mathbb{C}$, i.e., it decomposes into linear factors}
+
+
+
+
+
+
+
+
+\section*{So What? An argument for the Fundamental Theorem of Algebra}  
+The Fundamental Theorem of Algebra states that there is at least one complex root.  What if there was not?  In other words let's suppose that every equation has a solution, and the solution is not in the complex numbers, where would it be?
+\subsection*{A tour of different fields}
+\emph{Take readers on a tour of ordered and non-ordered fields}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{appendices}
+\section*{The Mapping $\Phi$}
+
+Let $f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots + a_0$, where $a_i \in \mathbb{Z}$, for $i=0, 1, 2, \ldots, n$.\\
+
+Define:
+$$
+\Phi_b(f(x)) = \int f(x) \delta(b-x)dx = f(b)
+$$
+where $\delta$ is the dirac delta, and $b$ is the base of the integer representation we are mapping into.
+
+So if we were mapping into the base-10 representation of the integers, denoted $\mathbb{Z}_{10}$, we would have:
+$$
+\Phi_{10}(f(x))  = \int f(x) \delta(10-x) dx = f(10)
+$$
+It should be stated that $\Phi$ maps the polynomials with integer coefficients to the integers.
+
+\subsection*{$\Phi$ preserves addition and multiplication}
+%In order to show that $\Phi$ is a ring homomorphism it is necessary to show that it is closed under addition and multiplication, \emph{but I also need to show $\Phi(1_F) = 1$}.
+
+Given two polynomials with integer coefficients $f_1, f_2$.
+\paragraph*{Preserves addition}
+\begin{align*}
+\Phi_b(f_1(x)+f_2(x)) &= \int (f_1(x) + f_2(x)) \delta(b-x) dx \\
+&= \int f_1(x) \delta(b-x) dx + \int f_2(x) \delta(b-x) dx \\
+&= f_1(b) + f_2(b)\\
+&= \Phi_b(f_1(x)) + \Phi_b(f_2(x))
+\end{align*}
+
+\paragraph{Preserves multiplication}
+\begin{align*}
+\Phi_b(f_1(x) f_2(x)) &= \int f_1(x) f_2(x) \delta(b-x) dx \\
+&= f_1(b) f_2(b) - \int f'_1(x) g_2(x)dx \text{ By integrating by parts }\\
+&= f_1(b) f_2(b)\\
+&= \Phi_b(f_1(x)) \Phi_b(f_2(x))
+\end{align*}
+
+Where $\int f'_1(x) g_2(x) dx = 0$ because $g_2(b) = f_2(b)$\footnote{$f_2(b) \in \mathbb{Z}$} when $x=b$, but $g_2(x)$ is zero everywhere else, so the integral has measure zero.
+
+
+
+\section*{Polynomials are continuous}
+Below is a proof that polynomials are continuous.  In other words, in the real plane a polynomial function is continuous at every point, therefore it is continuous on every interval in $\mathbb{R}$.
+
+We need the product rule for limits.  Let $f,g$ be real valued $\Lim{x \rightarrow c} f(x) = l$ and $\Lim{x \rightarrow c} g(x) = k$.  Then: $\Lim{x \rightarrow c}(f(x)g(x)) = lk$
+
+We will also need to remember the combined sum rule for limits:
+Let $f,g$ be real valued $\Lim{x \rightarrow c} f(x) = l$ and $\Lim{x \rightarrow c} g(x) = k$.  Let $\lambda, \kappa \in \mathbb{R}$.  Then $\Lim{x \rightarrow c}(\lambda f(x) + \kappa g(x)) = \lambda l + \kappa k$
+
+Consider the function $l(x) = x$.  Then $\Lim{x \rightarrow c} l(x) =c$.  Then by applying the product rule for limits to $\Lim{x \rightarrow c} l(x) l(x) = \Lim{x \rightarrow c} x^2 =c^2$.  We can continue applying this rule so that for any value $d \in \mathbb{N}$ we have $\Lim{x \rightarrow c} x^d = c^d$.  Let $P(x)=a_nx^n +a_{n-1}x^{n-1}+ \cdots + a_1x+a_0$.  Now by applying the combined sum rule to $P(x)$ we get $\Lim{x \rightarrow c} P(x) = \Lim{x \rightarrow c} a_nx^n +a_{n-1}x^{n-1}+ \cdots + a_1x+a_0 = a_nc^n +a_{n-1}c^{n-1}+ \cdots + a_1c+a_0 = P(c)$.  Therefore $P(x)$ is continuous for any value $c$.
+
+%Using induction, first prove that a polynomial of degree 1 is continuous.  Let $m,b \in \mathbb{R}$, and let $f$ be a real function defined as $f(x) = m x + b$.  Then we want to show that $f$ is continuous at every real number $c \in \mathbb{R}$.
+
+%Assume $m \neq 0$, let $\epsilon > 0$, and $\delta = \frac{\epsilon}{|m|}$.  Then whenever $|x-c| < \delta$.
+%\begin{align*}
+%|f(x)-f(c)| &= |mx+b -mc -b| \\
+%&= |m(x-c)| \\
+%&= |m||x-c| \\
+%&< |m| \delta \\
+%= \epsilon
+%\end{align*}
+%Therefore we have found a $\delta$ for a given $\epsilon$ so that $|f(x)-f(c)|< \epsilon$ whenever $|x-c| < \delta$.  The case when $m=0$, follows similar, but simpler logic.
+
+
+
+\section*{Proof of Intermediate Value Theorem}
+Below is a proof of the Intermediate Value Theorem.
+
+Consider a function f
+
+
+
+\section*{Unit Plan: The field of polynomials with integer coefficients}
+
+Overview: Participants will utilize secondary math topics to push their mathematical understanding further.  This is a 10 day unit plan, which is suitable for high school students or secondary math teachers.\\
+
+Table of contents:
+\begin{enumerate}
+\item Addition and subtraction of polynomials
+\item Multiplication of polynomials
+\item Remainder Theorem
+\item Review of Prime Numbers
+\item Fundamental Theorem of Algebra
+\end{enumerate}
+
+Lesson structure: Students should work through the tasks in small groups.  The teacher should monitor the student's conversations, inquiring to further student reasoning and make notes of student work.  If a group is stuck, the teacher may send a group member from another team to share some ideas.  It is important to encourage positive sharing and encouragement to facilitate the mathematical thinking.  In the final 20 minutes of each day a discussion about the big ideas should be addressed.
+
+\pagebreak
+
+\subsection*{Recommendations for facilitating individual lessons}
+\paragraph*{Lesson 1: Addition}
+
+\paragraph*{Lesson 2: Multiplication}
+Objective: Students compare and contrast the similarities and differences the various representations of multiplication.\\
+
+Materials: Calculators, scratch paper\\
+
+Time: 90 minutes\\
+
+Lesson Plan:  This lesson may be used with any age group of secondary students that have a concept of multiplication.  It can be made more simple by using multiplication of only polynomials and integers (labeled group 1).  It can be made more advanced by including vectors, decimals, and trigonometric functions (labeled group 3).  Give the students 5 minutes to complete the first section.  You may want to explain what the dots mean  Choose students to present their method of multiplication, highlight the models they choose (FOIL/Rainbow, Distributive property, Vertical, or Box).  Give students 3 minutes to complete section 2.  Conduct a class discussion on their comparisons of collaboration and competition.  Conclude by telling the students that the root of competition stems from rivalry and the root of collaborate stems from work with.  Give the students 10 minutes to complete section 3.  
+
+\pagebreak
+\subsubsection*{Lesson 2: Multiplication}
+
+\begin{multicols}{3}
+\textbf{Group 1}
+$$57 \times 31$$
+$$(5x+7)(3x+1)$$
+$$1200005 \times 21$$
+$$(x^6+2x^5+5)(2x+1)$$
+$$1234 \times 987$$
+$$(x^3+2x^2+3x+4)(9x^2+8x+7)$$
+
+\columnbreak
+
+\textbf{Group 2}
+$$14 \times 23$$
+$$(x+4)(2x+3)$$
+$$(5x^2+4x+3)(x+2)$$
+$$543 \times 12$$
+$$(x-1)(x+1)$$
+$$(x-1)(x^2+x+1)$$
+$$(x-1)(x^3+x^2+x+1)$$
+$$(x-1)(x^{100}+ x^{99}+ \cdots +x+1)$$
+\columnbreak
+
+
+
+\columnbreak
+\textbf{Group 3}
+$$10 \times 2$$
+$$x \times 2$$
+$$111 \times 22$$
+$$(x^2+x+1)(2x+2)$$
+$$(2x+1)(3x+4)$$
+$$\begin{bmatrix}
+2 & 1
+\end{bmatrix}
+\times
+\begin{bmatrix}
+3 & 4
+\end{bmatrix}$$
+\end{multicols}
+
+\subsubsection*{Section 1}
+\begin{question}
+Do your best to complete the multiplication of at least one of the above groups.
+\end{question}\lsol
+
+\subsubsection*{Section 2}
+\begin{question}
+What are the benefits of competition?
+\end{question}\ssol
+
+\begin{question}
+What are the benefits of collaboration?
+\end{question}\ssol
+
+\begin{question}
+What are the similarities between competition and collaboration?
+\end{question}\ssol
+
+\pagebreak
+ 
+\subsubsection*{Section 3}
+\begin{question}
+Choose a different group in the above section and complete the multiplication.  As you complete the multiplication record the similarities and differences you notice in the table below.
+\end{question}
+
+\begin{table}[h!]
+\begin{tabular}{p{4cm}|p{4cm}}
+Similarities & Differences \\ \hline & \\ & \\ & \\ & \\ & \\ & \\ & \\ & \\ & \\ & \\ & \\ & \\
+\end{tabular}
+\end{table}
+
+\subsubsection*{Section 4}
+\begin{question}
+Develop a way to multiply $\begin{bmatrix}
+2\\ 1 \\ 0
+\end{bmatrix}
+\times
+\begin{bmatrix}
+3 & 4
+\end{bmatrix}$.  Be sure to state your assumptions.
+\end{question}\lsol
+\begin{multicols}{2}
+\begin{question}
+How did recognizing how things are similar help you to create new things?
+\end{question}
+\columnbreak
+\begin{question}
+How did recognizing how things are different help you to create new things?
+\end{question}
+\end{multicols}
+\ssol
+
+\begin{question}
+Did you use competition or collaboration to create something new?  Explain.
+\end{question}
+
+\pagebreak
+
+
+\subsection*{Addition}
+
+\subsection*{Multiplication of polynomials}
+
+\end{appendices}
+
+\end{document}
+
+
+\begin{pspicture}
+\psgrid[unit=.05\linewidth, subgriddiv=1, linewidth=.01 gridlabels=0pt, gridcolor=gray, griddots=10](0,0)(-10,-10)(10,10) 
+\psaxes[unit=.05\linewidth, linewidth=.1 labelFontSize=\scriptscriptstyle]{<->}(0,0)(-10.5,-10.5)(10.5,10.5)
+\end{pspicture}
+
+
+\begin{tikzpicture}[scale=.5]	
+\draw[help lines] (0,0) grid (20,20);
+\end{tikzpicture}
+
+
