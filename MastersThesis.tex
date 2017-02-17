@@ -19,13 +19,15 @@
 \usepackage[top=1.5cm, bottom=1.5cm, left=.5in, right=.5in]{geometry}
 \usepackage{enumerate}
 \usepackage{multicol}
+\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
 
 
 \usepackage{pgf,tikz}
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 \usepackage{wrapfig}
-
+%\usepackage{polynom}
 \newcommand{\ssol}{\vspace{3em}}
 \newcommand{\lsol}{\vspace{10em}}
 \newcommand{\blnk}{{\underline {\hspace{1.5in}}}}
@@ -37,6 +39,9 @@
 \setcounter{secnumdepth}{0} % Turns off automatic numbering of sections.
 
 %\SetupExSheets{headings=block}
+
+
+
 
 
 
@@ -147,8 +152,124 @@ But wait, I slipped something by you, what is the prime factorization of $f(x)= 
 
 
 
+\section*{What can we find out about the roots of $x^3 -r_1 x^2 +r_2 x - r_3$}
+Suppose we have the polynomial $$p(x) = x^3 -r_1 x^2 +r_2 x - r_3$$ and we want to know what can learn about its roots.  A natural question to ask is what is $r_1, r_2, r_3$?  I don't know.
+
+Let's wander through an exercise.  In today's classrooms math is seldom wandered.  There is a beginning and an end and teachers debate which path to take the students on.  However my intention for this exercise is to lead\footnote{This is a paper after all.  For the inclined I invite you to wander on your own, get lost, try to find your own way, this paper will always be here.} you on a path that feels like a walkabout.  We will take side steps when we need, because that is how math and life are experienced.  What we hope to accomplish is to figure out what we can about the roots of $x^3 -r_1 x^2 +r_2 x - r_3$.\\
+
+One way to start would be to set the function equal to 0,  $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$ and try to complete the \sout{square} cube,  which is a fruitful endeavor to sharpen rusty algebraic skills.  However we're after more than that.  Pretend for a moment that you know the roots of  $$x^3 -r_1 x^2 +r_2 x - r_3$$ are not real, not even complex, let's call them $$a_1, a_2, a_3$$.  How would you convince me of this fact.  Given this fact, is it possible that $$r_1, r_2, r_3$$ are real?  How do you know?  
+
+Well we want to learn as much as we can about these roots, so a natural thing to do is to split up our function into linear factors, so $$x^3 -r_1 x^2 +r_2 x - r_3$$ becomes $$(x-a_1)(x-a_2)(x-a_3)$$, assuming these roots you know exist.  Why can we rewrite any polynomial as its linear factors?  If you're like me you learned this through induction.  Your high school teacher made you factor a bunch of quadratic, cubic, and if they hated you quartic polynomials and then multiply(foil, rainbow, etc..) them back together and voila you arrived where you started.  Which is pretty much the best motivating reason to make students factor polynomials.  Which is really quite sad, because the math behind this equivalence is really quite interesting and has many nooks and crannies to be explored.
+
+\subsection*{Field Extension}
+Suppose you have a playing field of four numbers $\{0, 1, 2, 3\}$, what can we do with these four numbers, we could add them $1+1=2$, $1+2=3$, what about $0+1=1$  we have an additive identity.  What do you think should happen when I try $1+3=$?  Any answer could be correct.  Mathematicians like to play games, so they pick the situation that will continue the game.  They decide to make $1+3=0$ then we can play longer. because then $2+2=0$ as well.  In other words in this playing field we map the number 4 to the number 0, this implies the number 5 would be mapped to 1.  I.e., $$2+3=1$$ $$3+3=2$$ $$1+2+3=2$$ $$2+2+2+3=1$$ so on and so forth.  If you teach kids then your mind probably wandered on the last equation in the series to repeated addition and multiplication.  Exactly, now we might be able to get a sense of multiplication in this playing field.
+\begin{align*}
+2+2+2+3 &=1 \\
+2 \cdot 3 +3 &= 1 \\
+(2+1) \cdot 3 &= 1 \\
+3 \cdot 3 &= 1
+\end{align*}
+If $3 \cdot 3 = 1$, then multiplying both sides by 3, we get
+\begin{align*}
+3 \cdot 3 \cdot 3 &= 3 \\
+1 \cdot 3 &= 3
+\end{align*}
+We have a multiplicative identity.  What else is (not) possible with this playing field?\\
+
+So we have addition, we have multiplication, let's try division.  If we really on our models about division we might have problems, we need to really understand what division is.  The Egyptians had a pretty good idea, they were one of the first peoples to record their method of division.  They framed it as a multiplication problem with the multiplier (or multiplicand)\footnote{Why does it not matter if it is the multiplier or multiplicand that is missing?} missing. So $$3 \div 3$$ would be $$3 \cdot ? = 3$$  
+The Egyptians then used their times tables to deduce the the answer.  At its core this is what division is, multiplication in reverse, multiplication in-reverse, multiplication in-verse.  We invert multiplication, this is why in dividing fractions we flip and multiply, division is inverting and multiplying.  So that saying: "Dividing fractions don't know why, flip the second number and multiply'' is frighteningly ironic.\\
+
+From here it will help to discover division if we have our own times table:
+\begin{center}
+\renewcommand\arraystretch{1.3}
+\setlength\doublerulesep{0pt}
+\begin{tabular}{r||*{4}{2|}}
+$\times$ & 0 & 1 & 2 & 3 \\
+\hline\hline
+0 & 0 & 0 & 0 & 0 \\ 
+\hline
+1 & 0 & 1 & 2 & 3 \\ 
+\hline
+2 & 0 & 2 & 0 & 2 \\ 
+\hline
+3 & 0 & 3 & 2 & 1 \\ 
+\hline
+\end{tabular}
+\end{center}
+Notice that we have something interesting going on. 
+\begin{align*}
+2 \cdot 0 = 0\\
+2 \cdot 1 = 2\\
+2 \cdot 2 = 0\\
+2 \cdot 3 = 2
+\end{align*}
+
+Now if we try to define division we don't have uniqueness, for example: recall $$2 \div 2 = ?$$ is equivalent to $$2 \cdot ? = 2$$ well both 1 and 3 satisfy the equation.  If we start digging we will uncover that the root of the problem is the fact that 4 is a composite of 2.  These times tables are built off what is the remainder when we divide by 4, since 4 is composed of two twos, we run into problems when we would try division by 2.  To resolve this problem we could extend our playing field to a set of numbers whose size (cardinality) is not composite or prime, for example we could extend it to using five numbers.  The multiplication table for this new playing field is below.  
+\begin{center}
+\renewcommand\arraystretch{1.3}
+\setlength\doublerulesep{0pt}
+\begin{tabular}{r||*{5}{2|}}
+$\times$ & 0 & 1 & 2 & 3 & 4 \\
+\hline\hline
+0 & 0 & 0 & 0 & 0 & 0 \\ 
+\hline
+1 & 0 & 1 & 2 & 3 & 4 \\ 
+\hline
+2 & 0 & 2 & 4 & 1 & 3 \\ 
+\hline
+3 & 0 & 3 & 1 & 4 & 2 \\ 
+\hline
+4 & 0 & 4 & 3 & 2 & 1 \\ 
+\hline
+\end{tabular}
+\end{center}
+If you look down the columns you notice something that might remind you of sudoku.  Each column (except 0) contains a full set of the numbers we have in our playing field.  This makes our division unique because multiplication is unique.
+
+\paragraph*{Example} Let's pick the two's column again, what is $2 \div 2$ rewriting this becomes $2 \cdot ? = 2$ which looking at our table is one.   $2 \div 1$ rephrasing as multiplication $2 \cdot ? = 1$ so two divided by one is three. Or phrased another way three is the inverse of two.
+
+This is the idea of a field extension.  We start with some (playing) field and we make the field larger so that it will satisfy some additional properties.  
+
+Let's suppose that we are in a field with any polynomial of the form $$x^3+x^2+x+1$$ and we want to find the roots.  It looks like $x=-1$ might be a root. So we complete the long division on find that
+$$x^3+x^2+x+1 = (x+1)(x^2+1)$$ 
+You might look at the $x^2+1$ term and be tempted to say it has "no solution in the reals'', which is technically correct.  But there is another way to frame it.  We can go on what we know, that is that $$x^2+1=0$$ and from that it follows that $$x^2=-1$$ term and carry on.  This would be a field extension.  For example we can look at multiplication in this field extension, commonly called $\mathbb{Z}[x]/(x^2+1)$.
+\begin{align*}
+(a+bx)(c+dx) & = (a+bx)c + (a+bx)dx \\
+&= ac + bcx + adx +bdx^2 \\
+&= (ac+bdx^2) + (ad + bc)x \\
+&= (ac-bd) + (ad + bc)x
+\end{align*}
+Where the last step used the identity $x^2=-1$.  In some ways working from this place one might say we are building the complex numbers from the real numbers.  But the reason we are doing this, is so we can split any polynomial up.  We are extending the field as a quotient ring generated by $x^2+1$.  $x^2+1$ is also know as an irreducible factor, and when it plays this role in the quotient ring, it is known as the ideal.
+
+\paragraph*{Example} Let's calculate the splitting field for $$x^4+x^3+x^2+1$$.  We'll we already know $x^2+1=0$ so
+\begin{align*}
+x^4+x^3+x^2+1 &= x^4 + x^3 + 0 \\
+&= x^3(x+1)
+\end{align*}
+Thus we split our polynomial by extending our field.  But we're not quite done, recall $x^2=-1$ this implies $x^3 = -x$.  Therefore:
+$$x^4+x^3+x^2+1 = -x(x+1)$$ in our new field $\mathbb{Z}/(x^2+1)$.  Furthermore we have split our polynomial into linear factors and we can see that 0 and -1 are the roots in this new field.
+
+\emph{Need Help!}
+Now we are getting to the heart of why we may write $$x^3 -r_1 x^2 +r_2 x - r_3$$ as $$(x-a_1)(x-a_2)(x-a_3)$$  At the end of the day its because we decide we can.  What we want to do first is factor $x^3 -r_1 x^2 +r_2 x - r_3$ as far as possible, suppose $x^3 -r_1 x^2 +r_2 x - r_3$ is as far as we can factor it in our field.   Then $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$
+This then implies that $$x^3 -r_1 x^2 = r_3- r_2 x$$
+Thus $$x^3 -r_1 x^2 +r_2 x - r_3 = r_3- r_2 x +r_2 x - r_3 = 0$$ it works!  But not very interesting, so we need to try something else, let's let $$f(x) = x^n + b_{n-1}x^{n-1} + \cdots + b_1 x + b_0$$ be like our $x^2+1$ we know $a_1$ is a root, therefore:
+\begin{align*}
+a_1^n + b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0 &=0 \\
+a_1^n  &= -(b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0) \\
+a_1^na_1^{3-n} &= -(b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0)a_1^{3-n} \\
+&= -(b_{n-1}a_1^{3-1} + \cdots + b_1 a_1^{3-n+1} + b_0 a_1^{3-n}) \\
+&= -(b_{n-1}a_1^{2} + \cdots + b_1 a_1^{4-n} + b_0 a_1^{3-n})
+\end{align*}
+In this case we would take $n=0,1,2$
+
+%in this case we know the roots, so let's just do long division, which gives us:
+%$$x^4+x^3+x^2+1 = (x-a_1)(x^3 + (a_1+1)x^2 + (a_1^2+a_1+1) + (a_1^3+a_1^2+a_1))$$
 
 
+So now we can say that we can find some field \emph{C} that allows us to split $$x^3 -r_1 x^2 +r_2 x - r_3$$ into $$(x-a_1)(x-a_2)(x-a_3)$$ \emph{How do we know we will have 3 roots in C?}
+
+
+Well let's look at $a_1, a_2, a_3$ more closely, if we distribute and multiply we get
+$$ (x-a_1)(x-a_2)(x-a_3) = x^3 -(a_1+a_2+a_3)x^2+(a_1a_2 +a_1a_3 +a_2a_3)x -a_1a_2a_3$$
 
 
 \section*{The Fundamental Theorem of Algebra}
@@ -186,7 +307,7 @@ Think of a polynomial with complex coefficients (e.g. $x^2+4x+2$, or $(1+2i)x+3$
 
 Recall the conjugate of a complex number, you just switch the addition or subtraction on the imaginary part (e.g. if $z = 1+2i$ the the conjugate of $z$ is $\bar{z} = 1 - 2i$).  Something neat happens when you multiply a complex number with its conjugate. Let's let $z=a+bi$ be any complex number, then the conjugate is $\bar{z}=a-bi$ and if we multiply them together we get $z\bar{z}=a^2+abi-abi-(bi)^2$ which becomes $z\bar{z}=a^2+b^2$, which is a real number, i.e., the imaginary part is 0 (or there is no imaginary part).  Furthermore it is a positive real number!\\
 
-So back to our polynomial with complex coefficients, $C(x)$ if we take $R(x) = C(x) \bar{C(x)}$ (which is $C(x)$ multiplied by its conjugate) then $R(x)$ will be a polynomial with real coefficients, and the roots of $C(x)$ will also be the roots of $R(x)$.  To see this think about how we find roots, one way is to factor, so if we factor $C(x)$ into a bunch of linear terms, say $c_1(x)c_2(x)\cdots c_n(x)$ then we could factor $R(x)$ into $c_1(x)c_2(x)\cdots c_n(x)\overline{c_1(x)c_2(x) \cdots c_n(x)}= c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)} \bar{c_2(x)} \cdots \bar{c_n(x)}$.  Since, the roots of $C(x)$ are also the roots of $R(x)$, showing that every polynomial with real coefficients has a complex root will complete the proof!\\
+So back to our polynomial with complex coefficients, $C(x)$ if we take $R(x) = C(x) \bar{C(x)}$ (which is $C(x)$ multiplied by its conjugate) then $R(x)$ will be a polynomial with real coefficients, and the roots of $C(x)$ will also be the roots of $R(x)$.  To see this think about how we find roots, one way is to factor, so if we factor $C(x)$ into a bunch of linear terms, say $c_1(x)c_2(x)\cdots c_n(x)$ then we could factor $R(x)$ into $$c_1(x)c_2(x)\cdots c_n(x)\overline{c_1(x)c_2(x) \cdots c_n(x)}= c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)} \bar{c_2(x)} \cdots \bar{c_n(x)}$$.  Since, the roots of $C(x)$ are also the roots of $R(x)$, showing that every polynomial with real coefficients has a complex root will complete the proof!\\
 
 To summarize the above, since the goal is to show that any polynomial with complex coefficients has a complex root then I can build a polynomial with real coefficients by multiplying my polynomial with complex coefficients with its conjugate.  Then if I show that this new polynomial with real coefficients has a complex root, I'm done.\\
 
@@ -217,19 +338,39 @@ Recall that the leading coefficient will determine the overall slope of the equa
 
 Now for the fun part.  Suppose again that $d=2^n q$, where $q$ is odd and $n>0$, however lets "believe" that the theorem has been proven when the degree is $2^{n-1}q'$ where $q'$ is odd.  Therefore, we can use the "fact" (induction hypothesis) that any polynomial less than or equal to degree $2^{n-1} q'$ has a complex root.
 
-Let's start by splitting $R(x)$ into all its linear terms like we did previously, i.e., $c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)}\bar{c_2(x)}\cdots \bar{c_n(x)}$, the $c_i(x)$ are linear functions with complex coefficients.  Now let $x_1$ be the root of $c_1(x)$, so on and so forth.  So the roots of $R(x)$ are $x_1, \ldots, x_d$.  Let $s$ be an arbitrary real number and let $y_{s,i,j} = x_i +x_j + s x_i x_j$, where $1 \leq i < j \leq d$. Now define:
+Let's start by splitting $R(x)$ into all its linear terms like we did previously, we will also put a factor $a$ out front.  This $a$ would correspond to the coefficient of $x^n$.  This step requires that we "find" (assume) a field over which we can split the polynomial into its linear factors.\footnote{For completeness, we are finding the smallest field extension of $\mathbb{C}$, such that $R(x)$ decomposes into linear factors.}  This just means, we might not have the tools to take this polynomial apart where we currently are.  So we go to our friends house that has the tools (find the field) and take it a part there.  But it is important to remember that the parts are still at our friends house.  In math jargon this would look like: \\
+$$c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)}\bar{c_2(x)}\cdots \bar{c_d(x)}$$, where the $c_i(x)$ are linear functions with complex coefficients.  Now let $x_1$ be the root of $c_1(x)$, so on and so forth.  So the roots of $R(x)$ are $x_1, \ldots, x_d$.  Let $s$ be an arbitrary real number and let $y_{s,i,j} = x_i +x_j + s x_i x_j$, where $1 \leq i < j \leq d$. Now define:
 $$ G_s(x) =(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})(x-y_{s,2,3})\cdots (x-y_{s,2,d})\cdots (x-y_{s,d-1,d})$$
 This may be written succinctly as:
 $$ G_s(x) = \Pi_{1 \leq i < j \leq d} (x-y_{s,i,j})$$
 $G_s(x)$ is constructed so that the coefficients are symmetric in $x_1, \ldots
-, x_d$.  Let's look at a case when $d=2$
-\subsubsection*{Example of $G_s(x)$ when $d=2$}  If $d=2$ then we have $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$, so $G_s(x) = x- x_1 -x_2 - s x_1 x_2$, the degree of $G_s(x)$ is 1.  Therefore by the induction hypothesis, we know that it has a complex root, so $x_1 +x_2 + s x_1 x_2$ must be complex, which implies that $x_1+x_2$ and $x_1 x_2$ is complex.\\
+, x_d$.
 
-The same analysis that applied in the example when $d=2$ applies when $d>2$, we reduce the degree of the polynomial using $G_s(x)$, then use the induction hypothesis.\\
+It is important to know that the coefficients of $G_s$ are symmetric in $x_1, x_2, \ldots, x_d$.  This means that the variables could be interchanged in any way and we would not need to change the coefficients, in fact, we would have the same polynomial!\footnote{For further investigation read about symmetric polynomials.}  In other words the coefficient of $x_1$ would be the same as the coefficient as $x_d$, likewise the coefficient of $x x_1$ would be the same as $x x_d$, so on and so forth.  It might help to think of Pascal's triangle.
+
+To help, let's look at a case when $d=2$ and $d=3$
+\subsubsection*{Example of $G_s(x)$ when $d=2$ and $d=3$}  If $d=2$ then we have $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$, so $G_s(x) = x- x_1 -x_2 - s x_1 x_2$, the degree of $G_s(x)$ is 1.  Also notice how $x_1$ and $x_2$ have the same coefficient  Therefore by the induction hypothesis, we know that it has a complex root, so $x_1 +x_2 + s x_1 x_2$ must be complex, which implies that $x_1+x_2$ and $x_1 x_2$ is complex.\\
+
+To help with this idea of symmetric coefficients, when $d=3$ we have
+$$
+G_s(x) = (x-x_1-x_2-sx_1x_2)(x-x_2-x_3-sx_2x_3)
+$$
+which expands to
+$$
+x^2+x_2x_3+x_1x_3 + x_1x_2 + x_2^2 -xx_3 - 2x x_2-x x_1 + 2sx_1x_2x_3 + sx_2^2 x_3 + s x_1 x_2^2 - s x x_2 x_3 - s x x_1 x_2 + s^2 x_1 x_2^2 x_3
+$$
+Notice how we could interchange $x_1$ and $x_2$ and the coefficients would remain the same.  In this example the coefficients are all real, but we can't assume the same will occur when $d>3$.\\
+
+The same analysis that applied in the example when $d=2$ and $d=3$ applies when $d>3$, we reduce the degree of the polynomial using $G_s(x)$, check that the coefficients are real then use the induction hypothesis.\\
 
 So back to:
 $$ G_s(x) =(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})(x-y_{s,2,3})\cdots (x-y_{s,2,d})\cdots (x-y_{s,d-1,d})$$
-we need to prove that the degree of $G_s(x)$ is less than $d$.  Let's count them.
+we need to the coefficients of $G_s(x)$ to be real and then we need to prove that the degree of $G_s(x)$ is less than $d$.
+
+We have some motivation to believe that the coefficients of $G_s(x)$ are real.  We will have to take on belief that they are indeed real.\footnote{For the curious, to the best of my knowledge it has not be proven that we may do this.  What the proofs so far claim is that the coefficients of $G_s(x)$ may be viewed as elementary symmetric polynomials.  These polynomials have special formulas which Fran\c{c}ois Vi\'ete discovered in the late 1500's, which enable one to rewrite them as real numbers.  However these formulas only apply to the reals or complex numbers, not necessarily some field extension of the complex field, which is where we are using them.}  
+
+
+In order to find the degree of $G_s(x)$, let's just count the terms.
 
 There are $d-1$ terms that have $i=1$, however there are $d-2$ terms that have $i=2$, because $i<j$.  so there are $d-3$ terms that have $i=3$ and so on.
 $$ G_s(x) =\underbrace{(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})}_{d-1} \underbrace{(x-y_{s,2,3})\cdots (x-y_{s,2,d})}_{d-2} \cdots (x-y_{s,d-1,d})$$
