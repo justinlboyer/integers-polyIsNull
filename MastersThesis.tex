@@ -152,14 +152,14 @@ But wait, I slipped something by you, what is the prime factorization of $f(x)= 
 
 
 
-\section*{What can we find out about the roots of $x^3 -r_1 x^2 +r_2 x - r_3$}
-Suppose we have the polynomial $$p(x) = x^3 -r_1 x^2 +r_2 x - r_3$$ and we want to know what can learn about its roots.  A natural question to ask is what is $r_1, r_2, r_3$?  I don't know.
+\section*{How many roots does $x^3 -r_1 x^2 +r_2 x - r_3$ have?}
+Suppose we have the polynomial $$p(x) = x^3 -r_1 x^2 +r_2 x - r_3$$ and we want to know how many roots it has.  We know $r_1, r_2, r_3$ are real numbers.  Yes, it has three roots in the complex field, but we know that because of a thereom.  The fundamental thereom of algebra to be exact.  Let's walk through an example of a proof that this equation has three roots.  This proof will be of a specific case, following this section will be a general algebraic proof leveraging the same ideas.  
 
-Let's wander through an exercise.  In today's classrooms math is seldom wandered.  There is a beginning and an end and teachers debate which path to take the students on.  However my intention for this exercise is to lead\footnote{This is a paper after all.  For the inclined I invite you to wander on your own, get lost, try to find your own way, this paper will always be here.} you on a path that feels like a walkabout.  We will take side steps when we need, because that is how math and life are experienced.  What we hope to accomplish is to figure out what we can about the roots of $x^3 -r_1 x^2 +r_2 x - r_3$.\\
+Let's wander through an exercise.  In many of today's classrooms math is seldom wandered.  There is a beginning and an end and teachers debate which path to take the students on.  However my intention for this exercise is to lead\footnote{This is a paper after all.  For the inclined I invite you to wander on your own, get lost, try to find your own way, this paper will always be here.} you on a path that feels like a walkabout.  We will take side steps when we need, because that is how math and life are experienced.  What we hope to accomplish is to prove that there are three roots to the equation $x^3 -r_1 x^2 +r_2 x - r_3$.\\
 
-One way to start would be to set the function equal to 0,  $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$ and try to complete the \sout{square} cube,  which is a fruitful endeavor to sharpen rusty algebraic skills.  However we're after more than that.  Pretend for a moment that you know the roots of  $$x^3 -r_1 x^2 +r_2 x - r_3$$ are not real, not even complex, let's call them $$a_1, a_2, a_3$$.  How would you convince me of this fact.  Given this fact, is it possible that $$r_1, r_2, r_3$$ are real?  How do you know?  
+One way to start would be to set the function equal to 0,  $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$ and try to complete the \sout{square} cube,  which is a fruitful endeavor to sharpen rusty algebraic skills.  However we're after more than that.  We are hoping to find a method that will apply to higher degree polynomials.  Pretend for a moment that you know the roots of  $$x^3 -r_1 x^2 +r_2 x - r_3$$ are not real, not even complex, they lie in some field, $\mathbb{F}$, so we can operate on them with addition, subtraction, multiplication, and division.  Let's call these roots $a_1, a_2, a_3$.  
 
-Well we want to learn as much as we can about these roots, so a natural thing to do is to split up our function into linear factors, so $$x^3 -r_1 x^2 +r_2 x - r_3$$ becomes $$(x-a_1)(x-a_2)(x-a_3)$$, assuming these roots you know exist.  Why can we rewrite any polynomial as its linear factors?  If you're like me you learned this through induction.  Your high school teacher made you factor a bunch of quadratic, cubic, and if they hated you quartic polynomials and then multiply(foil, rainbow, etc..) them back together and voila you arrived where you started.  Which is pretty much the best motivating reason to make students factor polynomials.  Which is really quite sad, because the math behind this equivalence is really quite interesting and has many nooks and crannies to be explored.
+The next step we would typically take is rewrite $$x^3 -r_1 x^2 +r_2 x - r_3$$ as: $$(x-a_1)(x-a_2)(x-a_3)$$  But why can we rewrite any polynomial as its linear factors?  If you're like me you learned this through induction.  Your high school teacher made you factor a bunch of quadratic, cubic, and if they hated you quartic polynomials and then multiply(foil, rainbow, etc..) them back together and voila you arrived where you started.  Which is pretty much the best motivating reason to make students factor polynomials.  The idea comes down to the fact that we can expand what where we are working until we are in a place that allows us to do what we need to.  The analogy I use is suppose you are working on a car in your garage.  Everything is going fine, until you go to take a bracket off, the tools you have don't work for the job at hand.  So you call up your friend he has the tools, so you tow your car to his place and fix it there, then when you are done your drive your car back into your garage.  In this analogy your car is the polynomial and the garage is the real numbers $\mathbb{R}$, when you tow your car to your friends you are using a field extension, so that you can use your friends tool, the splitting field, to take the car apart and figure out how to fix (find all the roots) it.
 
 \subsection*{Field Extension}
 Suppose you have a playing field of four numbers $\{0, 1, 2, 3\}$, what can we do with these four numbers, we could add them $1+1=2$, $1+2=3$, what about $0+1=1$  we have an additive identity.  What do you think should happen when I try $1+3=$?  Any answer could be correct.  Mathematicians like to play games, so they pick the situation that will continue the game.  They decide to make $1+3=0$ then we can play longer. because then $2+2=0$ as well.  In other words in this playing field we map the number 4 to the number 0, this implies the number 5 would be mapped to 1.  I.e., $$2+3=1$$ $$3+3=2$$ $$1+2+3=2$$ $$2+2+2+3=1$$ so on and so forth.  If you teach kids then your mind probably wandered on the last equation in the series to repeated addition and multiplication.  Exactly, now we might be able to get a sense of multiplication in this playing field.
@@ -229,7 +229,7 @@ If you look down the columns you notice something that might remind you of sudok
 
 This is the idea of a field extension.  We start with some (playing) field and we make the field larger so that it will satisfy some additional properties.  
 
-Let's suppose that we are in a field with any polynomial of the form $$x^3+x^2+x+1$$ and we want to find the roots.  It looks like $x=-1$ might be a root. So we complete the long division on find that
+Let's suppose that we are in the real numbers with any polynomial of the form $$x^3+x^2+x+1$$ and we want to find the splitting field.  It looks like $x=-1$ might be a root. So we complete the long division on find that
 $$x^3+x^2+x+1 = (x+1)(x^2+1)$$ 
 You might look at the $x^2+1$ term and be tempted to say it has "no solution in the reals'', which is technically correct.  But there is another way to frame it.  We can go on what we know, that is that $$x^2+1=0$$ and from that it follows that $$x^2=-1$$ term and carry on.  This would be a field extension.  For example we can look at multiplication in this field extension, commonly called $\mathbb{Z}[x]/(x^2+1)$.
 \begin{align*}
@@ -246,30 +246,88 @@ x^4+x^3+x^2+1 &= x^4 + x^3 + 0 \\
 &= x^3(x+1)
 \end{align*}
 Thus we split our polynomial by extending our field.  But we're not quite done, recall $x^2=-1$ this implies $x^3 = -x$.  Therefore:
-$$x^4+x^3+x^2+1 = -x(x+1)$$ in our new field $\mathbb{Z}/(x^2+1)$.  Furthermore we have split our polynomial into linear factors and we can see that 0 and -1 are the roots in this new field.
+$$x^4+x^3+x^2+1 = -x(x+1)$$ in our new field $\mathbb{Z}/(x^2+1)$.  Furthermore we have split our polynomial into linear factors, this is the splitting field, and we can see that 0 and -1 are the roots in this new field.
 
-\emph{Need Help!}
-Now we are getting to the heart of why we may write $$x^3 -r_1 x^2 +r_2 x - r_3$$ as $$(x-a_1)(x-a_2)(x-a_3)$$  At the end of the day its because we decide we can.  What we want to do first is factor $x^3 -r_1 x^2 +r_2 x - r_3$ as far as possible, suppose $x^3 -r_1 x^2 +r_2 x - r_3$ is as far as we can factor it in our field.   Then $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$
-This then implies that $$x^3 -r_1 x^2 = r_3- r_2 x$$
-Thus $$x^3 -r_1 x^2 +r_2 x - r_3 = r_3- r_2 x +r_2 x - r_3 = 0$$ it works!  But not very interesting, so we need to try something else, let's let $$f(x) = x^n + b_{n-1}x^{n-1} + \cdots + b_1 x + b_0$$ be like our $x^2+1$ we know $a_1$ is a root, therefore:
-\begin{align*}
-a_1^n + b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0 &=0 \\
-a_1^n  &= -(b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0) \\
-a_1^na_1^{3-n} &= -(b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0)a_1^{3-n} \\
-&= -(b_{n-1}a_1^{3-1} + \cdots + b_1 a_1^{3-n+1} + b_0 a_1^{3-n}) \\
-&= -(b_{n-1}a_1^{2} + \cdots + b_1 a_1^{4-n} + b_0 a_1^{3-n})
-\end{align*}
-In this case we would take $n=0,1,2$
+\emph{Need Help! Prove that there exists a splitting field!}
+
+
+We may write $$x^3 -r_1 x^2 +r_2 x - r_3$$ as $$(x-a_1)(x-a_2)(x-a_3)$$  because we look at it in a field in which it is possible, just as we did in the above examples. 
+
+\emph{How would I do it for this example?} 
+
+%What we want to do first is factor $x^3 -r_1 x^2 +r_2 x - r_3$ as far as possible, suppose $x^3 -r_1 x^2 +r_2 x - r_3$ is as far as we can factor it in our field.   Then $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$
+%This then implies that $$x^3 -r_1 x^2 = r_3- r_2 x$$
+%Thus $$x^3 -r_1 x^2 +r_2 x - r_3 = r_3- r_2 x +r_2 x - r_3 = 0$$ it works!  
+%Let $$f(x) = x^n + b_{n-1}x^{n-1} + \cdots + b_1 x + b_0$$ be our ideal (like $x^2+1$), with $n \leq 3$  we know $a_1$ is a root, therefore:
+%\begin{align*}
+%a_1^n + b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0 &=0 \\
+%a_1^n  &= -(b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0) \\
+%a_1^na_1^{3-n} &= -(b_{n-1}a_1^{n-1} + \cdots + b_1 a_1 + b_0)a_1^{3-n} \\
+%&= -(b_{n-1}a_1^{3-1} + \cdots + b_1 a_1^{3-n+1} + b_0 a_1^{3-n}) \\
+%&= -(b_{n-1}a_1^{2} + \cdots + b_1 a_1^{4-n} + b_0 a_1^{3-n})
+%\end{align*}
+%In this case we would take $n=0,1,2$
 
 %in this case we know the roots, so let's just do long division, which gives us:
 %$$x^4+x^3+x^2+1 = (x-a_1)(x^3 + (a_1+1)x^2 + (a_1^2+a_1+1) + (a_1^3+a_1^2+a_1))$$
 
 
-So now we can say that we can find some field \emph{C} that allows us to split $$x^3 -r_1 x^2 +r_2 x - r_3$$ into $$(x-a_1)(x-a_2)(x-a_3)$$ \emph{How do we know we will have 3 roots in C?}
+To recap, we found some field $\mathbb{F}$ that allows us to split $$x^3 -r_1 x^2 +r_2 x - r_3$$ into $$(x-a_1)(x-a_2)(x-a_3)$$ and $a_1, a_2, a_3$ are elements of this field $\mathbb{F}$, we are not really sure what $\mathbb{F}$ is, we just know that it exists.
+
+\emph{How do we know we will have 3 roots in C?}.
+
+We might be tempted to say we're done, we have three roots!  But we can't, because we are in this strange field $\mathbb{F}$, in other words our car is taken apart in our friends garage.  We first need to make sense of these roots $a_1, a_2, a_3$.
 
 
-Well let's look at $a_1, a_2, a_3$ more closely, if we distribute and multiply we get
+Well let's look at $a_1, a_2, a_3$ more closely.  We know that $\mathbb{F}$ is a field so all the properties of addition and multiplication we are used to remain the same.  So we are welcome to distribute and multiply, when we do this we get:
 $$ (x-a_1)(x-a_2)(x-a_3) = x^3 -(a_1+a_2+a_3)x^2+(a_1a_2 +a_1a_3 +a_2a_3)x -a_1a_2a_3$$
+
+Something really cool is going on!  Figure it out before you move on.
+
+\subsection*{Symmetric Polynomials}
+Let's investigate $$x^3 -(a_1+a_2+a_3)x^2+(a_1a_2 +a_1a_3 +a_2a_3)x -a_1a_2a_3$$ more throughly.  Let's assign the following:
+\begin{align*}
+e_1 = a_1 + a_2 +a_3 \\
+e_2 = a_1a_2 +a_1a_3 +a_2a_3 \\
+e_3 = a_1a_2a_3
+\end{align*}
+
+The $e_1, e_2, e_3$ we just designated are called elementary symmetric polynomials.  Vi\'ete found formulas that draw a connection between a polynomial and its roots.  We are going to leverage those formulas now.  It has been shown that Vi\'ete's formulas may be applied with polynomials with coefficients in any field.\emph{This is correct right, if Vietes works in most integral domians then it surely will work in a field}
+
+
+As an example of how Vi\'ete's formulas relate roots and coefficents, let's look at how we could write
+$$ a_1^2 + a_2^2 + a_3^2$$
+as our elementary symmetric polynomials.  We need the sum of squares so we will need $$e_1^2 = a_1^2 + a_2^2 + a_3^2 + 2a_1a_2 + 2a_1a_3 + 2a_2a_3$$
+Now we need to remove those cross terms well $e_2$ should work nicely for that
+$$e_1^2 - 2e_2 = a_1^2 + a_2^2 + a_3^2 + 2a_1a_2 + 2a_1a_3 + 2a_2a_3 - 2(a_1a_2 +a_1a_3 +a_2a_3)$$
+after zeroing out terms we arrive at
+$$e_1^2 - 2e_2 = a_1^2 + a_2^2 + a_3^2$$
+
+
+The elementary symmetric polynomials make the rest of our proof possible.  As you probably noticed the $e_1, e_2, e_3$ are the same as $r_1, r_2, r_3$ respectively.  This means we can relate the roots in our strange field $\mathbb{F}$ with the coefficents of our original polynomial.  We just put our car back together.  Since the $r_1, r_2, r_3$ are real valued, then $e_1, e_2, e_3$ must be real valued.  But we still can't make the leap to $a_1, a_2, a_3$ being real valued, for example suppose 
+\begin{align*}
+a_1 = 1-i \\
+a_2 = 1+i \\
+a_3 = 1
+\end{align*}
+Then our elementary symmetric polynomials would become
+\begin{align*}
+e_1 = 3 \\
+e_2 = 4 \\
+e_3 = 2
+\end{align*}
+
+The elementary symmetric polynomials are real, however our roots are not.  Thus we cannot yet say we have three roots.
+
+In order to do that we need to use induction\footnote{This step is not completely necessary for this example, however understanding this process will help immensely when we turn towards the proof for any polynomial}.    Remember induction is like climbing a ladder, we show that the first rung is true, then we show that if a previous rung existed then the next one does as well.  Suppose the degree of our polynomial was one this will act as our base case.  A polynomial of degree one is a non-horizontal line, which will cross the $x-$axis once, therefore we will have one root for a polynomial of degree one.  Next we will use the induction hypothesis that a polynomial of degree two has two complex/real roots to show that our third degree polynomial has three complex/real roots.
+
+In order to do that, we need a second degree polynomial.  We will create this second degree polynomial very cleaverly.  We will rewrite it as:
+$$G_s(x) = (x - a_1 - a_2 - sa_1a_2)(x - a_2 - a_3 - sa_2a_3)$$
+where the $a_1, a_2, a_3$ are the roots of our original polynomial in some field $\mathbb{F}$ and $s$ is a real number.
+
+% now work through the fact that g is symmetric then elementary symmetric, then use the fact that there are two roots in the complex blah blah
+
+
 
 
 \section*{The Fundamental Theorem of Algebra}
