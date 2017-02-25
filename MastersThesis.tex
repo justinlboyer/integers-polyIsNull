@@ -1,11 +1,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{exsheets}
-
-%\usepackage[pdf]{pstricks}
-%\usepackage{pstricks-add}
-\usepackage[toc,page]{appendix}
-%\usepackage{tikz} 
+\usepackage[toc,page]{appendix} 
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{amstext}  
@@ -17,6 +13,8 @@
 \usepackage{listings}
 %\usepackage{indentfirst}
 \usepackage[top=1.5cm, bottom=1.5cm, left=.5in, right=.5in]{geometry}
+%\usepackage{setspace}
+%\doublespacing
 \usepackage{enumerate}
 \usepackage{multicol}
 \usepackage{dcolumn}
@@ -27,7 +25,7 @@
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 \usepackage{wrapfig}
-%\usepackage{polynom}
+
 \newcommand{\ssol}{\vspace{3em}}
 \newcommand{\lsol}{\vspace{10em}}
 \newcommand{\blnk}{{\underline {\hspace{1.5in}}}}
@@ -152,8 +150,8 @@ But wait, I slipped something by you, what is the prime factorization of $f(x)= 
 
 
 
-\section*{How many roots does $x^3 -r_1 x^2 +r_2 x - r_3$ have?}
-Suppose we have the polynomial $$p(x) = x^3 -r_1 x^2 +r_2 x - r_3$$ and we want to know how many roots it has.  We know $r_1, r_2, r_3$ are real numbers.  Yes, it has three roots in the complex field, but we know that because of a thereom.  The fundamental thereom of algebra to be exact.  Let's walk through an example of a proof that this equation has three roots.  This proof will be of a specific case, following this section will be a general algebraic proof leveraging the same ideas.  
+\section*{Example Proof: How many roots does $x^3 -r_1 x^2 +r_2 x - r_3$ have?}
+Suppose we have the polynomial $$p(x) = x^3 -r_1 x^2 +r_2 x - r_3$$ and we want to know how many roots it has.  We know $r_1, r_2, r_3$ are real numbers.  Yes, it has three roots in the complex field, but we know that because of a thereom.  The fundamental thereom of algebra to be exact.  Let's walk through an example of a proof that this equation has three roots.  This proof will be of a specific case, and it will be a bit circuitious.  But the idea is prepare you for a general algebraic proof leveraging the same ideas.
 
 Let's wander through an exercise.  In many of today's classrooms math is seldom wandered.  There is a beginning and an end and teachers debate which path to take the students on.  However my intention for this exercise is to lead\footnote{This is a paper after all.  For the inclined I invite you to wander on your own, get lost, try to find your own way, this paper will always be here.} you on a path that feels like a walkabout.  We will take side steps when we need, because that is how math and life are experienced.  What we hope to accomplish is to prove that there are three roots to the equation $x^3 -r_1 x^2 +r_2 x - r_3$.\\
 
@@ -317,11 +315,10 @@ e_2 = 4 \\
 e_3 = 2
 \end{align*}
 
-The elementary symmetric polynomials are real, however our roots are not.  Thus we cannot yet say we have three roots.
+The elementary symmetric polynomials are real, however our roots are not necessarily real valued.  Thus we cannot yet say we have three roots.
 
-In order to do that we need to use induction\footnote{This step is not completely necessary for this example, however understanding this process will help immensely when we turn towards the proof for any polynomial}.    Remember induction is like climbing a ladder, we show that the first rung is true, then we show that if a previous rung existed then the next one does as well.  Suppose the degree of our polynomial was one this will act as our base case.  A polynomial of degree one is a non-horizontal line, which will cross the $x-$axis once, therefore we will have one root for a polynomial of degree one.  Next we will use the induction hypothesis that a polynomial of degree two has two complex/real roots to show that our third degree polynomial has three complex/real roots.
 
-In order to do that, we need a second degree polynomial.  We will create this second degree polynomial very cleaverly.  We will rewrite it as:
+In order to figure out, we need to use induction, but before we do that we need to develop our intuition on a new equation.  This new equation will have the form.  We will rewrite it as:
 $$G_s(x) = (x - a_1 - a_2 - sa_1a_2)(x - a_1 - a_3 - sa_1a_3)(x - a_2 - a_3 - sa_2a_3)$$
 where the $a_1, a_2, a_3$ are the roots of our original polynomial in some field $\mathbb{F}$ and $s$ is a real number.  When we expand $G_s(x)$ we get:
 %$$ G_s(x) = x^2 - x(a_1 + 2a_2 + a_3 + s (a_1 a_2 + a_2 a_3))  + a_1 a_2 + a_1 a_3 + a_2 a_3 + a_2^2 + s(a_1 a_2^2 + 2a_1 a_2 a_3 + a_2^2 a_3) + s^2 a_1 a_2^2 a_3$$
@@ -337,9 +334,7 @@ G_s(x) &= x^3 \\
 
 
 
-%\emph{How is this symmetric in the a_i?}
-
-Notice how we could switch all the $a_1$ with $a_2$ and we would end up with the same equation.  This is because $G_s(x)$ is symetric in the coefficients $a_1, a_2, a_3$.  Since $G_s(x)$ is symmetric there it can be shown that we can then write $G_s(x)$ in terms of its elementary symmetric polynomials.  Recall that our elementary symmetric polynomials were
+Notice how we could switch all the $a_1$ with $a_2$ (likewise with $a_1$ and $a_3$ or $a_2$ and $a_3$) and we would end up with an equivalent equation.  We call polynomials fo this form symmetric and $G_s(x)$ is symetric in the coefficients $a_1, a_2, a_3$.  Since $G_s(x)$ is symmetric there it can be shown that we can then write $G_s(x)$ in terms of its elementary symmetric polynomials.\footnote{This is known as the fundamental theorem of symmetric polynomials, the proof of which is a bit beyond this paper.}  Recall that our elementary symmetric polynomials were
 \begin{align*}
 e_1 = a_1 + a_2 +a_3 \\
 e_2 = a_1a_2 +a_1a_3 +a_2a_3 \\
@@ -354,9 +349,41 @@ G_s(x) &= x^3 \\
 &\hphantom{{}=x+x+x}-e_3^2 s^3   - 2 e_2 e_3 s^2  - (e_2^2 - 2e_1e_3) s  - 3 e_1 e_3 s  - e_1 e_2 + e_3
 \end{flalign*}
 
-The coefficients of the elementary symmetric polynomials are real values.  Furthermore the elementary symmetric polynomials are real valued \emph{WHY}.  Therefore our function $G_s(x)$ had coefficients that are real.
+The coefficients of the elementary symmetric polynomials are real values.  Furthermore the elementary symmetric polynomials are real valued \emph{WHY?.. attempt}.  Recall that the $e_1, e_2, e_3$ relate to the original polynomial, $$x^3 -r_1 x^2 +r_2 x - r_3$$
+Not only did $e_1, e_2, e_3$ relate to the roots, but they related to the coefficients, i.e.,
+\begin{align*}
+e_1 = r_1 \\
+e_2 = r_2 \\
+e_3 = r_3 
+\end{align*}
 
-% roadblock because degree shold be even!
+Remember that $r_1, r_2, r_3$ are real valued, $\mathbb{R}$.
+So since we may write $G_s(x)$ in terms of the elementary symmetric polynomials, which are equivalent to the coefficents in our original equation. The coefficients of $G_s(x)$ are real valued.
+
+\subsection*{Induction}
+
+Now we will abuse induction in preparation for the coming proof.  Let's set the degree of the original polynomial, $n$ to $n= 2^k m$ where $k>0$ and is the largest integer such that $n= 2^k m$ is true and $m$ is odd.  We will show that for any value $k$ that there is at least one complex root.  We will do this by inducting on $k$ given the function.
+
+\subsubsection*{Base Case}
+For the base case $k=0$, the polynomial is odd, the end behavior of odd polynomials with positive leading coefficent is $x \rightarrow -\infty$ the value of the polynomial $ \rightarrow -\infty$ and $x \rightarrow \infty$ the value of the polynomial $ \rightarrow \infty$.  Additionally recall that a polynomial is continuous, there are no jumps, therefore the polynomial must cross the $x-$axis at some place in between $(-\infty, \infty)$ and we therefore have at least one complex root.  This argument also takes care of any polynomials with odd degree.  We will elaborate on this argument in the generalized proof.
+
+\subsubsection*{Induction Step}
+Now for the induction step, we use the induction hypothesis that every polynomial with real coefficients and degree $n=2^{k-1} m'$ (where $m'$ is odd) has at least one complex root.
+
+Our original polynomial has degree $n=2^k m$, but the degree of $G_s(x)$ is $2^{k-1} m (n-1)$ (this is proven in the generalized case).  This is where we abuse induction, for our specific case $n=3$, which implies that $k=0$ and $m=3$ thus the degree of $G_s(x)$ is $2^{-1} 3 (2) = 3$.\footnote{Technically the following does not hold, because $m'$ is not odd}  Since $G_s(x)$ is of the form $2^{k-1} m'$, we can apply the induction hypothesis.  Thus $G_s(x)$ has at least one complex root.
+
+We do not know if this complex root is $a_1 + a_2 + s a_1 a_2$ or $a_1 + a_3 + s a_1 a_3$ or $a_2 + a_3 + s a_2 a_3$.  For an example let's pretend that $a_1 + a_2 + s a_1 a_2$ is complex (the rigor is left for the generalized proof).  Recall that $s$ is real valued, $s \in \mathbb{R}$.  If $s=0$ then at least one of the following is true: $a_1 + a_2$ is complex.  What if $s \neq 0$?  If the sum $a_1 + a_2$ is real for a complex number, then the imaginary parts must zero out, then in order for $a_1 + a_2 + s a_1 a_2$ to be complex $a_1 a_2$ must be complex.  Remember that $s$ is our parameter and it is real valued, therfore the fact that $a_1 + a_2 + s a_1 a_2$ is complex does not depend on $s$.  Thus the sum $a_1 + a_2$ is complex and the product $a_1 a_2$ is complex.  Now we need to show that $a_1$ is complex and $a_2$ is complex.
+
+Consider the equation $$x^2 - (a_1 + a_2)x + a_1 a_2$$  the roots of this equation are $a_1$ and $a_2$, since the degree of this equation is of the form $2^{k-1}m'$ by the induction hypothesis $x^2 - (a_1 + a_2)x + a_1 a_2$ has at least one complex root.  Thus $a_1$ or $a_2$ is complex.  We have shown that at least one of our roots is complex.
+
+\subsection*{Our three roots}
+Let's pretend that $a_1$ is indeed our complex root (we could be general, but again we are just going for understanding, the rigor is left for the next section).  Then we can factor $a_1$ out of our original equation $x^3 -r_1 x^2 +r_2 x - r_3$.  When we do this we arrive at
+$$(x-a_1)(x^2 - \rho_1 x - \rho_2)$$
+Now we can apply the same process we went through and find that $x^2 - \rho_1 x - \rho_2$ has a "complex''\footnote{Complex is in quotes, because the imaginary part might be zero} root, suppose this time it is $a_3$, we can factor out this term and when we do this, we get:
+$$(x-a_1)(x-a_3)(x-\gamma)$$
+Again we apply our process to $x-\gamma$ and we find that $\gamma=a_2$ is complex and we have our full set of roots.
+
+
 
 
 % now work through the fact that g is symmetric then elementary symmetric, then use the fact that there are two roots in the complex blah blah
@@ -367,26 +394,25 @@ The coefficients of the elementary symmetric polynomials are real values.  Furth
 
 
 \section*{The Fundamental Theorem of Algebra}
-The Fundamental Theorem of Algebra as we typically teach and learn it states 
+The Fundamental Theorem of Algebra as we typically teach and learn it states one of the following three: 
 \begin{enumerate}
 \item That every single variable polynomial of degree $n$ has exactly $n$ roots (counting multiplicity).
-\item The theorem also equivalently states that any polynomial with complex coefficients greater than degree 0 has at least one complex root.  
-\item Lastly it also states equivalently that the field of complex numbers is closed under algebra.
+\item Any polynomial with complex coefficients greater than degree 0 has at least one complex root.  
+\item The field of complex numbers is closed under algebra.
 \end{enumerate}
 
-First let's look at the last part, what does it mean for some field to be "algebraically closed.''
-
-A field\footnote{A field is an algebraic structure with a form of addition, subtraction, multiplication and division, satisfying the commutative and distributive properties} $K$ is called \emph{algebraically closed} if every non-constant polynomial $f(c) \in K[x]$ has a root in $K$.
+All of these statements are equivalent, recall a field\footnote{A field is an algebraic structure with a form of addition, subtraction, multiplication and division, satisfying the commutative and distributive properties} $K$ is called \emph{algebraically closed} if every non-constant polynomial $f(c) \in K[x]$ has a root in $K$.
 
 So a field, $K$ is algebraically closed if the roots of every non-constant polynomial (e.g. $x^2+1$) are in $K$.
 
-\paragraph*{Comprehension check:} With only rereading the definition and explanation of algebraic closure, think of an example of why the field of integers is not closed under algebra.\footnote{$x^2+1$ would work because the roots of $x^2+1$ are $x=\pm i$}
+%\paragraph*{Comprehension check:} With only rereading the definition and explanation of algebraic closure, think of an example of why the field of integers is not closed under algebra.\footnote{$x^2+1$ would work because the roots of $x^2+1$ are $x=\pm i$}
 
-Statements 2. and 3. are identical, 3. is just shorthand for stating 2. remember that a complex number with no imaginary part is a real number.
+From the definition of algebraically closed it follows that \textbf{statement 2} and \textbf{statement 3} are identical, \textbf{statement 3} is just shorthand for stating \textbf{statement 2}. remember that a complex number with no imaginary part is a real number.
 
-That leads us to our usual understanding of this wonderful theorem.  Ironically, there is currently no purely algebraic proof of the Fundamental Theorem of Algebra.  
+\textbf{Statement 1} is how the Fundamental Theorem of Algebra is typically taught in the secondary setting and it reall is a corollary of \textbf{statement 2}.  As we saw in the precious section we can factor out the complex number we find from our polynomial.  This leaves us with a linear term multiplying a polynomial one degree less than our original.  We can then find the complex root of this new polynomial, and factor it out.  We can continue this process, but we can only do it $n$ times, thus we get $n$ roots.
 
-\subsection*{Algebraic proof of The Fundamental Theorem of Algebra}
+
+\section*{Algebraic proof of The Fundamental Theorem of Algebra}
 I will attempt to prove that every non-constant polynomial with complex coefficients has a complex root in a manner that does not require rigorous mathematical study.\footnote{Many thanks to \url{https://www.artofproblemsolving.com/wiki/index.php?title=Fundamental_Theorem_of_Algebra##Algebraic_Proof}}\\
 
 %It is necessary to assume the following
@@ -397,23 +423,31 @@ I will attempt to prove that every non-constant polynomial with complex coeffici
 %
 %\paragraph*{Lemma} 
 
+\subsection*{Set up}
 Think of a polynomial with complex coefficients (e.g. $x^2+4x+2$, or $(1+2i)x+3$), now think of another.  Now think of every polynomial with complex coefficients and let's let $C(x)$ represent one of them, we don't know which, but it is one of them.\\
 
+\subsubsection*{Complex number review}
 Recall the conjugate of a complex number, you just switch the addition or subtraction on the imaginary part (e.g. if $z = 1+2i$ the the conjugate of $z$ is $\bar{z} = 1 - 2i$).  Something neat happens when you multiply a complex number with its conjugate. Let's let $z=a+bi$ be any complex number, then the conjugate is $\bar{z}=a-bi$ and if we multiply them together we get $z\bar{z}=a^2+abi-abi-(bi)^2$ which becomes $z\bar{z}=a^2+b^2$, which is a real number, i.e., the imaginary part is 0 (or there is no imaginary part).  Furthermore it is a positive real number!\\
 
-So back to our polynomial with complex coefficients, $C(x)$ if we take $R(x) = C(x) \bar{C(x)}$ (which is $C(x)$ multiplied by its conjugate) then $R(x)$ will be a polynomial with real coefficients, and the roots of $C(x)$ will also be the roots of $R(x)$.  To see this think about how we find roots, one way is to factor, so if we factor $C(x)$ into a bunch of linear terms, say $c_1(x)c_2(x)\cdots c_n(x)$ then we could factor $R(x)$ into $$c_1(x)c_2(x)\cdots c_n(x)\overline{c_1(x)c_2(x) \cdots c_n(x)}= c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)} \bar{c_2(x)} \cdots \bar{c_n(x)}$$.  Since, the roots of $C(x)$ are also the roots of $R(x)$, showing that every polynomial with real coefficients has a complex root will complete the proof!\\
+\subsubsection*{Creating a polynomial with real coefficients}
+So back to our polynomial with complex coefficients, $C(x)$ if we take $R(x) = C(x) \bar{C(x)}$ (which is $C(x)$ multiplied by its conjugate) then $R(x)$ will be a polynomial with real coefficients, and the roots of $C(x)$ will also be the roots of $R(x)$.  To see this think about how we find roots, one way is to factor, so if we factor $C(x)$ into a bunch of linear terms, say $c_1(x)c_2(x)\cdots c_n(x)$ then we could factor $R(x)$ into $$c_1(x)c_2(x)\cdots c_n(x)\overline{c_1(x)c_2(x) \cdots c_n(x)}= c_1(x)c_2(x)\cdots c_n(x)\bar{c_1(x)} \bar{c_2(x)} \cdots \bar{c_n(x)}$$.  Since, the roots of $C(x)$ are also the roots of $R(x)$, showing that every polynomial with real coefficients has a complex root will complete the proof!
 
-To summarize the above, since the goal is to show that any polynomial with complex coefficients has a complex root then I can build a polynomial with real coefficients by multiplying my polynomial with complex coefficients with its conjugate.  Then if I show that this new polynomial with real coefficients has a complex root, I'm done.\\
 
+\subsubsection*{Set up summary}
+To summarize the above, since the goal is to show that any polynomial with complex coefficients has a complex root then I can build a polynomial with real coefficients by multiplying my polynomial with complex coefficients with its conjugate.  Then if I show that this new polynomial with real coefficients has a complex root, I'm done.
+
+\subsection*{Proof by Induction}
 Suppose the degree of $R(x)$ is $d=2^n q$, where $q$ is odd and $n \in \mathbb{N}$.   
 %$R(x)$ will always have an even degree, because the degree of $d(R(x))=d(C(x))*2$.  
 Then lets induct on $n$, in other words, we show that the first case is true, then we show that the each case follows from the previous, therefore each case must be true.
 
+\pagebreak
+\subsubsection*{Base Case}
 Looking at the base case $n=0$, therefore $R(x)$ is degree $d=q$, where $q$ is odd. 
 
-\begin{wrapfigure}{r}{4cm}
+\begin{wrapfigure}{r}{8cm}
 \definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.42605633802816917cm,y=0.4143835616438357cm]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.8cm,y=0.8cm]
 \draw[->,color=black] (-4.604132231404959,0.) -- (4.784297520661155,0.);
 \foreach \x in {-4.,-3.,-2.,-1.,1.,2.,3.,4.}
 \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
@@ -428,8 +462,9 @@ Looking at the base case $n=0$, therefore $R(x)$ is degree $d=q$, where $q$ is o
 \end{tikzpicture}
 \end{wrapfigure}
 
-Recall that the leading coefficient will determine the overall slope of the equation.  The leading coefficient for $R(x)$ must be positive, why?\footnote{Because the leading coefficient is the coefficient of the highest degreed term in $C(x)$ multiplied with its conjugate, the product of which will be positive.}  So the polynomial $R(x)$ will "start'' somewhere in quadrant three (i.e., $\Lim{x \rightarrow -\infty} R(x) \rightarrow -\infty$), so when $x$ is negative and large enough, $R(x)<0$.  Then as we traverse the function $R(x)$ it will rise up and "end'' in quadrant one (i.e., $\Lim{x \rightarrow \infty} R(x) \rightarrow \infty$), so when $x$ is positive and large enough, $R(x)>0$.  By combining this analysis with the fact that this function is continuous we \emph{know} this function will intersect the x-axis.  The mathematical justification for \emph{knowing} is by implicating the intermediate value theorem, which states that a continuous function, $f$, with an interval $[a,b]$ as its domain, takes values $f(a)$ and $f(b)$ at each end of the interval, then it also takes any value between $f(a)$ and $f(b)$ at some point within the interval.  For the sake of completeness the corollary that applies beautifully here is \textbf{Bolzano's theorem}.  Bolzano's theorem states that if a continuous function has values of opposite sign inside an interval (which we have, i.e., at some point $x<0, R(x)<0$ and also $x>0, R(x)>0$), then it has a root in that interval.  For proofs of the intermediate value theorem and continuity of polynomials see the appendix.\\
+Recall that the leading coefficient will determine the overall slope of the equation.  The leading coefficient for $R(x)$ must be positive, because the leading coefficient is the coefficient of the highest degreed term in $C(x)$ multiplied with its conjugate, the product of which will be positive.  So the polynomial $R(x)$ will "start'' somewhere in quadrant three (i.e., $\Lim{x \rightarrow -\infty} R(x) \rightarrow -\infty$), so when $x$ is negative and large enough, $R(x)<0$.  Then as we traverse the function $R(x)$ it will rise up and "end'' in quadrant one (i.e., $\Lim{x \rightarrow \infty} R(x) \rightarrow \infty$), so when $x$ is positive and large enough, $R(x)>0$.  By combining this analysis with the fact that this function is continuous we \emph{know} this function will intersect the x-axis.  The mathematical justification for \emph{knowing} is by implicating the intermediate value theorem, which states that a continuous function, $f$, with an interval $[a,b]$ as its domain, takes values $f(a)$ and $f(b)$ at each end of the interval, then it also takes any value between $f(a)$ and $f(b)$ at some point within the interval.  For the sake of completeness the corollary that applies beautifully here is \textbf{Bolzano's theorem}.  Bolzano's theorem states that if a continuous function has values of opposite sign inside an interval (which we have, i.e., at some point $x<0, R(x)<0$ and also $x>0, R(x)>0$), then it has a root in that interval.  For proofs of the intermediate value theorem and continuity of polynomials see the appendix.
 
+\subsubsection*{Induction Step}
 Now for the fun part.  Suppose again that $d=2^n q$, where $q$ is odd and $n>0$, however lets "believe" that the theorem has been proven when the degree is $2^{n-1}q'$ where $q'$ is odd.  Therefore, we can use the "fact" (induction hypothesis) that any polynomial less than or equal to degree $2^{n-1} q'$ has a complex root.
 
 Let's start by splitting $R(x)$ into all its linear terms like we did previously, we will also put a factor $a$ out front.  This $a$ would correspond to the coefficient of $x^n$.  This step requires that we "find" (assume) a field over which we can split the polynomial into its linear factors.\footnote{For completeness, we are finding the smallest field extension of $\mathbb{C}$, such that $R(x)$ decomposes into linear factors.}  This just means, we might not have the tools to take this polynomial apart where we currently are.  So we go to our friends house that has the tools (find the field) and take it a part there.  But it is important to remember that the parts are still at our friends house.  In math jargon this would look like: \\
@@ -445,33 +480,92 @@ It is important to know that the coefficients of $G_s$ are symmetric in $x_1, x_
 To help, let's look at a case when $d=2$ and $d=3$
 \subsubsection*{Example of $G_s(x)$ when $d=2$ and $d=3$}  If $d=2$ then we have $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$, so $G_s(x) = x- x_1 -x_2 - s x_1 x_2$, the degree of $G_s(x)$ is 1.  Also notice how $x_1$ and $x_2$ have the same coefficient  Therefore by the induction hypothesis, we know that it has a complex root, so $x_1 +x_2 + s x_1 x_2$ must be complex, which implies that $x_1+x_2$ and $x_1 x_2$ is complex.\\
 
-To help with this idea of symmetric coefficients, when $d=3$ we have
-$$
-G_s(x) = (x-x_1-x_2-sx_1x_2)(x-x_2-x_3-sx_2x_3)
-$$
-which expands to
-$$
-x^2+x_2x_3+x_1x_3 + x_1x_2 + x_2^2 -xx_3 - 2x x_2-x x_1 + 2sx_1x_2x_3 + sx_2^2 x_3 + s x_1 x_2^2 - s x x_2 x_3 - s x x_1 x_2 + s^2 x_1 x_2^2 x_3
-$$
-Notice how we could interchange $x_1$ and $x_2$ and the coefficients would remain the same.  In this example the coefficients are all real, but we can't assume the same will occur when $d>3$.\\
 
-The same analysis that applied in the example when $d=2$ and $d=3$ applies when $d>3$, we reduce the degree of the polynomial using $G_s(x)$, check that the coefficients are real then use the induction hypothesis.\\
+
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% This is incorrect!
+%
+%To help with this idea of symmetric coefficients, when $d=3$ we have
+%$$
+%G_s(x) = (x-x_1-x_2-sx_1x_2)(x-x_2-x_3-sx_2x_3)
+%$$
+%which expands to
+%$$
+%x^2+x_2x_3+x_1x_3 + x_1x_2 + x_2^2 -xx_3 - 2x x_2-x x_1 + 2sx_1x_2x_3 + sx_2^2 x_3 + s x_1 x_2^2 - s x x_2 x_3 - s x x_1 x_2 + s^2 x_1 x_2^2 x_3
+%$$
+%Notice how we could interchange $x_1$ and $x_2$ and the coefficients would remain the same.  In this example the coefficients are all real, but we can't assume the same will occur when $d>3$.\\
+%
+%The same analysis that applied in the example when $d=2$ and $d=3$ applies when $d>3$, we reduce the degree of the polynomial using $G_s(x)$, check that the coefficients are real then use the induction hypothesis.\\
+%
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% explanation of induction
+%
+%In order to do that we need to use induction\footnote{This step is not completely necessary for this example, however understanding this process will help immensely when we turn towards the proof for any polynomial}.    Remember induction is like climbing a ladder, we show that the first rung is true, then we show that if a previous rung existed then the next one does as well.  Suppose the degree of our polynomial was one this will act as our base case.  A polynomial of degree one is a non-horizontal line, which will cross the $x-$axis once, therefore we will have one root for a polynomial of degree one.  Next we will use the induction hypothesis that a polynomial of degree two has two complex/real roots to show that our third degree polynomial has three complex/real roots.
+%
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 
 So back to:
 $$ G_s(x) =(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})(x-y_{s,2,3})\cdots (x-y_{s,2,d})\cdots (x-y_{s,d-1,d})$$
-we need to the coefficients of $G_s(x)$ to be real and then we need to prove that the degree of $G_s(x)$ is less than $d$.
+we need to the coefficients of $G_s(x)$ to be real and we need the degree to be $2^{n-1}q'$, where $q'$ is odd.
 
-We have some motivation to believe that the coefficients of $G_s(x)$ are real.  We will have to take on belief that they are indeed real.\footnote{For the curious, to the best of my knowledge it has not be proven that we may do this.  What the proofs so far claim is that the coefficients of $G_s(x)$ may be viewed as elementary symmetric polynomials.  These polynomials have special formulas which Fran\c{c}ois Vi\'ete discovered in the late 1500's, which enable one to rewrite them as real numbers.  However these formulas only apply to the reals or complex numbers, not necessarily some field extension of the complex field, which is where we are using them.}  
+\subsubsection*{Coefficents of $G_s(x)$ are real}
 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% Delete ?
+%
+%We have some motivation to believe that the coefficients of $G_s(x)$ are real.  We will have to take on belief that they are indeed real.\footnote{For the curious, to the best of my knowledge it has not be proven that we may do this.  What the proofs so far claim is that the coefficients of $G_s(x)$ may be viewed as elementary symmetric polynomials.  These polynomials have special formulas which Fran\c{c}ois Vi\'ete discovered in the late 1500's, which enable one to rewrite them as real numbers.  However these formulas only apply to the reals or complex numbers, not necessarily some field extension of the complex field, which is where we are using them.}  
+%
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+We need the coefficients of $G_s(x)$ to be real in order to use our induction step.  Recall that the induction step states that polynomials of degree $2^{n-1} q'$ with real valued coefficients have at least one complex root.  In the example proof we saw a concrete version of $G_s(x)$ in this example the three terms were multiplied out and the resulting coefficents for each $x^i$ term were composed of symmetric polynomials in the roots.  
+
+We have the same situation.  $G_s(x)$ is constructed so that the coefficients, additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ are symmetric.  Since the coefficients are symmetric then by the fundamental thereom of symmetric polynomials we can express the additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ as elementary symmetric polynomials, just as we did in the example proof.  \emph{Is this true?} Again the elementary symmetric polynomials relate to the original polynomial and are equivalent to the coefficients of $R(x)$.  The coefficients of $R(x)$ are real, therefore the elementary symmetic polynomials are real.  Likewise the additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ are also real.
+
+\subsubsection*{Degree of $G_s(x)$}
 In order to find the degree of $G_s(x)$, let's just count the terms.
 
-There are $d-1$ terms that have $i=1$, however there are $d-2$ terms that have $i=2$, because $i<j$.  so there are $d-3$ terms that have $i=3$ and so on.
+There are $d-1$ terms that have $i=1$, then there are $d-2$ terms that have $i=2$, because $i<j$.  so there are $d-3$ terms that have $i=3$ and so on.
 $$ G_s(x) =\underbrace{(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})}_{d-1} \underbrace{(x-y_{s,2,3})\cdots (x-y_{s,2,d})}_{d-2} \cdots (x-y_{s,d-1,d})$$
-Thus we have a decreasing sequence, since we are trying to find the degree of $G_s(x)$ we take the $d-1$ terms and add them to $d-2$ terms, so on and so forth.  This gives us a familiar series:
-$$ 1 + 2 + 3 + 4 + \cdots + (d-2) + (d-1)$$.
-The sum of this series is $\frac{d(d-1)}{2}$.  Recall that $d=2^n q$, so $\frac{d(d-1)}{2} = \frac{2^n q (d-1)}{2} = 2^{n-1}q(d-1)$, but $q(d-1)$ is an odd number so $2^{n-1}q(d-1) = 2^{n-1}q'$.  
 
+Thus we have a decreasing sequence, since we are trying to find the degree of $G_s(x)$ we take the $d-1$ terms and add them to $d-2$ terms, so on and so forth.  This gives us a familiar series:
+$$ 1 + 2 + 3 + 4 + \cdots + (d-2) + (d-1)$$
+
+The trick for finding the sum of this sequence is often attributed to Gauss.
+First define: $$S_n = 1 + 2 + 3 + 4 + \cdots + (d-2) + (d-1)$$
+
+then rewrite $S_n$ as
+$$S_n = (d-1) + (d-2) + \cdots + 4 + 3 + 2 + 1$$
+
+add $S_n$ to itself, but we need to be clever here
+$$2 S_n = (1 + (d-1)) + (2+(d-2)) + (3 + (d-3)) + \cdots ((d-2) +2) + ((d-1)+1)$$
+
+Perform the arithmetic inside each set of parenthesis
+$$ 2 S_n = d + d + d + \cdots + d + d$$
+
+Recall that there were $d-1$ terms in $S_n$ and we did nothing to alter that since we paired up each component so:
+$$2 S_n = \underbrace{d + d + d + \cdots + d + d}_{d-1}$$
+
+A model to make multiplication understandable is that it is repeated addition, let's apply that model here:
+$$2 S_n = d(d-1)$$
+
+Which leaves us with our result:
+$$S_n = \frac{d(d-1)}{2}$$
+
+
+So the sum of this series is $\frac{d(d-1)}{2}$.  Recall that $d=2^n q$, so $\frac{d(d-1)}{2} = \frac{2^n q (d-1)}{2} = 2^{n-1}q(d-1)$, but $q(d-1)$ is an odd number so $2^{n-1}q(d-1) = 2^{n-1}q'$.  
+
+\subsection*{Our Complex root}
 We just showed that the degree of $G_s(x)$ is $2^{n-1}q'$, which allows us to use our induction hypothesis.  Therefore, $G_s(x)$ has at least one complex root.  Let us say that the root occurs when $i=r$,  $j=t$, therefore $y_{s,r,t} = x_r + x_t +s x_r x_t$ is complex for some $s$.  If $s=0$ then $x_r + x_t$ is complex.  Suppose $x_r + x_t$ is real, that would mean that the imaginary parts cancel out, but when we take $x_r x_t$ the imaginary parts would not cancel out, therefore $x_r x_t$ is also complex for some $s$.  Since both $x_r+x_t$ and $x_r x_t$ are complex numbers.  To show that $x_r$ and $x_t$ is complex we consider the equation $x^2 - (x_r +x_t)x + x_r x_t$, the roots of this quadratic equation are non other than $x_r$ and $x_t$, which by the induction hypothesis must be complex.  Thus we have shown that any polynomial with complex coefficients has a complex root.
 
 
@@ -496,21 +590,16 @@ We just showed that the degree of $G_s(x)$ is $2^{n-1}q'$, which allows us to us
 
 
 
-
-\subsection*{Extending the proof to show that every polynomial over $\mathbb{C}$ splits over $\mathbb{C}$, i.e., it decomposes into linear factors}
-
-
-
-
-
-
-
-
-\section*{So What? An argument for the Fundamental Theorem of Algebra}  
-The Fundamental Theorem of Algebra states that there is at least one complex root.  What if there was not?  In other words let's suppose that every equation has a solution, and the solution is not in the complex numbers, where would it be?
-\subsection*{A tour of different fields}
-\emph{Take readers on a tour of ordered and non-ordered fields}
-
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% Maybe include? probably not
+%
+%\section*{So What? An argument for the Fundamental Theorem of Algebra}  
+%The Fundamental Theorem of Algebra states that there is at least one complex root.  What if there was not?  In other words let's suppose that every equation has a solution, and the solution is not in the complex numbers, where would it be?
+%\subsection*{A tour of different fields}
+%\emph{Take readers on a tour of ordered and non-ordered fields}
+%
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
