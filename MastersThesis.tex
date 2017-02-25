@@ -322,12 +322,48 @@ The elementary symmetric polynomials are real, however our roots are not.  Thus 
 In order to do that we need to use induction\footnote{This step is not completely necessary for this example, however understanding this process will help immensely when we turn towards the proof for any polynomial}.    Remember induction is like climbing a ladder, we show that the first rung is true, then we show that if a previous rung existed then the next one does as well.  Suppose the degree of our polynomial was one this will act as our base case.  A polynomial of degree one is a non-horizontal line, which will cross the $x-$axis once, therefore we will have one root for a polynomial of degree one.  Next we will use the induction hypothesis that a polynomial of degree two has two complex/real roots to show that our third degree polynomial has three complex/real roots.
 
 In order to do that, we need a second degree polynomial.  We will create this second degree polynomial very cleaverly.  We will rewrite it as:
-$$G_s(x) = (x - a_1 - a_2 - sa_1a_2)(x - a_2 - a_3 - sa_2a_3)$$
-where the $a_1, a_2, a_3$ are the roots of our original polynomial in some field $\mathbb{F}$ and $s$ is a real number.
+$$G_s(x) = (x - a_1 - a_2 - sa_1a_2)(x - a_1 - a_3 - sa_1a_3)(x - a_2 - a_3 - sa_2a_3)$$
+where the $a_1, a_2, a_3$ are the roots of our original polynomial in some field $\mathbb{F}$ and $s$ is a real number.  When we expand $G_s(x)$ we get:
+%$$ G_s(x) = x^2 - x(a_1 + 2a_2 + a_3 + s (a_1 a_2 + a_2 a_3))  + a_1 a_2 + a_1 a_3 + a_2 a_3 + a_2^2 + s(a_1 a_2^2 + 2a_1 a_2 a_3 + a_2^2 a_3) + s^2 a_1 a_2^2 a_3$$
+
+\begin{flalign*}
+G_s(x) &= x^3 \\
+&\hphantom{{}=x}- x^2 ( 2 a_1 + 2 a_2 + 2 a_3 + a_1 a_2 s + a_1 a_3 s + a_2 a_3 s ) &\\
+&\hphantom{{}=x+x}+ x( a_1 a_2 a_3^2 s^2 + a_1 a_2^2 a_3 s^2 + a_1^2 a_2 a_3 s^2 + a_1 a_2^2 s  + a_1 a_3^2 s  + a_2 a_3^2 s  + a_1^2 a_2 s  + a_1^2 a_3 s  + a_2^2 a_3 s  \\
+&\hphantom{{}=x+x+x+x} + 6 a_1 a_2 a_3 s  + a_1^2  + a_2^2  + a_3^2  + 3 a_1 a_2  + 3 a_1 a_3  + 3 a_2 a_3 ) &\\
+&\hphantom{{}=x+x+x}-a_1^2 a_2^2 a_3^2 s^3   - 2 a_1 a_2^2 a_3^2 s^2 - 2 a_1^2 a_2 a_3^2 s^2 - 2 a_1^2 a_2^2 a_3 s^2  - a_1^2 a_2^2 s - a_1^2 a_3^2 s - a_2^2 a_3^2 s \\
+&\hphantom{{}=x+x+x+x} - 3 a_1 a_2 a_3^2 s - 3 a_1 a_2^2 a_3 s - 3 a_1^2 a_2 a_3 s  - a_1 a_2^2 - a_1 a_3^2 - a_2 a_3^2 - a_1^2 a_2 - a_1^2 a_3 - a_2^2 a_3 - 2 a_1 a_2 a_3 
+\end{flalign*}
+
+
+
+%\emph{How is this symmetric in the a_i?}
+
+Notice how we could switch all the $a_1$ with $a_2$ and we would end up with the same equation.  This is because $G_s(x)$ is symetric in the coefficients $a_1, a_2, a_3$.  Since $G_s(x)$ is symmetric there it can be shown that we can then write $G_s(x)$ in terms of its elementary symmetric polynomials.  Recall that our elementary symmetric polynomials were
+\begin{align*}
+e_1 = a_1 + a_2 +a_3 \\
+e_2 = a_1a_2 +a_1a_3 +a_2a_3 \\
+e_3 = a_1a_2a_3
+\end{align*}
+
+Then using these we may write 
+\begin{flalign*}
+G_s(x) &= x^3 \\
+&\hphantom{{}=x}- x^2 ( 2 e_1 + e_2 s ) &\\
+&\hphantom{{}=x+x}+ x( e_1 e_3 s^2 + e_1 e_2 s  + e_1^2 - 2e_2  + 3 e_2 ) &\\
+&\hphantom{{}=x+x+x}-e_3^2 s^3   - 2 e_2 e_3 s^2  - (e_2^2 - 2e_1e_3) s  - 3 e_1 e_3 s  - e_1 e_2 + e_3
+\end{flalign*}
+
+The coefficients of the elementary symmetric polynomials are real values.  Furthermore the elementary symmetric polynomials are real valued \emph{WHY}.  Therefore our function $G_s(x)$ had coefficients that are real.
+
+% roadblock because degree shold be even!
+
 
 % now work through the fact that g is symmetric then elementary symmetric, then use the fact that there are two roots in the complex blah blah
 
 
+
+% does this proof only work for polynomials greater than a certain degree, find out.
 
 
 \section*{The Fundamental Theorem of Algebra}
@@ -558,7 +594,8 @@ Below is a proof of the Intermediate Value Theorem.
 
 Consider a function f
 
-
+\end{appendices}
+\end{document}
 
 \section*{Unit Plan: The field of polynomials with integer coefficients}
 
