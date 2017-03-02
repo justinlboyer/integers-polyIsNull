@@ -477,9 +477,47 @@ $G_s(x)$ is constructed so that the coefficients are symmetric in $x_1, \ldots
 
 It is important to know that the coefficients of $G_s$ are symmetric in $x_1, x_2, \ldots, x_d$.  This means that the variables could be interchanged in any way and we would not need to change the coefficients, in fact, we would have the same polynomial!\footnote{For further investigation read about symmetric polynomials.}  In other words the coefficient of $x_1$ would be the same as the coefficient as $x_d$, likewise the coefficient of $x x_1$ would be the same as $x x_d$, so on and so forth.  It might help to think of Pascal's triangle.
 
-To help, let's look at a case when $d=2$ and $d=3$
-\subsubsection*{Example of $G_s(x)$ when $d=2$ and $d=3$}  If $d=2$ then we have $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$, so $G_s(x) = x- x_1 -x_2 - s x_1 x_2$, the degree of $G_s(x)$ is 1.  Also notice how $x_1$ and $x_2$ have the same coefficient  Therefore by the induction hypothesis, we know that it has a complex root, so $x_1 +x_2 + s x_1 x_2$ must be complex, which implies that $x_1+x_2$ and $x_1 x_2$ is complex.\\
+To help, let's look at a case when $d=2$.
+\subsubsection*{Example of $G_s(x)$ when $d=2$ }  In this example we will derive $G_s(x)$ from the original polynomial $$f(x)=x^2+bx+c$$ where $b, c$ are real valued.  
 
+Following the layout of the proof first we find the splitting field over which $f(x)$ splits.  From which we get $$f(x)=(x-x_1)(x-x_2)$$.  At this point we don't know what type of numbers $x_1$ or $x_2$ are.  They could be complex, they could be something else altogether.  Let's now look at what $G_s(x)$ looks like when $d=2$.  Since $$G_s(x) = (x-y_{s,1,2})$$ let's first create $y_{s,1,2}$: $$y_{s,1,2} = x_1 +x_2 + s x_1 x_2$$ so $$G_s(x) = x- x_1 -x_2 - s x_1 x_2$$
+
+There are many important features to notice about $G_s(x)$.  $G_s(x)$ is a polynomial in $x$, its degree is one, so it is one degree lower than our original polynomial $f(x)$, this feature will come in handy when we use our induction hypothesis.  However in order to use our induction hypothesis we need to know that the coefficients of $G_s(x)$ are real valued.  The trick we use here is rather clever.
+
+Recall that $f(x) = (x-x_1)(x-x_2)$, which if we distribute twice we get $$f(x)= x^2 + x(-x_1-x_2)+ x_1x_2$$
+further
+$$f(x) = x^2 +bx + x$$
+Therefore
+
+\begin{align*}
+b = -x_1-x_2 \\ 
+c = x_1 x_2
+\end{align*}
+
+Well we know that $b, c \in \mathbb{R}$ are real valued.  Thus $-x_1-x_2, x_1x_2$ must be real valued.  This does not necessarily mean that $x_1 \in \mathbb{R}$ or that $x_2 \in \mathbb{R}$ are real valued.  For example if $x_1=1+i$ and $x_2 = 1-i$ then $-x_1-x_2=-2$ and $x_1x_2 = 2$.  But it does mean that the coefficents of $$G_s(x) = x-(x_1+x_2)+x_1 x_2$$
+namely $x_1+x_2$ and $x_1 x_2$ are real valued.  Here you saw a concrete version but the fact that $x_1+x_2$ and $x_1 x_2$ are real valued stems from Vi\'ete's formulas, which relate the coefficents of a polynomial to functions of the polynomial.  These functions are what we have been calling the elementary symmetric polynomials.
+
+Now to complete this example we may use the induction hypothesis which loosely stated for this example is: 
+
+\emph{Any polynomial with real valued coefficents and degree "less than'' the original polynomial has at least one complex root.}\footnote{Less than is put in quotations, because stictly speaking this is not true, we are inducting on the even part of the degree, the $2^n$ part.  As long as the new polynomial has an $n'<n$ we can utilize our induction hypothesis.}
+
+Let's check everything our induction hypothesis requires.
+\begin{enumerate}
+\item Real valued coefficients: Because the $G_s(x)$ is symmetric the coefficents may be related to the coefficents of the original polynomial, which are real.
+\item Lesser degree: $G_s(x)$ is constructed such that it will be "less than'' the degree of the orginal polynomial.\footnote{see previous footnote}
+\end{enumerate}
+
+
+Since the criterion for the induction hypothesis is satisfied we know that $G_s(x)$ has at least one complex root, so $$-(x_1 +x_2) + s x_1 x_2$$ must be complex.  In order to figure out whether $x_1$ or $x_2$ is complex we need to analyze $-(x_1 +x_2) + s x_1 x_2$.  In identifying that $-(x_1 +x_2) + s x_1 x_2$ is complex we did not consider $s$ at all.  Thus, whether or not $x_1$ or $x_2$ is complex does not depend on $s$.  So if $s=0$ then $$ -(x_1+x_2)$$ must be complex.  So $x_1+x_2$ must be complex.  Now let's assume $x_1 = u+iv$ and $x_2 = z+iw$, then if $x_1+x_2$ is real valued we must have $iv=iw$ in other words the imaginary parts must cancel out.  Then:
+\begin{align*}
+x_1 x_2 &= (u+iv)(z+iw) \\
+&= (u+iv)(z-iv) \\
+&= uz - ivu +izu - i^2v^2 \\
+&= uz + v^2 + i(vz-uv)
+\end{align*}
+which is complex unless $vz=uv \Rightarrow z=u$ for $v \neq 0$. 
+
+In order to identify if $x_1$ or $x_2$ is our complex root we would need to use the induction hypothesis again, this will be detailed further in the paper.  
 
 
 
@@ -528,12 +566,31 @@ we need to the coefficients of $G_s(x)$ to be real and we need the degree to be 
 %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We need the coefficients of $G_s(x)$ to be real in order to use our induction step.  Recall that the induction step states that polynomials of degree $2^{n-1} q'$ with real valued coefficients have at least one complex root.  In the example proof we saw a concrete version of $G_s(x)$ in this example the three terms were multiplied out and the resulting coefficents for each $x^i$ term were composed of symmetric polynomials in the roots.  
+In order to use our induction step as demonstrated in the previous example we need the coefficients of $G_s(x)$ to be real.  Recall that the induction step states: 
+\begin{center}
+\fbox{\begin{minipage}{40em}
+Polynomials of degree $2^{n-1} q'$ with real valued coefficients have at least one complex root.
+\end{minipage}}
 
-We have the same situation.  $G_s(x)$ is constructed so that the coefficients, additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ are symmetric.  Since the coefficients are symmetric then by the fundamental thereom of symmetric polynomials we can express the additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ as elementary symmetric polynomials, just as we did in the example proof.  \emph{Is this true?} Again the elementary symmetric polynomials relate to the original polynomial and are equivalent to the coefficients of $R(x)$.  The coefficients of $R(x)$ are real, therefore the elementary symmetic polynomials are real.  Likewise the additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ are also real.
+\end{center}
+
+In the two examples we saw a concrete version of $G_s(x)$ in these example the terms when multiplied out were composed of symmetric polynomials in the roots, the $x_i$'s.  
+
+Recall that symmetry in this situation is when we are able to alternate the coefficents and maintain equality.  
+\paragraph*{Symmetric example}
+$$ x + y $$ is symmetric, if I replace $x$ with $y$ and $y$ with $x$ the expression $y+x$ is equivalent.  Likewise $$ x+y+z$$ is also symmetric, we may replace $x$ with $z$ and $z$ with $x$ (or any other combination of variables) and maintain equivalancey.  However $$ x^2 + y$$ is not symmetric alternating the variables results in $$ y^2 + x \neq x^2 + y$$  The left hand side is not equivalent to the right hand side.\\
+
+We have a very similar situation for the generalized proof.  $G_s(x)$ is constructed so that the coefficients are symmetric.  This stems from the fact that $$y_{s,i,j} = x_i + x_j + s x_i x_j$$ is symmetric in the $x_i, x_j$.    If we then multiply all the combinations of $x-y_{s,i,j}$, where $i<j$ then we will have polynomial that is symmetric in all the $x_i$'s.
+
+ 
+  Since the coefficients are symmetric then by the Fundamental Thereom of Symmetric Polynomials we can express the additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ as elementary symmetric polynomials, just as we did in the examples. The elementary symmetric polynomials relate to the original polynomial and are equivalent to the coefficients of $R(x)$.  The coefficients of $R(x)$ are real, therefore the elementary symmetic polynomials are real.  Likewise the additive and multiplciative combinations of the $x_1, x_2, \ldots x_d$ are also real.\\
+  
+  Put another way we related the coefficients of $G_s(x)$ to the coefficents of our original polynomial, $R(x)$.  Since the coefficents of $R(x)$ are real, the coefficients of $G_s(x)$ must be real.  Note that the coefficents of $G_s(x)$ are additive and multiplicative combinations of $x_1, x_2, \ldots x_d$.  These additive and multiplicative combinations are what are known as the elementary symmetric polynomials.\\
+  
+  So we have show that the coefficents of $G_s(x)$ are real.  In order to use the induction hypothesis we need to figure out the degree of $G_s(x)$.
 
 \subsubsection*{Degree of $G_s(x)$}
-In order to find the degree of $G_s(x)$, let's just count the terms.
+Let's try counting how many terms there are in $G_s(x)$.
 
 There are $d-1$ terms that have $i=1$, then there are $d-2$ terms that have $i=2$, because $i<j$.  so there are $d-3$ terms that have $i=3$ and so on.
 $$ G_s(x) =\underbrace{(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})}_{d-1} \underbrace{(x-y_{s,2,3})\cdots (x-y_{s,2,d})}_{d-2} \cdots (x-y_{s,d-1,d})$$
@@ -547,7 +604,7 @@ First define: $$S_n = 1 + 2 + 3 + 4 + \cdots + (d-2) + (d-1)$$
 then rewrite $S_n$ as
 $$S_n = (d-1) + (d-2) + \cdots + 4 + 3 + 2 + 1$$
 
-add $S_n$ to itself, but we need to be clever here
+add $S_n$ to itself, but we need to be clever here, take notice of how the additive terms were grouped
 $$2 S_n = (1 + (d-1)) + (2+(d-2)) + (3 + (d-3)) + \cdots ((d-2) +2) + ((d-1)+1)$$
 
 Perform the arithmetic inside each set of parenthesis
@@ -556,18 +613,74 @@ $$ 2 S_n = d + d + d + \cdots + d + d$$
 Recall that there were $d-1$ terms in $S_n$ and we did nothing to alter that since we paired up each component so:
 $$2 S_n = \underbrace{d + d + d + \cdots + d + d}_{d-1}$$
 
-A model to make multiplication understandable is that it is repeated addition, let's apply that model here:
+A model to make multiplication understandable is that multiplication is repeated addition, let's apply that model here:
 $$2 S_n = d(d-1)$$
 
 Which leaves us with our result:
 $$S_n = \frac{d(d-1)}{2}$$
 
 
-So the sum of this series is $\frac{d(d-1)}{2}$.  Recall that $d=2^n q$, so $\frac{d(d-1)}{2} = \frac{2^n q (d-1)}{2} = 2^{n-1}q(d-1)$, but $q(d-1)$ is an odd number so $2^{n-1}q(d-1) = 2^{n-1}q'$.  
+So the sum of this series is $\frac{d(d-1)}{2}$.  Recall that 
+$$d=2^n q$$
+ so 
+ $$\frac{d(d-1)}{2} = \frac{2^n q (d-1)}{2} = 2^{n-1}q(d-1)$$
+  but $q(d-1)$ is an odd number so 
+  $$2^{n-1}q(d-1) = 2^{n-1}q'$$
+
+Thus $G_s(x)$ has real coefficents and a degree less than or equal to $2^{n-1}q'$, therefore we can apply the induction hypothesis.
 
 \subsection*{Our Complex root}
-We just showed that the degree of $G_s(x)$ is $2^{n-1}q'$, which allows us to use our induction hypothesis.  Therefore, $G_s(x)$ has at least one complex root.  Let us say that the root occurs when $i=r$,  $j=t$, therefore $y_{s,r,t} = x_r + x_t +s x_r x_t$ is complex for some $s$.  If $s=0$ then $x_r + x_t$ is complex.  Suppose $x_r + x_t$ is real, that would mean that the imaginary parts cancel out, but when we take $x_r x_t$ the imaginary parts would not cancel out, therefore $x_r x_t$ is also complex for some $s$.  Since both $x_r+x_t$ and $x_r x_t$ are complex numbers.  To show that $x_r$ and $x_t$ is complex we consider the equation $x^2 - (x_r +x_t)x + x_r x_t$, the roots of this quadratic equation are non other than $x_r$ and $x_t$, which by the induction hypothesis must be complex.  Thus we have shown that any polynomial with complex coefficients has a complex root.
+Since the degree of $G_s(x)$ is $2^{n-1}q'$ and it has real coefficents the  induction hypothesis applies.
 
+\begin{center}
+\fbox{\begin{minipage}{40em}
+Polynomials of degree $2^{n-1} q'$ with real valued coefficients have at least one complex root.
+\end{minipage}}
+\end{center}
+
+  Thus we can assume $G_s(x)$ has at least one complex root in order to show that $R(x)$ has at least one complex root.  Without a loss of generality let us say that the root occurs when $i=r$, $j=t$, therefore 
+$$y_{s,r,t} = x_r + x_t +s x_r x_t$$ 
+is complex for some $s$.  So suppose 
+$$s=0$$ 
+then 
+$$x_r + x_t$$ 
+must be complex.  Now Suppose 
+$$x_r + x_t$$ 
+is real, that would mean that the imaginary parts cancel out, but when we take 
+$$x_r x_t$$ 
+the imaginary parts would not cancel out, therefore $x_r x_t$ is also complex for some $s$.  Since both $x_r+x_t$ and $x_r x_t$ are complex numbers.  To show that $x_r$ or $x_t$ is complex we consider the equation 
+$$x^2 - (x_r +x_t)x + x_r x_t$$  Notice that the coefficents of this equation are complex.  So let's define them as such 
+\begin{align*}
+x_r + x_t = u + iv \\
+x_r x_t = w +iz
+\end{align*}
+where $u,v,z,w$ are real valued.  Substituting these values into the equation gives us:
+$$ x^2 -(u+iv)x + w +iz$$
+Let's apply the quadratic formula to this equation and see what we get.
+\begin{align*}
+x &= \frac{u+iv \pm \sqrt{(u+iv)^2-4(w+iz)}}{2} \\
+&= \frac{u+iv \pm \sqrt{u^2 +2iuv - v^2 - 4w - 4iz}}{2} \\
+&= \frac{u+iv \pm \sqrt{\underbrace{u^2 - v^2 -4w}_p + i (\underbrace{2uv-4z}_q)}}{2}  \\
+&= \frac{u+iv \pm \sqrt{p+iq}}{2} \\
+&= \frac{u+ iv \pm (p' +iq')}{2} \\
+\end{align*}
+
+Thus the roots of $ x^2 -(u+iv)x + w +iz = x^2 - (x_r +x_t)x + x_r x_t$ are complex.  Notice in the third step we set $u^2 - v^2 -4w=p$ and $2uv-4z=q$.  Further a critical and subtle part of the above is that the square root of complex numbers is complex, i.e if $\sqrt{p+iq}$ is complex then there exist some $p', q'$ such that $p' +iq'$.  A proof of this is included in the appendix.\\
+
+Great the roots of $x^2 - (x_r +x_t)x + x_r x_t$ are complex, well let's now find the roots of $x^2 - (x_r +x_t)x + x_r x_t$
+\begin{align*}
+x &= \frac{x_r+x_t \pm \sqrt{(x_r+x_t)^2-4x_rx_t}}{2} \\
+&= \frac{x_r+x_t \pm \sqrt{x_r^2 +2x_rx_t+x_t^2-4x_rx_t}}{2} \\
+&= \frac{x_r+x_t \pm \sqrt{x_r^2 - 2 x_r x_t +x_t^2}}{2} \\
+&= \frac{x_r +x_t \pm \sqrt{(x_r-x_t)^2}}{2} \\
+&= \frac{x_r + x_t \pm (x_r-x_t)}{2} \\
+&= x_r, x_t
+\end{align*}
+
+So the roots of $x^2 - (x_r +x_t)x + x_r x_t$ are non other than $x_r$ and $x_t$, which must be complex.
+
+\subsection*{Conclusion}
+% write about how the roots of G_s are complex and they are the roots of R therefore there exists a complex root
 
 
 %$y_{s,1,1} = 2x_1 + s x_1^2$ and $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$ and $y_{s,2,2} = 2x_2 + s x_2^2$.  Therefore 
@@ -682,6 +795,21 @@ Consider the function $l(x) = x$.  Then $\Lim{x \rightarrow c} l(x) =c$.  Then b
 Below is a proof of the Intermediate Value Theorem.
 
 Consider a function f
+
+
+
+
+\section*{Proof the square root of a complex number is complex}\footnote{Thanks to \url{http://math.stackexchange.com/questions/883030/proof-for-complex-numbers-and-square-root}}
+Let $w = s(\cos(\theta) + i \sin(\theta))$ be a non-zero complex number such that $w^2 = z$.  Therefore:
+$$w^2 = (s(\cos(\theta) + i \sin(\theta)))^2 = s^2(\cos(2 \theta) + i \sin(2 \theta)) = r (\cos(\theta')+ i \sin(\theta')$$
+by De Moivre's theorem.
+
+$\cos(2 \theta) = \cos(\theta')$ so $2 \theta = \pm \theta' + 2n\pi$, where $n$ is an integer
+
+Similarly $\sin(2 \theta) = \sin(\theta')$ so $2 \theta = \pm \theta' + 2l\pi$, where $l$ is an integer.
+
+
+\emph{TBD}
 
 \end{appendices}
 \end{document}
