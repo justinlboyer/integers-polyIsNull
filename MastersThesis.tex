@@ -136,7 +136,9 @@ Well we know we are looking to break up the polynomial into a bunch of parts, mu
 $$ f(x) = (x-r_1)^{l_1}(x-r_2)^{l_2}\cdots(x-r_i)^{l_i}$$
 where the $r_i$s are the roots of $f(x)$ and the $l_i$ are the multiplicities of the roots.\\
 
-But wait, I slipped something by you, what is the prime factorization of $f(x)= x^2 + 1$?  The roots are complex.  So what mathematicians have decided is that $x^2 + 1$ is prime, well not prime, mathematicians use a different word, \emph{irreducible}.  Irreducible just means that the polynomial can't be reduced, which means that no matter what linear term we use as a divisor on the polynomial we will always have a remainder.  So the only thing that divides an irreducible polynomial is the irreducible polynomial itself and 1, remind you of anything.
+But wait, I slipped something by you, what is the prime factorization of $f(x)= x^2 + 1$?  The roots are complex.  So what mathematicians have decided is that $x^2 + 1$ is prime, well not prime, mathematicians use a different word, \emph{irreducible}.  Irreducible just means that the polynomial can't be reduced, which means that no matter what linear term we use as a divisor on the polynomial we will always have a remainder.  So the only thing that divides an irreducible polynomial is the irreducible polynomial itself and 1, remind you of anything.\\
+
+Since the Fundamental Thereom of Algebra is so critical let's see a proof of it.  However before we do that, let's first look at an example that highlights all the necessary components of the proof, but gives us something concrete to stand on.
 
 
 
@@ -150,21 +152,32 @@ But wait, I slipped something by you, what is the prime factorization of $f(x)= 
 
 
 
-\section*{Example Proof: How many roots does $x^3 -r_1 x^2 +r_2 x - r_3$ have?}
-Suppose we have the polynomial $$p(x) = x^3 -r_1 x^2 +r_2 x - r_3$$ and we want to know how many roots it has.  We know $r_1, r_2, r_3$ are real numbers.  Yes, it has three roots in the complex field, but we know that because of a thereom.  The fundamental thereom of algebra to be exact.  Let's walk through an example of a proof that this equation has three roots.  This proof will be of a specific case, and it will be a bit circuitious.  But the idea is prepare you for a general algebraic proof leveraging the same ideas.
+\section*{Example Proof of the Fundamental Thereom of Algebra: How many roots does $x^3 -r_1 x^2 +r_2 x - r_3$ have?}
+Suppose we have the polynomial $$p(x) = x^3 -r_1 x^2 +r_2 x - r_3$$ and we want to know how many roots it has.  We know $r_1, r_2, r_3$ are real numbers.  Yes, it has three roots in the complex field, but we know that because of a thereom.  The Fundamental Thereom of Algebra to be exact.  Let's walk through an example of a "proof'' that this equation, $p(x)$ has three roots.  This proof will be of a specific case, and it will be a bit circuitious.  But the idea is lay out all the components for a general algebraic proof.
 
 Let's wander through an exercise.  In many of today's classrooms math is seldom wandered.  There is a beginning and an end and teachers debate which path to take the students on.  However my intention for this exercise is to lead\footnote{This is a paper after all.  For the inclined I invite you to wander on your own, get lost, try to find your own way, this paper will always be here.} you on a path that feels like a walkabout.  We will take side steps when we need, because that is how math and life are experienced.  What we hope to accomplish is to prove that there are three roots to the equation $x^3 -r_1 x^2 +r_2 x - r_3$.\\
 
-One way to start would be to set the function equal to 0,  $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$ and try to complete the \sout{square} cube,  which is a fruitful endeavor to sharpen rusty algebraic skills.  However we're after more than that.  We are hoping to find a method that will apply to higher degree polynomials.  Pretend for a moment that you know the roots of  $$x^3 -r_1 x^2 +r_2 x - r_3$$ are not real, not even complex, they lie in some field, $\mathbb{F}$, so we can operate on them with addition, subtraction, multiplication, and division.  Let's call these roots $a_1, a_2, a_3$.  
+One way to start would be to set the function equal to 0,  
+$$x^3 -r_1 x^2 +r_2 x - r_3 =0$$ 
+and try to complete the \sout{square} cube,  which is a fruitful endeavor to sharpen rusty algebraic skills.  However we're after more than that.  We are hoping to find a method that will apply to higher degree polynomials.  Pretend for a moment that you know the roots of  
+$$x^3 -r_1 x^2 +r_2 x - r_3$$ 
+are not real, not even complex, they lie in some field, $\mathbb{F}$, so we can operate on them with addition, subtraction, multiplication, and division.  Let's call these roots $a_1, a_2, a_3$.  
 
-The next step we would typically take is rewrite $$x^3 -r_1 x^2 +r_2 x - r_3$$ as: $$(x-a_1)(x-a_2)(x-a_3)$$  But why can we rewrite any polynomial as its linear factors?  If you're like me you learned this through induction.  Your high school teacher made you factor a bunch of quadratic, cubic, and if they hated you quartic polynomials and then multiply(foil, rainbow, etc..) them back together and voila you arrived where you started.  Which is pretty much the best motivating reason to make students factor polynomials.  The idea comes down to the fact that we can expand what where we are working until we are in a place that allows us to do what we need to.  The analogy I use is suppose you are working on a car in your garage.  Everything is going fine, until you go to take a bracket off, the tools you have don't work for the job at hand.  So you call up your friend he has the tools, so you tow your car to his place and fix it there, then when you are done your drive your car back into your garage.  In this analogy your car is the polynomial and the garage is the real numbers $\mathbb{R}$, when you tow your car to your friends you are using a field extension, so that you can use your friends tool, the splitting field, to take the car apart and figure out how to fix (find all the roots) it.
+The next step we would typically take is rewrite 
+$$x^3 -r_1 x^2 +r_2 x - r_3$$ 
+as: 
+$$(x-a_1)(x-a_2)(x-a_3)$$  
+
+But why can we rewrite any polynomial as its linear factors?  If you're like me you learned this through induction.  Your high school teacher made you factor a bunch of quadratic, cubic expressions and if they hated you quartic polynomials and then multiply(foil, rainbow, etc..) them back together and voila you arrived where you started.  Which is a decent motivating reason to make students factor polynomials.\\
+
+The reason we can do this comes down to the fact that we can expand what we are working until we are in a place that allows us to do what we need to.  The analogy I use is suppose you are working on a car in your garage.  Everything is going fine, until you go to take a bracket off, the tools you have don't work for the job at hand.  So you call up your friend he has the tools, so you tow your car to his place and fix it there, then when you are done you drive your car back into your garage.  In this analogy your car is the polynomial and the garage is the real numbers $\mathbb{R}$, when you tow your car to your friends you are using what we will call a field extension, so that you can use your friends tool, the splitting field, to take the car apart and figure out how to fix (find all the roots) it.
 
 \subsection*{Field Extension}
-Suppose you have a playing field of four numbers $\{0, 1, 2, 3\}$, what can we do with these four numbers, we could add them $1+1=2$, $1+2=3$, what about $0+1=1$  we have an additive identity.  What do you think should happen when I try $1+3=$?  Any answer could be correct.  Mathematicians like to play games, so they pick the situation that will continue the game.  They decide to make $1+3=0$ then we can play longer. because then $2+2=0$ as well.  In other words in this playing field we map the number 4 to the number 0, this implies the number 5 would be mapped to 1.  I.e., $$2+3=1$$ $$3+3=2$$ $$1+2+3=2$$ $$2+2+2+3=1$$ so on and so forth.  If you teach kids then your mind probably wandered on the last equation in the series to repeated addition and multiplication.  Exactly, now we might be able to get a sense of multiplication in this playing field.
+Let's work on wrapping our head around this idea of towing our car to a place where we can fix it.  Suppose you have a playing field of four numbers $\{0, 1, 2, 3\}$, what can we do with these four numbers, we could add them $1+1=2$, $1+2=3$, what about $0+1=1$  we have an additive identity.  What do you think should happen when I try $1+3=$?  Any answer could be correct.  Mathematicians like to play games, so they pick the situation that will continue the game.  They decide to make $1+3=0$ then we can play longer. because then $2+2=0$ as well.  In other words in this playing field we map the number 4 to the number 0, this implies the number 5 would be mapped to 1.  I.e., $$2+3=1$$ $$3+3=2$$ $$1+2+3=2$$ $$2+2+2+3=1$$ so on and so forth.  If you teach kids then your mind probably wandered on the last equation in the series to repeated addition and multiplication.  Exactly, now we might be able to get a sense of multiplication in this playing field.
 \begin{align*}
 2+2+2+3 &=1 \\
 2 \cdot 3 +3 &= 1 \\
-(2+1) \cdot 3 &= 1 \\
+(2+1) \cdot 3 &= 1 \text{ Using distributive property} \\
 3 \cdot 3 &= 1
 \end{align*}
 If $3 \cdot 3 = 1$, then multiplying both sides by 3, we get
@@ -174,7 +187,7 @@ If $3 \cdot 3 = 1$, then multiplying both sides by 3, we get
 \end{align*}
 We have a multiplicative identity.  What else is (not) possible with this playing field?\\
 
-So we have addition, we have multiplication, let's try division.  If we really on our models about division we might have problems, we need to really understand what division is.  The Egyptians had a pretty good idea, they were one of the first peoples to record their method of division.  They framed it as a multiplication problem with the multiplier (or multiplicand)\footnote{Why does it not matter if it is the multiplier or multiplicand that is missing?} missing. So $$3 \div 3$$ would be $$3 \cdot ? = 3$$  
+So we have addition, we have multiplication, let's try division.  If we rely on our models about division we might have problems, we need to really understand what division is.  The Egyptians had a pretty good idea, they were one of the first peoples to record their method of division.  They framed it as a multiplication problem with the multiplier (or multiplicand)\footnote{Why does it not matter if it is the multiplier or multiplicand that is missing?} missing. So $$3 \div 3$$ would be $$3 \cdot ? = 3$$  
 The Egyptians then used their times tables to deduce the the answer.  At its core this is what division is, multiplication in reverse, multiplication in-reverse, multiplication in-verse.  We invert multiplication, this is why in dividing fractions we flip and multiply, division is inverting and multiplying.  So that saying: "Dividing fractions don't know why, flip the second number and multiply'' is frighteningly ironic.\\
 
 From here it will help to discover division if we have our own times table:
@@ -665,9 +678,9 @@ x &= \frac{u+iv \pm \sqrt{(u+iv)^2-4(w+iz)}}{2} \\
 &= \frac{u+ iv \pm (p' +iq')}{2} \\
 \end{align*}
 
-Thus the roots of $ x^2 -(u+iv)x + w +iz = x^2 - (x_r +x_t)x + x_r x_t$ are complex.  Notice in the third step we set $u^2 - v^2 -4w=p$ and $2uv-4z=q$.  Further a critical and subtle part of the above is that the square root of complex numbers is complex, i.e if $\sqrt{p+iq}$ is complex then there exist some $p', q'$ such that $p' +iq'$.  A proof of this is included in the appendix.\\
+Thus the roots of $ x^2 -(u+iv)x + w +iz = x^2 - (x_r +x_t)x + x_r x_t$ are complex.  Notice in the third step we set $u^2 - v^2 -4w=p$ and $2uv-4z=q$.  Further a critical and subtle part of the above is that the square root of complex numbers is complex, i.e if $\sqrt{p+iq}$ is complex then there exist some $p', q'$ such that $p' +iq' = \sqrt{p+iq}$.  A proof of this is included in the appendix.\\
 
-Great the roots of $x^2 - (x_r +x_t)x + x_r x_t$ are complex, well let's now find the roots of $x^2 - (x_r +x_t)x + x_r x_t$
+Great the roots of $x^2 - (x_r +x_t)x + x_r x_t$ are complex, but how does that help us in figuring out if $x_r$ or $x_t$ is complex.  Well let's now find the roots of $x^2 - (x_r +x_t)x + x_r x_t$
 \begin{align*}
 x &= \frac{x_r+x_t \pm \sqrt{(x_r+x_t)^2-4x_rx_t}}{2} \\
 &= \frac{x_r+x_t \pm \sqrt{x_r^2 +2x_rx_t+x_t^2-4x_rx_t}}{2} \\
@@ -680,7 +693,42 @@ x &= \frac{x_r+x_t \pm \sqrt{(x_r+x_t)^2-4x_rx_t}}{2} \\
 So the roots of $x^2 - (x_r +x_t)x + x_r x_t$ are non other than $x_r$ and $x_t$, which must be complex.
 
 \subsection*{Conclusion}
-% write about how the roots of G_s are complex and they are the roots of R therefore there exists a complex root
+
+There is a lot involved in this proof, so let's recap what has been done.  We started with some polynomial $C(x)$ this polynomial had complex coefficents, we multiplied $C(x)$ with its conjugate $\bar{C(x)}$, which left us with a polynomial with real coefficents, we called this polynomial $R(x)$.  Now our goal was to show that this polynomial $R(x)$ had at least one complex root.  We found that complex root by inducting on the even part of the degree of the polynomial $R(x)$.  Induction enabled us to assume that polynomials of "lesser'' degree do have at least one complex root.  We were able to construct a polynomial, $G_s(x)$ that not only satisfied the induction hypothesis, but whose roots were the roots of $R(x)$.  So when we find $G_s(x)$'s complex root, we also found $R(x)$ complex root.
+
+
+\subsection*{Every single variable polynomial of degree $n$ has exactly $n$ roots}
+I stated earlier that the statement:
+
+\fbox{\begin{minipage}{40em}
+Every single variable polynomial of degree $n$ has exactly $n$ roots
+\end{minipage}}
+
+Is really a corollary of what I will be referring to as the Fundamental Thereom of Algebra, which is:
+
+ \emph{Any polynomial with complex coefficents greater than degree zero has at least one complex root}.
+
+Let's prove this using the Fundamental Thereom of Algebra.
+
+Let 
+$$f_0(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$$
+where the $a_i$ are real (it still holds if they are complex).  we know by the Fundamental Thereom of Algebra that $f_0(x)$ has at least one complex root, let's call it $r_1$.  Then we can factor $r_1$ out of $f_0(x)$ using long division.  We know this step is legitamate, because in both the field of reals and complex we can divide polynomials by linear factors.  In other words since they are fields, we can divide.\\
+
+Let's denote the new function we obtain when we divide $f_0(x)$ by $(x-r_1)$ as $f_1(x)$.  Further when we compute this division we will have no remainder.  If we did have a remainder then 
+$$f_0(r_1)= \underbrace{(r_1-r_1) f_1(r_1)}_{\text{zero}} + \underbrace{\text{remainder}}_{\text{not zero}}$$
+would not equal zero.  Also the degree of $f_0(x)$ was $n$, therefore the degree of  $f_1(x)$ must be $n-1$, since 
+$$ \underbrace{f_0(x)}_{\text{degree } n}= \underbrace{(x-r_1)}_{\text{degree }1} f_1(x)$$
+since exponents add $f_1(x)$ must have degree $n-1$.\\
+
+Now we apply the Fundamental Thereom of Algebra to $f_1(x)$ this gives us a root we will call $r_2$.  We divide $f_1(x)$ by $(x-r_2)$ to get $f_2(x)$.  Again the remainder must be zero and the degree of $f_2(x)$ will be $n-2$.\\
+
+It's important to see that we have found two roots and we've reduced the polynomial by two degrees.  Therefore if we repeat this process $n$ times we will have exactly $n$ roots and we will have reduced the polynomial to degree $n-n=0$, for which no roots will exist.  Thus we have found exactly $n$ roots for a polynomial of degree $n$.
+
+
+
+
+
+
 
 
 %$y_{s,1,1} = 2x_1 + s x_1^2$ and $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$ and $y_{s,2,2} = 2x_2 + s x_2^2$.  Therefore 
