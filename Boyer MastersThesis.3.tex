@@ -12,6 +12,7 @@
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{commath}
 \usepackage[unicode=true,
  bookmarks=false,
  breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
@@ -26,7 +27,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 
 
-\usepackage{exsheets}
+%\usepackage{exsheets}
 \usepackage[toc,page]{appendix}
 %\usepackage{amsthm} 
 \usepackage{array}
@@ -344,7 +345,7 @@ x^{3}-r_{1}x^{2}+r_{2}x-r_{3}
 \]
 has a real root $s_{1}$. As we have shown earlier, this means that
 \[
-x^{3}-r_{1}x^{2}+r_{2}x-r_{3}=\left(x-s_{1}\right)\left(x^{2}+bx+c\right).
+x^{3}-r_{1}x^{2}+r_{2}x-r_{3}=\left(x-a_{1}\right)\left(x^{2}+bx+c\right).
 \]
 But now, again as we have already shown, this means that $x^{2}+bx+c$
 can be factors into linear factors using the quadratic formula.
@@ -353,7 +354,7 @@ Suppose now that we don't know that the coefficients of $x^{3}-r_{1}x^{2}+r_{2}x
 are real but just lie in some field $\mathbb{F}$, so the operations
 of addition, subtraction, multiplication, and division hold. And suppose
 we know that its roots lie in that same field. Let's call these roots
-$s_{1},s_{2},s_{3}$.
+$a_{1},a_{2},a_{3}$.
 
 Typically one would rewrite 
 \[
@@ -361,7 +362,7 @@ x^{3}-r_{1}x^{2}+r_{2}x-r_{3}
 \]
 as 
 \[
-(x-s_{1})(x-s_{2})(x-s_{3}).
+(x-a_{1})(x-a_{2})(x-a_{3}).
 \]
 
 Why can polynomials be written as linear factors? Recall the previous
@@ -371,42 +372,16 @@ factor a polynomial in $\mathcal{\mathbb{F}}\left[x\right]$ if $\mathbb{F}$
 is a large enough field. 
 
 \subsection*{Field Extension}
-In order to alleviate this problem the playing field is extended to
-a set of numbers whose size (cardinality) is not composite, for example
-we could extend it to using five numbers. The multiplication table
-for this new field is below. 
+The idea of a field extension boils down to increasing the set of numbers one is able to use, while maintaining the properties of addition and multiplication.  %For example the Pythagoreans worked in the field of rational values, therefore when they came across $\sqrt{2}$ they did not believe it could be a solution.  We can now extend our field to all real values and now $\sqrt{2}$ is a perfectly fine solution.
 
-
-
-
-
-
-Each column (except 0) contains a full set of the numbers in the field.
-This makes division in this field unique because multiplication is
-unique. Also now we can call this set a field, because it has a unique
-multiplicative inverse. The set with four elements is referred to
-as a ring.
-
-\paragraph*{Example:}
-
-Let's pick the two's column again, what is $2\div2$ rewriting this
-becomes $2\cdot?=2$ which looking up in the table is one. What about
-$2\div1$? Rephrasing as multiplication is $2\cdot?=1$ thus two divided
-by one is three. Or phrased another way three is the inverse of two.\\
-
-It was not possible to divide in the ring with four elements. But
-when an element was added making the size of the field prime, division
-was unique (and it could be called a field). This is the idea of a
-field extension. I start with some (playing) field and I make the
-field larger so that it will satisfy some additional properties.
-
-Consider a field of five numbers $\{0,1,2,3\}$, it is possible to add these numbers,
-for example, $1+1=2$, $1+2=3$, as well as $0+1=1$ this is the additive
+\subsubsection*{5 hour Clock Arithmetic}
+The basics of field extension can be most easily understood in the world of clock (modular) arithmetic.  Consider an algebraic structure that consists of five elements, $\{0,1,2,3,4\}$.  It is possible to add in this structure,
+for example, $1+1=2$, $1+2=3$, and $0+1=1$ thus 0 is the additive
 identity. But what about $1+4=$? Any answer could be correct. Mathematicians
 like to play games, so they pick the situation that will continue
 the game. They decide to make $1+4=0$. In other words in this 
-field we map the number 5 to the number 0, this implies the number
-6 would be mapped to 1. I.e., 
+field the number 5 is mapped to the number 0, this implies the number
+6 would be mapped to 1, and $7 \rightarrow 2$, $8 \rightarrow 3$, $9\rightarrow 4, \ldots$. Using these mappings and the induction they imply I can add any values in this structure and still have values in this structure. For example addition in 5-clock arithmetic looks like:
 \[
 2+4=1
 \]
@@ -414,31 +389,27 @@ field we map the number 5 to the number 0, this implies the number
 3+4=2
 \]
 \[
-4+4=3
+1+2+3+4=0
 \]
 \[
 3+3+3+3+4=1
 \]
-so on and so forth. If you teach kids then your mind probably wandered
-on the last equation in the series to repeated addition and multiplication.
-Now I can utilize repeated addition to investigate multiplication
-in this field. 
+so on and so forth.  The last equation in the series highlights repeated addition, I can use the model of multiplication as repeated addition to understand multiplication.
 \begin{align*}
 3+3+3+3+4 & =1\\
 4\cdot3+4 & =1\\
-(3+1)\cdot4 & =1\text{ Using distributive property}\\
+4 \cdot (3+1) & =1\text{ Using distributive property}\\
 4\cdot4 & =1
 \end{align*}
-If $4\cdot4=1$, then multiplying both sides by 4, we get 
+If $4\cdot4=1$, then multiplying both sides by 4, I get 
 \begin{align*}
 4\cdot4\cdot4 & =4\\
 1\cdot4 & =4
 \end{align*}
-There is a multiplicative identity. 
+There is a multiplicative identity in this structure, it is the number 1. 
 
 
-
-Let's take a closer look at multiplication of twos.  Notice that no matter what I multiply 2 by there is a unique answer. 
+Let's take a closer look at multiplication of twos.  
 \begin{align*}
 2\cdot0=0\\
 2\cdot1=2\\
@@ -447,7 +418,9 @@ Let's take a closer look at multiplication of twos.  Notice that no matter what 
 2 \cdot 4 = 3 \\
 \end{align*}
 
-More importantly is the fact that I have a multiplicative inverse. I.e., $2 \cdot 3=1$.  Likewise there is a multiplicative inverse for $1^{-1}=1$, $3{-1}=2$, $4^{-1}=4$.  I can use the multiplicative inverse to make sense of division.  For example suppose I wanted to find what $2\div4 =?$ is in 5-clock arithmetic.  I can rephrase this as a multiplication problem, $ 2 = ? \cdot 4$.  Then I know 4 has a multiplicative inverse namely itself, so I can multiply the previous equation by 4, $2 \cdot 4 = ? \cdot 4 \cdot 4$.  $2\cdot 4=3$ in this clock 5 arithmetic and $4 \cdot 4 =1$, therefore $3=?$.  So $2\div4=3$ in this system and I can divide, because I have a multiplicative inverse.
+I have a multiplicative inverse for 2 it is 3. I.e., $2 \cdot 3=1$.  Likewise there is a multiplicative inverse for $1^{-1}=1$, $3^{-1}=2$, $4^{-1}=4$.  I will use the multiplicative inverse to understand division in this system.\\
+
+For example suppose I wanted to find what $2\div4 =?$ is in 5-clock arithmetic.  I can rephrase this as a multiplication problem, $ 2 = ? \cdot 4$.  Then I know 4 has a multiplicative inverse namely itself, so I can multiply the previous equation by 4, $2 \cdot 4 = ? \cdot 4 \cdot 4$.  $2\cdot 4=3$ in this clock 5 arithmetic and $4 \cdot 4 =1$, therefore $3=?$.  So $2\div4=3$ in this system and I can divide, because I have a multiplicative inverse.
 
 A more efficient method for computing division exists.  In fact it was the Egyptians who were one of the first peoples to record this more efficient method of division.
 Similar to the above process they framed it as a multiplication problem with the multiplier (or
@@ -569,33 +542,33 @@ of polynomials with integer coefficients modular $x^{2}+1$} is.
 Where the last step used the identity $x^{2}=-1$. In some ways working
 from this place one might say we are building the complex numbers
 from the real numbers. But the reason I am doing this, is so I can
-split any polynomial up (find the splitting field). I am extending
-the field as a quotient ring generated by $x^{2}+1$. $x^{2}+1$ is
-also know as an irreducible factor, and when it acts as the divisor
-in the quotient ring, it is known as the ideal.
+split any polynomial up (find the splitting field). 
 
-\paragraph*{Example}
+%I am extending
+%the field as a quotient ring generated by $x^{2}+1$. $x^{2}+1$ is
+%also know as an irreducible factor, and when it acts as the divisor
+%in the quotient ring, it is known as the ideal.
 
-What is the splitting field for 
-\[
-x^{4}+x^{3}+x^{2}+1?
-\]
-Using the previous field extension, i.e., the quotient ring generated
-by $x^{2}+1=0$. 
-\begin{align*}
-x^{4}+x^{3}+x^{2}+1 & =x^{4}+x^{3}+0\\
- & =x^{3}(x+1)
-\end{align*}
-Lastly, recall $x^{2}=-1$ this implies $x^{3}=-x$. Therefore: 
-\[
-x^{4}+x^{3}+x^{2}+1=-x(x+1)
-\]
-in our new field $\mathbb{Z}/(x^{2}+1)$. I have split the polynomial
-into linear factors, this is the splitting field, and in this field
-0 and -1 are the roots of the polynomial.\\
+%\paragraph*{Example}
+%
+%What is the splitting field for 
+%\[
+%x^{4}+x^{3}+x^{2}+1?
+%\]
+%Using the previous field extension, i.e., the quotient ring generated
+%by $x^{2}+1=0$. 
+%\begin{align*}
+%x^{4}+x^{3}+x^{2}+1 & =x^{4}+x^{3}+0\\
+% & =x^{3}(x+1)
+%\end{align*}
+%Lastly, recall $x^{2}=-1$ this implies $x^{3}=-x$. Therefore: 
+%\[
+%x^{4}+x^{3}+x^{2}+1=-x(x+1)
+%\]
+%in our new field $\mathbb{Z}/(x^{2}+1)$. I have split the polynomial
+%into linear factors, this is the splitting field, and in this field
+%0 and -1 are the roots of the polynomial.\\
 
-{\color{red}\emph{Need Help! Prove that there exists a splitting
-field}}\\
 
 
 \subsubsection*{Splitting field of $x^{3}-r_{1}x^{2}+r_{2}x-r_{3}$}
@@ -611,7 +584,48 @@ as
 because we look at it in a field in which it is possible, just as
 I did in the above examples. \\
 
-{\color{red}\emph{How would I do it for this example?}} \\
+Suppose that $x^{3}-r_{1}x^{2}+r_{2}x-r_{3}$ is irreducible in the field of polynomials with real-valued coefficients, $\mathbb{R}[x]$.  Then what I want to do is construct a clock arithmetic where
+\[
+x^{3}-r_{1}x^{2}+r_{2}x-r_{3} \equiv 0,
+\]
+I'll call this new field $\mathbb{G}[y]$.  In this new field the function $f(y)=y^{3}-r_{1}y^{2}+r_{2}y-r_{3}$ has a root at $f(x)=x^{3}-r_{1}x^{2}+r_{2}x-r_{3}=0$ therefore $x$ is root of $y^{3}-r_{1}y^{2}+r_{2}y-r_{3}$.\footnote{Since $x$ is not divisible by $y^{3}-r_{1}y^{2}+r_{2}y-r_{3}$, it cannot be a multiple of it.} For the sake of convenience, let $x=a_1$.  I then reduce the degree by long division thus $y^{3}-r_{1}y^{2}+r_{2}y-r_{3}$ becomes 
+\[
+(y-a_1)(y^2+by+c)
+\]
+where $a$ and $c$ are some values in $\mathbb{G}[x]$.  I complete the square on the quadratic term to find the other remaining two roots.
+\begin{align*}
+y^2+by+c &= 0 \\
+\left(y+\frac{b}{2}\right)^2 - \frac{b^2}{4}+c &= 0 \\
+\left(y+\frac{b}{2}\right)^2 &= \frac{b^2}{4} - c \\
+\left(y+\frac{b}{2}\right)^2 &= \frac{b^2-4c}{4} \\
+\abs{y+ \frac{b}{2}} &= \sqrt{\frac{b^2-4c}{4}} \\
+y + \frac{b}{2} &= \pm \sqrt{\frac{b^2-4c}{4}} \\
+y + \frac{b}{2} &= \pm \frac{\sqrt{b^2-4c}}{2} \\
+y &= \frac{-b}{2} \pm \frac{\sqrt{b^2-4c}}{2} \\
+y &= \frac{-b \pm \sqrt{b^2-4c}}{2}
+\end{align*}
+
+If $\sqrt{b^2-4c}$ is reducible in $\mathbb{G}$ then I'm done, let $a_2 = \frac{-b + \sqrt{b^2-4c}}{2}$ and $a_3 = \frac{-b - \sqrt{b^2-4c}}{2}$, therefore my splitting field is:
+\[
+(y-a_1)(y-a_2)(y-a_3).
+\]
+If $\sqrt{b^2-4c}$ is not reducible, then I need to expand the field again.  This time I set
+\[
+y - \frac{-b + \sqrt{b^2-4c}}{2} \equiv 0
+\]
+I'll call this new field $\mathbb{J}\left[\sqrt{b^2-4c}\right]$.  Now $\sqrt{b^2-4c}$ is a root in this field.  Surely $x$ is still a root, because $\mathbb{J}\left[\sqrt{b^2-4c}\right]$ contains $\mathbb{G}[x]$, since we built $\mathbb{J}$ off $\mathbb{G}$. Therefore on root is $a_2 =\frac{-b + \sqrt{b^2-4c}}{2}$ and the other is $a_3 = \frac{-b - \sqrt{b^2-4c}}{2}$.  I have now successfully split my polynomial 
+\[
+x^{3}-r_{1}x^{2}+r_{2}x-r_{3}
+\]
+which belonged to the field of polynomials with real valued coefficients into
+\[
+\left(z-x \right) \left(z-\frac{-b + \sqrt{b^2-4c}}{2}\right)\left(z - \frac{-b - \sqrt{b^2-4c}}{2} \right)
+\]
+which belongs to the field $\mathbb{J}\left[\sqrt{b^2-4c}\right]$ which is quite possibly very different than the field of polynomials with real valued coefficients.
+
+
+
+
 
 %What we want to do first is factor $x^3 -r_1 x^2 +r_2 x - r_3$ as far as possible, suppose $x^3 -r_1 x^2 +r_2 x - r_3$ is as far as we can factor it in our field.   Then $$x^3 -r_1 x^2 +r_2 x - r_3 =0$$
 %This then implies that $$x^3 -r_1 x^2 = r_3- r_2 x$$
@@ -629,8 +643,9 @@ I did in the above examples. \\
 %in this case we know the roots, so let's just do long division, which gives us:
 %$$x^4+x^3+x^2+1 = (x-a_1)(x^3 + (a_1+1)x^2 + (a_1^2+a_1+1) + (a_1^3+a_1^2+a_1))$$
 
-In other words, I find some field $\mathbb{F}$ that allows me to
-split 
+\mbox{}\\
+
+In other words, I keep building larger and larger fields until I have split my original polynomial into linear terms.  This new field $\mathbb{J}$ may look very different than my original field, for example $\sqrt{2}$ might actually have a solution in my new field.  Now I have split 
 \[
 x^{3}-r_{1}x^{2}+r_{2}x-r_{3}
 \]
@@ -638,22 +653,21 @@ into
 \[
 (x-a_{1})(x-a_{2})(x-a_{3})
 \]
-and $a_{1},a_{2},a_{3}$ are elements of this field $\mathbb{F}$,
-we are not really sure what $\mathbb{F}$ is, we just know that it
-exists.\\
-
-{\color{red}\emph{How do we know we will have 3 roots in C?} We
-can't, but it doesn't matter, the proof doesn't rely on that, right?}\\
+and $a_{1},a_{2},a_{3}$ are elements of this field $\mathbb{J}$.\\
 
 I can't say that $a_{1},a_{2},a_{3}$ are my three roots, because
-I might not even have three. Further the numbers $a_{1},a_{2},a_{3}$
-are in the field $\mathbb{F}$ and do not necessarily carry any current
-meaning in $\mathbb{R}$. In other words the car is taken apart in
-our friends garage. I need to make sense of these roots $a_{1},a_{2},a_{3}$.
+they may not even be complex valued, let alone real-valued.
 
-I know that $\mathbb{F}$ is a field so all the properties of addition
-and multiplication hold. So I can distribute and multiply, when I
-do this I get: 
+\subsubsection*{Recap and relationship with prime numbers}
+To recap what I did:\\
+
+{\color{red} TBD}
+
+
+
+
+I know that $\mathbb{J}$ is a field thus all the usual properties of addition
+and multiplication hold. Therefore there is nothing holding me back from distributing and multiplying: 
 \[
 (x-a_{1})(x-a_{2})(x-a_{3})=x^{3}-(a_{1}+a_{2}+a_{3})x^{2}+(a_{1}a_{2}+a_{1}a_{3}+a_{2}a_{3})x-a_{1}a_{2}a_{3}
 \]
@@ -1672,3 +1686,22 @@ where $l$ is an integer.
 
 \end{appendices} 
 \end{document}
+
+
+
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% old 5hr clock arithmetic stuff
+%
+%Let's pick the two's column again, what is $2\div2$ rewriting this
+%becomes $2\cdot?=2$ which looking up in the table is one. What about
+%$2\div1$? Rephrasing as multiplication is $2\cdot?=1$ thus two divided
+%by one is three. Or phrased another way three is the inverse of two.\\
+%
+%It was not possible to divide in the ring with four elements. But
+%when an element was added making the size of the field prime, division
+%was unique (and it could be called a field). This is the idea of a
+%field extension. I start with some (playing) field and I make the
+%field larger so that it will satisfy some additional properties.
+%
