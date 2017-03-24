@@ -838,13 +838,13 @@ y^{2}+x\neq x^{2}+y
 The left hand side is not equivalent to the right hand side.
 
 
-I know that $\mathbb{J}[z]$ is a commutative ring thus all the usual properties
+The polynomial $(z-s_1)(z-s_2)(z-s_3)$ is symmetric, this is important because symmetric polynomials have a special proprerty.  I know that in $\mathbb{J}[z]$ all the usual properties
 of addition and multiplication hold (except multiplicative inverse). Therefore there is nothing holding
 me back from distributing and multiplying: 
 \[
 (z-s_{1})(z-s_{2})(z-s_{3})=z^{3}-(s_{1}+s_{2}+s_{3})z^{2}+(s_{1}s_{2}+s_{1}s_{3}+s_{2}s_{3})z-s_{1}s_{2}s_{3}
 \]
-Look at this equation and notice how $s_{1}$ and $s_{2}$ could interchange
+Inspecting the previous equation notice how $s_{1}$ and $s_{2}$ could interchange
 positions and maintain an equivalent expression, likewise with $s_{3}$.
 So each of the coefficients on the right-hand side 
 \begin{align*}
@@ -1347,9 +1347,9 @@ to show that this polynomial $R(x)$ had at least one complex root.
 We found that complex root by inducting on the even part of the degree
 of the polynomial $R(x)$. Induction enabled us to assume that polynomials
 of \char`\"{}lesser'' degree do have at least one complex root. We
-were able to construct a polynomial, $G_{t}(x)$ that not only satisfied
+were able to construct a polynomial, $G_{t}(z)$ that not only satisfied
 the induction hypothesis, but whose roots were the roots of $R(x)$.
-So when we found $G_{t}(x)$'s complex root, we also found $R(x)$'s
+So when we found $G_{t}(z)$'s complex root, we also found $R(x)$'s
 complex root. We then used this result to reduce the degree of the
 initial polynomial, and find the complex roots. Using this result
 we were able to find $n$ roots for a $n^{\text{th}}$ degree polynomial.
@@ -1358,6 +1358,8 @@ constituent parts. Just as any integer may be decomposed into its
 prime factors, polynomials may be completely decomposed into linear
 factors in the complex plane. So the Fundamental Theorem of Arithmetic
 is to Integers, as the Fundamental Theorem of Algebra is to polynomials.
+
+{\color{red} I was thinking I should find a way to include the mapping $\Phi$, just to tie everything together}
 
 \begin{appendices}
 
@@ -1442,10 +1444,8 @@ Therefore $P(x)$ is continuous for any value $c$.
 %\end{align*}
 %Therefore we have found a $\delta$ for a given $\epsilon$ so that $|f(x)-f(c)|< \epsilon$ whenever $|x-c| < \delta$.  The case when $m=0$, follows similar, but simpler logic.
 
-\section*{Proof of Bolzano's Theorem}\footnote{Refrenced from: \url{http://www.cut-the-knot.org/fta/brodie.shtml}}
-
-
-Given $f$ continuous on some closed interval $[a,b]$, with $f(a)<0<f(b)$ and let $S$ be a set of numbers $x$ in $[a,b]$, where $f(x)<0$.  $S$ cannot be empty since it will at least contain $a$, and $S$ is bounded since it is a subset of a closed interval.  Then denote the least upper bound by $c$.\\
+\section*{Proof of Bolzano's Theorem}
+Given $f$ continuous on some closed interval $[a,b]$, with $f(a)<0<f(b)$, let $S$ be a set of numbers $x$ in $[a,b]$, where $f(x)<0$.  $S$ cannot be empty since it will at least contain $a$, and $S$ is bounded since it is a subset of a closed interval.  Then denote the least upper bound by $c$.\footnote{Refrenced from: \url{http://www.cut-the-knot.org/fta/brodie.shtml}}\\
 
 Three possibilities exist for $f(c)$:
 \begin{itemize}
@@ -1495,15 +1495,22 @@ Recall Bolzano's theorem states that a continuous function, $f$, takes values $f
 
 Its already been shown that any polynomial $P(x)$ is continuous.  So we need to show that somewhere $P<0$ and somewhere else $P>0$.
 
+Recall:
+\[\lim_{x \rightarrow -\infty} x^d \rightarrow -\infty 
+\]
+and
+\[
+\lim_{x \rightarrow -\infty} 1 + \frac{r_{d-1}}{x^{d-1}} + \cdots +\frac{r_1}{x} + \frac{r_0}{x^d} = 1
+\]
+
+Thus:
 \begin{align*}
 \lim_{x \rightarrow -\infty} P(x) &= \lim_{x \rightarrow -\infty}  x^d + r_{d-1}x^{d-1} + \cdots +r_1x +r_0 \\
-&= \lim_{x \rightarrow -\infty} x^d \left( 1 + \frac{r_{d-1}}{x^{d-1}} + \cdots +\frac{r_1}{x} + \frac{r_0}{x^d} \right) \\\\
-\text{Recall: }\lim_{x \rightarrow -\infty} x^d \rightarrow -\infty \\
-\lim_{x \rightarrow -\infty} 1 + \frac{r_{d-1}}{x^{d-1}} + \cdots +\frac{r_1}{x} + \frac{r_0}{x^d} = 1 \\\\
-&\Rightarrow \lim_{x \rightarrow -\infty} P(x) \rightarrow - \infty
+&= \lim_{x \rightarrow -\infty} x^d \left( 1 + \frac{r_{d-1}}{x^{d-1}} + \cdots +\frac{r_1}{x} + \frac{r_0}{x^d} \right) \\
+&= \lim_{x \rightarrow -\infty} P(x) \rightarrow - \infty
 \end{align*}
 
-Thus since $P(x)$ is continuous we know there is some distinct value such that, $P(a)<0$.
+Since $P(x)$ is continuous we know there is some distinct value such that, $P(a)<0$.
 
 The proof that there exists some place $P>0$ follows the same reasoning. I.e.,
 \begin{align*}
