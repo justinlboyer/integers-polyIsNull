@@ -54,27 +54,6 @@
 \newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
 
 
-%\usepackage{mcode}
-
- % Turns off automatic numbering of sections.
-
-%\SetupExSheets{headings=block}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -84,7 +63,7 @@
 \begin{document}
 
 \section{Introduction}
-In the study of math symmetry is often analyzed, utilized, or identified.  A general definition of symmetry could be reduced to features of object/s which are similar or have an exact correspondence.  This paper sets out to help the reader identify the symmetry between the integers and polynomials with real coefficients.  This will be achieved by first analyzing symmetries between the integers and polynomials with real coefficients.  A function, $\Phi$ will be introduced that allows us to move between polynomials with integer coefficients and the integers.  We will then see parallels between prime numbers and irreducible polynomials, a field extension in clock arithmetic and in the polynomials, and lastly in the fundamental theorem of arithmetic and the fundamental theorem of algebra.  An exposition of an algebraic proof of the fundamental theorem of algebra then utilizes symmetry in order to conclude that that any polynomial with complex coefficients has at least one complex root.  Symmetries are abound in nature and mathematics, this paper seeks to expose one of the beautiful mathematical symmetries at an undergraduate college level.
+In mathematics, symmetry is often analyzed, utilized, or identified.  A general/laymans definition of symmetry could be reduced to: features of objects which are similar or have an exact correspondence.  This paper sets out to help the reader identify the symmetry between the integers and polynomials with real coefficients.  This will be achieved by first analyzing symmetries between the integers and polynomials with real coefficients.  A function, $\Phi$ will be introduced that allows us to move between polynomials with integer coefficients and the integers.  We will then see parallels between prime numbers and irreducible polynomials, a field extension in clock arithmetic and in the polynomials, and lastly in the fundamental theorem of arithmetic and the fundamental theorem of algebra.  An exposition of an algebraic proof of the fundamental theorem of algebra then utilizes symmetry in order to conclude that that any polynomial with complex coefficients has at least one complex root.  Symmetries are abound in nature and mathematics, this paper seeks to expose one of the beautiful mathematical symmetries at an undergraduate college level.
 
 
 
@@ -482,13 +461,7 @@ framed it as a multiplication problem with the multiplier (or multiplicand)\foot
 is missing?} missing. But then they used a multiplication table to deduce the
 solution.
 
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% Overview of division
-%The Egyptians then used their times tables to deduce the the answer.
-%At its core this is what division is, multiplication in reverse, multiplication
-%in-reverse, multiplication in-verse. We invert multiplication, this
-%is why when dividing fractions we flip and multiply, division \underline{is}
-%multiplicative inverse.  Thus if a set of numbers has a multiplicative inverse, then division is defined for that set of numbers.\\
+
 
 From here it will help if we have a times-table to reference: 
 \begin{center}
@@ -519,12 +492,6 @@ is multiplication inverted. In other words, each division problem
 is really just a multiplication problem in reverse. Next I will show
 you a structure that does not have a multiplicative inverse.
 
-%\begin{align*}
-%2 \div 1 = ? \rightarrow 2 = 1 \cdot ?  \Rightarrow ?=2 \\
-%2 \div 2 = ? \rightarrow 2  = 2 \cdot ? \Rightarrow ?=1 \\
-%2 \div 3 = ? \rightarrow 2 = 3 \cdot ? \Rightarrow ?=4 \\
-%2 \div 4 = ? \rightarrow 2 = 4  \cdot ? \Rightarrow ?=3 \\
-%\end{align*}
 
 \subsubsection*{4-hour clock arithmetic}
 
@@ -685,41 +652,8 @@ as a field extension of the real number system. We are doing this
 because it will turn out that I can split any polynomial up in this
 way (i.e. find the splitting field).
 
-%I am extending
-%the field as a 'quotient ring' modulo the relation $x^{2}+1$. The set of all polynomial multiples of $x^{2}+1$ is called an ideal in the polynomial ring $\mathbb{R}[x]$ and, since $x^{2}+1$ cannot be factored in $\mathbb{R}[x]$,
-%the quotient ring is a field.
-
-%\paragraph*{Example}
-%What is the splitting field for 
-%\[
-%x^{4}+x^{3}+x^{2}+1?
-%\]
-%Using the previous field extension, i.e., the quotient ring generated
-%by $x^{2}+1=0$. 
-%\begin{align*}
-%x^{4}+x^{3}+x^{2}+1 & =x^{4}+x^{3}+0\\
-% & =x^{3}(x+1)
-%\end{align*}
-%Lastly, recall $x^{2}=-1$ this implies $x^{3}=-x$. Therefore: 
-%\[
-%x^{4}+x^{3}+x^{2}+1=-x(x+1)
-%\]
-%in our new field $\mathbb{Z}/(x^{2}+1)$. I have split the polynomial
-%into linear factors, this is the splitting field, and in this field
-%0 and -1 are the roots of the polynomial.\\
-
 \subsubsection*{Splitting field of $x^{3}-r_{1}x^{2}+r_{2}x-r_{3}$}
 
-%In short we can eventually factor
-%\[
-%x^{3}-r_{1}x^{2}+r_{2}x-r_{3}
-%\]
-%as 
-%\[
-%(x-a_{1})(x-a_{2})(x-a_{3})
-%\]
-%because we look at it in a bigger field in which it is possible, just as
-%we did in the above examples. \\
 
 Suppose that $x^{3}-r_{1}x^{2}+r_{2}x-r_{3}$ is irreducible in some
 system of polynomials $\mathbb{F}[x]$ with coefficients in some field
@@ -970,25 +904,20 @@ in the number system
 \]
 Let's check. Here is what we get:
 
-%$$ G_s(x) = x^2 - x(a_1 + 2a_2 + a_3 + s (a_1 a_2 + a_2 a_3))  + a_1 a_2 + a_1 a_3 + a_2 a_3 + a_2^2 + s(a_1 a_2^2 + 2a_1 a_2 a_3 + a_2^2 a_3) + s^2 a_1 a_2^2 a_3$$
 
-{\color{red} Lyx messes up the equation below, so I will wait to
-include it}
 
-\begin{flalign*} Gs(x) \&= x3 \\
- \&\hphantom{{}=x} {\color{green} - x2 ( 2 a1 + 2 a2 + 2 a3 + a1
-a2 s + a1 a3 s + a2 a3 s )} \&\\
- \&\hphantom{{}=x+x} {\color{blue} + x( a1 a2 a32 s2 + a1 a22 a3
-s2 + a12 a2 a3 s2 + a1 a22 s + a1 a32 s + a2 a32 s + a12 a2 s } \\
- \&\hphantom{{}=x+x+x+x} {\color{blue} + a12 a3 s + a22 a3 s +
-6 a1 a2 a3 s + a12 + a22 + a32 + 3 a1 a2 + 3 a1 a3 + 3 a2 a3 )} \&\\
- \&\hphantom{{}=x+x+x} {\color{red} -a12 a22 a32 s3 - 2 a1 a22
-a32 s2 - 2 a12 a2 a32 s2 - 2 a12 a22 a3 s2 - a12 a22 s - a12 a32 s
-- a22 a32 s} \\
- \&\hphantom{{}=x+x+x+x} {\color{red} - 3 a1 a2 a32 s - 3 a1 a22
-a3 s - 3 a12 a2 a3 s - a1 a22 - a1 a32 - a2 a32 - a12 a2 - a12 a3}\\
- \&\hphantom{{}=x+x+x+x} {\color{red} - a22 a3 - 2 a1 a2 a3 }
-\end{flalign*}
+{\color{red} The equation which would be below is commented out because Lyx messes it up. Uncommnet on final compile}
+
+%\begin{flalign*}
+%G_s(x) &= x^3 \\
+%&\hphantom{{}=x} {\color{green} - x^2 ( 2 a_1 + 2 a_2 + 2 a_3 + a_1 a_2 s + a_1 a_3 s + a_2 a_3 s )} &\\
+%&\hphantom{{}=x+x} {\color{blue} + x( a_1 a_2 a_3^2 s^2 + a_1 a_2^2 a_3 s^2 + a_1^2 a_2 a_3 s^2 + a_1 a_2^2 s  + a_1 a_3^2 s  + a_2 a_3^2 s  + a_1^2 a_2 s  }  \\
+%&\hphantom{{}=x+x+x+x} {\color{blue} + a_1^2 a_3 s  + a_2^2 a_3 s + 6 a_1 a_2 a_3 s  + a_1^2  + a_2^2  + a_3^2  + 3 a_1 a_2  + 3 a_1 a_3  + 3 a_2 a_3 )} &\\
+%&\hphantom{{}=x+x+x} {\color{red} -a_1^2 a_2^2 a_3^2 s^3   - 2 a_1 a_2^2 a_3^2 s^2 - 2 a_1^2 a_2 a_3^2 s^2 - 2 a_1^2 a_2^2 a_3 s^2  - a_1^2 a_2^2 s - a_1^2 a_3^2 s - a_2^2 a_3^2 s} \\
+%&\hphantom{{}=x+x+x+x} {\color{red} - 3 a_1 a_2 a_3^2 s - 3 a_1 a_2^2 a_3 s - 3 a_1^2 a_2 a_3 s  - a_1 a_2^2 - a_1 a_3^2 - a_2 a_3^2 - a_1^2 a_2 - a_1^2 a_3}\\
+%&\hphantom{{}=x+x+x+x} {\color{red} - a_2^2 a_3 - 2 a_1 a_2 a_3 }
+%\end{flalign*}
+
 
 Notice how I could switch all the $s_{1}$ with $s_{2}$ (likewise
 with $s_{1}$ and $s_{3}$ or $s_{2}$ and $s_{3}$) and I would end
@@ -1006,15 +935,24 @@ e_{3} & =s_{1}s_{2}s_{3}
 
 Using the elementary symmetric polynomials I can rewrite
 
-{\color{red} Lyx messes up the equation below, so I will wait to
-include it}
 
-\begin{flalign*} Gs(x) \&= x3 \\
- \&\hphantom{{}=x} {\color{green}- x2 ( 2 e1 + e2 s )} \&\\
- \&\hphantom{{}=x+x} {\color{blue}+ x( e1 e3 s2 + e1 e2 s + e12
-- 2e2 + 3 e2 ) }\&\\
- \&\hphantom{{}=x+x+x} {\color{red}-e32 s3 - 2 e2 e3 s2 - (e22
-- 2e1e3) s - 3 e1 e3 s - e1 e2 + e3} \end{flalign*} The coefficients
+
+
+{\color{red} The equation which would be below is commented out because Lyx messes it up.  Uncommnet on final compile}
+
+%\begin{flalign*}
+%G_s(x) &= x^3 \\
+%&\hphantom{{}=x} {\color{green}- x^2 ( 2 e_1 + e_2 s )} &\\
+%&\hphantom{{}=x+x} {\color{blue}+ x( e_1 e_3 s^2 + e_1 e_2 s  + e_1^2 - 2e_2  + 3 e_2 ) }&\\
+%&\hphantom{{}=x+x+x} {\color{red}-e_3^2 s^3   - 2 e_2 e_3 s^2  - (e_2^2 - 2e_1e_3) s  - 3 e_1 e_3 s  - e_1 e_2 + e_3}
+%\end{flalign*}
+
+
+
+
+
+
+The coefficients
 of the elementary symmetric polynomials are real valued. Furthermore
 the elementary symmetric polynomials are real valued. Recall that
 the $e_{1},e_{2},e_{3}$ relate to the original polynomial, 
@@ -1430,11 +1368,6 @@ This theorem tells us that for any integer division problem, not only does a quo
 
 This theorem does not state how to perform the division.  That is the topic of division algorithms
 
-%The notion of (division) Euclidean division is extended to fields and polynomials with coefficients in a field by the following definition of Euclidean division:\\
-%
-%Given an element $a$ and a non-zero element $b$ in a field or polynomial with coefficients in a field, $R$ equipped with a degree function, $d$ there exist $q$ and $r$ in $R$ such that $a=bq+r$ and either $r=0$ or $d(r) < d(b)$.
-%
-%In the paper we tried to compute division in a 4-clock arithmetic, in order to compute division we need an algorithm.  The algorithm we typically use is long division.  However I am not sure what that  would look like in even the 5-clock arithmetic, let alone the 4-clock arithmetic.  The following algorithm would work in the 5-clock arithemtic and provides intuition into why Euclidean division breaks down in 4-clock arithmetic.
 
 \subsubsection{Division Algorithm}
 Many division algorithms exist, the one with which most individuals are familiar with is long division, which is commonly confused as division.  Other algorithms exist one of which is remarkably simple and often overlooked.  For example, if a model for multiplication is repeated addition then a model for division be repeated subtraction.
@@ -1467,33 +1400,6 @@ Any non-empty set of real numbers that has an upper bound must have a least uppe
 We will also need to invoke the famous Bolzano-Wierstrass theorem, which states that every sequence $s_i$ of real numbers in a closed interval must have a convergent subsequence.  Phrased another way, if a set of real values, $S$ has an upper bound, then it has a least upper bound, $c$.  The value $c$ must be a limit point of the sequence $s_i$.
 
 
-%\subsubsection*{Proof of Bolzano's Theorem}
-%Given $f$ continuous on some closed interval $[a,b]$, with $f(a)<0<f(b)$, let $S$ be a set of numbers $x$ in $[a,b]$, where $f(x)<0$.  $S$ cannot be empty since it will at least contain $a$, and $S$ is bounded since it is a subset of a closed interval.  Then denote the least upper bound by $c$.\footnote{Refrenced from: \url{http://www.cut-the-knot.org/fta/brodie.shtml}}\\
-%
-%Three possibilities exist for $f(c)$:
-%\begin{itemize}
-%\item $f(c)<0$
-%	\begin{itemize}
-%		\item Then $c$ must be a member of $S$ thus there must exist an open interval containing $c$, where $f$ is negative, but $c$ is the least upper bound.  Therefore $f(c) \nless 0$
-%	\end{itemize}
-%
-%\item $f(c)>0$
-%	\begin{itemize}
-%	\item Now if $f(c)>0$ then there is an open interval $(c-\delta, c+\delta)$ containing $c$ where $f>0$, therefore there is some value less than $c$ which would have to be in $S$.  But there cannot be any point from $(c-\delta, c+\delta)$ in $S$, because $S$ contains only points such that $f<0$.  Therefore $f(c) \ngtr	 0$.
-%	\end{itemize}
-%
-%\item $f(c)=0$
-%	\begin{itemize}
-%	\item Which must be the conclusion since both $f(c)<0$ and $f(c)>0$ were contradictions.
-%	\end{itemize}
-%\end{itemize}
-%
-%\subsubsection*{Sign Preserving property of a Continuous Function}
-%This property states that if $f$ is continuous at $a$ and $f(a) \neq 0$, then there is an open interval $(a-\delta,a+\delta)$ such that $f$ has the same sign as $f(a)$ for every $x$ in $(a-\delta,a+\delta)$.\\
-%
-%\emph{Proof:}\footnote{Found in: \url{https://www.math.auckland.ac.nz/class255/08s1/01s2/H5.pdf}}
-%
-%Suppose $f(a)<0$, by continuity there exists a $\delta>0$ for each $\epsilon>0$ such that $f(a)-\epsilon<f(x)<f(a)+\epsilon$, whenever $a-\delta<x<a+\delta$.  Let $\epsilon = -\frac{f(a)}{2}$ then $\frac{3}{2}f(a) < f(x) < \frac{1}{2} f(a)$, whenerver $a-\delta<x<a+\delta$ (recall $f(a)$ is negative and $-\frac{3}{2} < -\frac{1}{2}$).  Now we take the corresponding $\delta$ and $f(x)<0$ in the interval, $a-\delta<x<a+\delta$.  The proof for $f(x)>0$ follows the same reasoning, but with $\epsilon = \frac{f(a)}{2}$.
 
 
 \subsection{Proof that odd degree real valued polynomials with real coefficients have a real root}
@@ -1519,43 +1425,9 @@ we have $\Lim{x\rightarrow c}x^{d}=c^{d}$. Let $P(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+\
 Now by applying the combined sum rule to $P(x)$ we get $\Lim{x\rightarrow c}P(x)=\Lim{x\rightarrow c}a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots+a_{1}x+a_{0}=a_{n}c^{n}+a_{n-1}c^{n-1}+\cdots+a_{1}c+a_{0}=P(c)$.
 Therefore $P(x)$ is continuous for any value $c$.
 
-%Using induction, first prove that a polynomial of degree 1 is continuous.  Let $m,b \in \mathbb{R}$, and let $f$ be a real function defined as $f(x) = m x + b$.  Then we want to show that $f$ is continuous at every real number $c \in \mathbb{R}$.
-
-%Assume $m \neq 0$, let $\epsilon > 0$, and $\delta = \frac{\epsilon}{|m|}$.  Then whenever $|x-c| < \delta$.
-%\begin{align*}
-%|f(x)-f(c)| &= |mx+b -mc -b| \\
-%&= |m(x-c)| \\
-%&= |m||x-c| \\
-%&< |m| \delta \\
-%= \epsilon
-%\end{align*}
-%Therefore we have found a $\delta$ for a given $\epsilon$ so that $|f(x)-f(c)|< \epsilon$ whenever $|x-c| < \delta$.  The case when $m=0$, follows similar, but simpler logic.
-
 
 \subsubsection{The least upper bound $b$ for an odd degree polynomial}
 Recall in the proof for the fundamental theorem of algebra we created the polynomial $R(x)$, by multiplying a polynomial with complex coefficients with its conjugate; this ensured that the polynomial $R(x)$ had a positive leading coefficient.  Therefore in the polynomial $P(x) = a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots+a_{1}x+a_{0}$, where $n$ is odd, we only consider the case where $a_n>0$.
-%\begin{wrapfigure}{r}{4cm}%
-%\definecolor{ffvvqq}{rgb}{1.,0.3333333333333333,0.}
-%\definecolor{qqqqff}{rgb}{0.,0.,1.}
-%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4818152696097229cm,y=0.46861485126425056cm]
-%\draw[->,color=black] (-5.8,0.) -- (5.8,0.);
-%\foreach \x in {-5.,-4.,-3.,-2.,-1.,1.,2.,3.,4.,5.}
-%\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
-%\draw[->,color=black] (0.,-5.772650073737954) -- (0.,7.031041452070341);
-%\foreach \y in {-5.,-4.,-3.,-2.,-1.,1.,2.,3.,4.,5.,6.,7.}
-%\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
-%\clip(-5,-5.772650073737954) rectangle (5,7.031041452070341);
-%\draw (3.086343278502556,4.9263250368689775) node[anchor=north west] {o};
-%\draw[line width=1.2pt,color=qqqqff,smooth,samples=100,domain=-5:5] plot(\x,{(\x)*((\x)-1.0)*((\x)-2.0)});
-%\end{tikzpicture}
-%\end{wrapfigure}%
-%\begin{itemize}
-%\item $a_n >0$  In this case the overall slope of the polynomial will be positive, e.g. the blue line designated $o$.
-%
-%\item $a_n < 0$  The overall slope will be negative, e.g. the red line designated $n$.
-%\end{itemize}
-%
-%We only care about the case when $a_n>0$.  
 
 
 Recall:
@@ -1584,588 +1456,3 @@ It has been proven that an odd degree polynomial with a positive leading coeffic
 
 \end{appendices} 
 \end{document}
-
-
-\section*{Proof of Base Case}
-
-
-%Considering the base case $k=0$ of the induction on $k$ of $d=2^k \cdot m$, then $P(x)$ is degree $d=m$,
-%where $m$ is odd. 
-%
-%Recall Bolzano's theorem states that a continuous function, $f$, takes values $f(a)<0$ at some point $a$ and $f(b)>0$ at some point $b$ must be 0 at some point.
-%
-%Its already been shown that any polynomial $P(x)$ is continuous.  So we need to show that somewhere $P<0$ and somewhere else $P>0$.
-%
-%
-%Since $P(x)$ is continuous we know there is some distinct value such that, $P(a)<0$.
-%
-%The proof that there exists some place $P>0$ follows the same reasoning. I.e.,
-%\begin{align*}
-%\lim_{x \rightarrow \infty} P(x) &= \lim_{x \rightarrow \infty}  x^d + r_{d-1}x^{d-1} + \cdots +r_1x +r_0 \\
-%&=\lim_{x \rightarrow \infty} x^d \left( 1 + \frac{r_{d-1}}{x^{d-1}} + \cdots +\frac{r_1}{x} + \frac{r_0}{x^d} \right) \\
-%&= \rightarrow  \infty
-%\end{align*}
-%
-%Therefore, for $d$ odd, $P(x)=0$ for some value between $x \in (-\infty,\infty)$.
-%
-
-
-
-
-
-
-
-
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-%
-% my explanation of the complex root
-%
-
-\subsection*{The Complex root}
-
-Without a loss
-of generality suppose that the root occurs when $i=r$, $j=l$, therefore
-\[
-y_{t,r,l}=x_{r}+x_{l}+tx_{r}x_{l}
-\]
-is complex for some $t$. So suppose 
-\[
-t=0
-\]
-then 
-\[
-x_{r}+x_{l}
-\]
-must be complex. Now Suppose 
-\[
-x_{r}+x_{l}
-\]
-is real, that would mean that the imaginary parts cancel out, but
-when I take 
-\[
-x_{r}x_{l}
-\]
-the imaginary parts would not cancel out, therefore $x_{r}x_{l}$
-is also complex for some $t$. Since both $x_{r}+x_{l}$ and $x_{r}x_{l}$
-are complex numbers. To show that $x_{r}$ or $x_{l}$ is complex
-consider the equation 
-\[
-x^{2}-(x_{r}+x_{l})x+x_{r}x_{l}
-\]
-Notice that the coefficients of this equation are complex. So define
-them as such 
-\begin{align*}
-x_{r}+x_{l}=u+iv\\
-x_{r}x_{l}=w+iz
-\end{align*}
-where $u,v,z,w$ are real valued. Substituting these values into the
-equation gives: 
-\[
-x^{2}-(u+iv)x+w+iz
-\]
-Applying the quadratic formula to this equation: 
-\begin{align*}
-x & =\frac{u+iv\pm\sqrt{(u+iv)^{2}-4(w+iz)}}{2}\\
- & =\frac{u+iv\pm\sqrt{u^{2}+2iuv-v^{2}-4w-4iz}}{2}\\
- & =\frac{u+iv\pm\sqrt{\underbrace{u^{2}-v^{2}-4w}_{p}+i(\underbrace{2uv-4z}_{q})}}{2}\\
- & =\frac{u+iv\pm\sqrt{p+iq}}{2}\\
- & =\frac{u+iv\pm(p'+iq')}{2}\\
-\end{align*}
-
-Thus the roots of $x^{2}-(u+iv)x+w+iz=x^{2}-(x_{r}+x_{l})x+x_{r}x_{l}$
-are complex. Notice in the third step I set $u^{2}-v^{2}-4w=p$ and
-$2uv-4z=q$. Further a critical and subtle part of the above is that
-the square root of complex numbers is complex, i.e if $\sqrt{p+iq}$
-is complex then there exist some $p',q'$ such that $p'+iq'=\sqrt{p+iq}$.
-A proof of this is included in the appendix.\\
-
-The roots of $x^{2}-(x_{r}+x_{l})x+x_{r}x_{l}$ are complex, but how
-does that help in figuring out if $x_{r}$ or $x_{l}$ is complex.
-Well let's now find the roots of $x^{2}-(x_{r}+x_{l})x+x_{r}x_{l}$
-\begin{align*}
-x & =\frac{x_{r}+x_{t}\pm\sqrt{(x_{r}+x_{l})^{2}-4x_{r}x_{l}}}{2}\\
- & =\frac{x_{r}+x_{t}\pm\sqrt{x_{r}^{2}+2x_{r}x_{l}+x_{l}^{2}-4x_{r}x_{l}}}{2}\\
- & =\frac{x_{r}+x_{l}\pm\sqrt{x_{r}^{2}-2x_{r}x_{l}+x_{l}^{2}}}{2}\\
- & =\frac{x_{r}+x_{l}\pm\sqrt{(x_{r}-x_{l})^{2}}}{2}\\
- & =\frac{x_{r}+x_{l}\pm(x_{r}-x_{l})}{2}\\
- & =x_{r},x_{l}
-\end{align*}
-
-So the roots of $x^{2}-(x_{r}+x_{l})x+x_{r}x_{l}$ are non other than
-$x_{r}$ and $x_{l}$, which must be complex.
-
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-%
-% Delete below?
-
-
-
-
-\subsection*{The three roots}
-
-Suppose that $s_{1}$ is indeed the complex root. Then I can factor
-$s_{1}$ out of our original equation $x^{3}-r_{1}x^{2}+r_{2}x-r_{3}$.
-When I do this I arrive at 
-\[
-(x-s_{1})(x^{2}-\rho_{1}x-\rho_{2})
-\]
-Now I can apply the same process I went through and find that $x^{2}-\rho_{1}x-\rho_{2}$
-has a \char`\"{}complex''\footnote{Complex is in quotes, because the imaginary part might be zero}
-root, suppose this time it is $s_{3}$, I can factor out this term
-arriving at: 
-\[
-(x-s_{1})(x-s_{3})(x-\gamma)
-\]
-Again I apply this process to $x-\gamma$ and I find that $\gamma=s_{2}$
-is complex and I have a full set of roots.
-
-The previous steps for identifying how many roots $x^{3}-r_{1}x^{2}+r_{3}x-r_{3}$
-has, are equivalent to the general proof for the Fundamental Theorem
-of Algebra.
-
-% now work through the fact that g is symmetric then elementary symmetric, then use the fact that there are two roots in the complex blah blah
-
-% does this proof only work for polynomials greater than a certain degree, find out.
-\begin{enumerate}
-\item The field of complex numbers is closed under algebra. 
-\end{enumerate}
-These statements are all equivalent, recall a field\footnote{A field is an algebraic structure with a form of addition, subtraction,
-multiplication and division, satisfying the commutative and distributive
-properties} $K$ is called \emph{algebraically closed} if every non-constant
-polynomial $f(c)\in K[x]$ has a root in $K$.
-
-So a field, $K$ is algebraically closed if the roots of every non-constant
-polynomial (e.g. $x^{2}+1$) are in $K$.
-
-%\paragraph*{Comprehension check:} With only rereading the definition and explanation of algebraic closure, think of an example of why the field of integers is not closed under algebra.\footnote{$x^2+1$ would work because the roots of $x^2+1$ are $x=\pm i$}
-
-From the definition of algebraically closed it follows that \textbf{statement
-2} and \textbf{statement 3} are identical, in other words \textbf{statement
-3} is just shorthand for stating \textbf{statement 2}. Remember that
-a complex number with no imaginary part is a real number.
-
-\textbf{Statement 1} is how the Fundamental Theorem of Algebra is
-typically stated in the secondary setting and it really is a corollary
-of \textbf{statement 2}. As in the previous section I can factor out
-the complex number I find. This leaves a linear term multiplying a
-polynomial which is one degree less than our original. I can then
-find the complex root of this new polynomial, and factor it out. I
-can repeat this process, but I can only do it $n$ times, thus I get
-$n$ roots.
-
-\section*{Algebraic proof of The Fundamental Theorem of Algebra}
-
-I will attempt to prove that every non-constant polynomial with complex
-coefficients has a complex root in a manner that does not require
-rigorous mathematical study.\footnote{Many thanks to \url{https://www.artofproblemsolving.com/wiki/index.php?title=Fundamental_Theorem_of_Algebra##Algebraic_Proof}}
-
-%It is necessary to assume the following
-%\begin{enumerate}
-%\item Every odd degree polynomial with real coefficients has at least one real root.\footnote{One may prove this with the Intermediate Value Theorem} \emph{Include example picture, proof using IVT in appendix}
-%\item Every polynomial of degree two with complex coefficients has a complex root.\footnote{Proven by the fact that every polynomial with real coefficients has a complex root} \emph{Include example picture}
-%\end{enumerate}
-%\paragraph*{Lemma} 
-
-\subsection*{Set up}
-
-Think of a polynomial with complex coefficients (e.g. $x^{2}+4x+2$,
-or $(1+2i)x+3$), now think of another. Now think of every polynomial
-with complex coefficients and let's let $C(x)$ represent one of them,
-we don't know which, but it is one of them.\\
-
-
-\subsubsection*{Set up summary}
-
-To summarize the above, since the goal is to show that any polynomial
-with complex coefficients has a complex root then I can build a polynomial
-with real coefficients by multiplying my polynomial with complex coefficients
-with its conjugate. Then if I show that this new polynomial with real
-coefficients has a complex root, I'm done.
-
-\subsection*{Proof by Induction}
-
-Suppose the degree of $R(x)$ is $d=2^{n}q$, where $q$ is odd and
-$n$ is a natural number, $\mathbb{N}$. %$R(x)$ will always have an even degree, because the degree of $d(R(x))=d(C(x))*2$.  
-Then lets induct on $n$, in other words, we show that the first case
-is true, then we show that each case follows from the previous, therefore
-each case must be true.
-
-\pagebreak{}
-
-\subsubsection*{Base Case}
-
-
-
-\subsubsection*{Induction Step}
-
-Now for the fun part. Suppose again that $d=2^{n}q$, where $q$ is
-odd and $n>0$, however lets \char`\"{}believe\char`\"{} that the
-theorem has been proven when the degree is $2^{n-1}q'$ where $q'$
-is odd. Therefore, we can use the \char`\"{}fact\char`\"{} (induction
-hypothesis) that any polynomial less than or equal to degree $2^{n-1}q'$
-has a complex root.\\
-
-Let's start by splitting $R(x)$ into all its linear terms like we
-did previously, we will also put a factor $a$ out front. This $a$
-would correspond to the coefficient of $x^{n}$. This step requires
-that we \char`\"{}find\char`\"{} a field, $\mathbb{F}$ over which
-we can split the polynomial into its linear factors.\footnote{For completeness, we are finding the smallest field extension of $\mathbb{C}$,
-such that $R(x)$ decomposes into linear factors.} In math jargon this would look like:
-
-\[
-c_{1}(x)c_{2}(x)\cdots c_{n}(x)\bar{c_{1}(x)}\bar{c_{2}(x)}\cdots\bar{c_{d}(x)}
-\]
-where the $c_{i}(x)$ are linear functions in the field, $\mathbb{F}$.
-Now let $x_{1}$ be the root of $c_{1}(x)$ in the field, $\mathbb{F}$,
-so on and so forth. So the roots of $R(x)$ in the field $\mathbb{F}$
-are $x_{1},\ldots,x_{d}$. If this field, $\mathbb{F}$ were the field
-of polynomials with real valued coefficients, $\mathbb{R}[x]$ we would
-be done, but its not. So now we need to figure out how to relate these
-roots we found back to the real or complex field. In order to do that
-we use the same trickery we used previously.\\
-
-Let $s$ be an arbitrary real number and let $y_{s,i,j}=x_{i}+x_{j}+sx_{i}x_{j}$,
-where $1\leq i<j\leq d$. Now define: 
-\[
-G_{t}(x)=(x-y_{t,1,2})(x-y_{t,1,3})\cdots(x-y_{t,1,d})(x-y_{t,2,3})\cdots(x-y_{t,2,d})\cdots(x-y_{t,d-1,d})
-\]
-This may be succinctly written as: 
-\[
-G_{t}(x)=\Pi_{1\leq i<j\leq d}(x-y_{t,i,j})
-\]
-
-The $G_{t}(z)$ we saw previously was constructed in the exact same
-manner. It is important to know that the coefficients of $G_{t}$
-are symmetric in $x_{1},x_{2},\ldots,x_{d}$. To review, symmetric
-in this context means that the variables could be interchanged in
-any way and we would not need to change the coefficients, in fact,
-we would have the same polynomial.\footnote{For further investigation read about symmetric polynomials.}
-In other words the coefficient of $x_{1}$ would be the same as the
-coefficient as $x_{d}$, likewise the coefficient of $x_{2}x_{1}$
-would be the same as $x_{2}x_{d}$, so on and so forth. It might help
-to think of Pascal's triangle. Let's look at a case when $d=2$.
-
-\subsubsection*{Example of $G_{t}(x)$ when $d=2$ }
-
-This example is very similar to the previous example section, but
-is included to help concertize the proof. In this example we will
-derive $G_{t}(x)$ from the original polynomial 
-\[
-f(x)=x^{2}+bx+c
-\]
-where $b,c$ are real valued.
-
-Following the layout of the proof first we find the splitting field
-over which $f(x)$ splits. From which we get 
-\[
-f(x)=(x-x_{1})(x-x_{2})
-\]
-At this point we don't know what type of numbers $x_{1}$ or $x_{2}$
-are. They could be complex, they could be something else altogether.
-Let's now look at what $G_{t}(x)$ looks like when $d=2$. Since 
-\[
-G_{t}(x)=(x-y_{t,1,2})
-\]
-let's first create $y_{t,1,2}$: 
-\[
-y_{t,1,2}=x_{1}+x_{2}+tx_{1}x_{2}
-\]
-so 
-\[
-G_{t}(x)=x-x_{1}-x_{2}-tx_{1}x_{2}
-\]
-
-There are many important features to notice about $G_{t}(x)$. $G_{t}(x)$
-is a polynomial in $x$, its degree is one, so it is one degree lower
-than our original polynomial $f(x)$, this feature will come in handy
-when we use our induction hypothesis. However in order to use our
-induction hypothesis we need to know that the coefficients of $G_{t}(x)$
-are real valued. The trick we use here is rather clever.
-
-Recall that $f(x)=(x-x_{1})(x-x_{2})$, which if we distribute twice
-we get 
-\[
-f(x)=x^{2}+x(-x_{1}-x_{2})+x_{1}x_{2}
-\]
-further 
-\[
-f(x)=x^{2}+bx+x
-\]
-Therefore
-
-\begin{align*}
-b=-x_{1}-x_{2}\\
-c=x_{1}x_{2}
-\end{align*}
-
-The $b,c\in\mathbb{R}$ are real valued. Thus $-x_{1}-x_{2},x_{1}x_{2}$
-must be real valued. This does not necessarily mean that $x_{1}\in\mathbb{R}$
-or that $x_{2}\in\mathbb{R}$ are real valued. For example if $x_{1}=1+i$
-and $x_{2}=1-i$ then $-x_{1}-x_{2}=-2$ and $x_{1}x_{2}=2$. But
-it does mean that the coefficients of 
-\[
-G_{t}(x)=x-(x_{1}+x_{2})+x_{1}x_{2}
-\]
-namely $x_{1}+x_{2}$ and $x_{1}x_{2}$ are real valued. Here you
-saw a concrete version but the fact that $x_{1}+x_{2}$ and $x_{1}x_{2}$
-are real valued stems from Viéte's formulas, which explain how to
-rewrite the coefficients of any symmetric polynomial as a elementary
-symmetric polynomials.
-
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% This is incorrect!
-%To help with this idea of symmetric coefficients, when $d=3$ we have
-%$$
-%G_s(x) = (x-x_1-x_2-sx_1x_2)(x-x_2-x_3-sx_2x_3)
-%$$
-%which expands to
-%$$
-%x^2+x_2x_3+x_1x_3 + x_1x_2 + x_2^2 -xx_3 - 2x x_2-x x_1 + 2sx_1x_2x_3 + sx_2^2 x_3 + s x_1 x_2^2 - s x x_2 x_3 - s x x_1 x_2 + s^2 x_1 x_2^2 x_3
-%$$
-%Notice how we could interchange $x_1$ and $x_2$ and the coefficients would remain the same.  In this example the coefficients are all real, but we can't assume the same will occur when $d>3$.\\
-%The same analysis that applied in the example when $d=2$ and $d=3$ applies when $d>3$, we reduce the degree of the polynomial using $G_s(x)$, check that the coefficients are real then use the induction hypothesis.\\
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% explanation of induction
-%In order to do that we need to use induction\footnote{This step is not completely necessary for this example, however understanding this process will help immensely when we turn towards the proof for any polynomial}.    Remember induction is like climbing a ladder, we show that the first rung is true, then we show that if a previous rung existed then the next one does as well.  Suppose the degree of our polynomial was one this will act as our base case.  A polynomial of degree one is a non-horizontal line, which will cross the $x-$axis once, therefore we will have one root for a polynomial of degree one.  Next we will use the induction hypothesis that a polynomial of degree two has two complex/real roots to show that our third degree polynomial has three complex/real roots.
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-\subsubsection*{Coefficients of $G_{t}(x)$ are real}
-
-Now back to: 
-\[
-G_{t}(x)=(x-y_{t,1,2})(x-y_{t,1,3})\cdots(x-y_{t,1,d})(x-y_{t,2,3})\cdots(x-y_{t,2,d})\cdots(x-y_{t,d-1,d})
-\]
-we need to the coefficients of $G_{t}(x)$ to be real and we need
-the degree to be $2^{n-1}q'$, where $q'$ is odd. %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% Delete ?
-%We have some motivation to believe that the coefficients of $G_s(x)$ are real.  We will have to take on belief that they are indeed real.\footnote{For the curious, to the best of my knowledge it has not be proven that we may do this.  What the proofs so far claim is that the coefficients of $G_s(x)$ may be viewed as elementary symmetric polynomials.  These polynomials have special formulas which Fran\c{c}ois Vi\'ete discovered in the late 1500's, which enable one to rewrite them as real numbers.  However these formulas only apply to the reals or complex numbers, not necessarily some field extension of the complex field, which is where we are using them.}  
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In order to use our induction step we need the coefficients of $G_{t}(x)$
-to be real. Recall that the induction step states: 
-\begin{center}
-\fbox{\begin{minipage}[c]{30em}%
-Polynomials of degree $2^{n-1}q'$ with real valued coefficients have
-at least one complex root. %
-\end{minipage}} 
-\par\end{center}
-
-%In the two examples we saw a concrete version of $G_s(x)$ in these example the terms when multiplied out were composed of symmetric polynomials in the roots, the $x_i$'s.  
-
-Symmetry is going to play an important role, in enabling us to be
-able to apply the induction hypothesis. Recall that symmetry in this
-situation is when we are able to alternate the coefficients and maintain
-equality.
-
-
-
-\paragraph*{Return to the example for $d=2$}
-
-Before we move on let's make sense of this step with a concrete example.
-We want to use the induction hypothesis which loosely stated for this
-example is: \\
-
-\emph{Any polynomial with real valued coefficients and degree \char`\"{}less
-than'' the original polynomial has at least one complex root.}\footnote{Less than is put in quotations, because strictly speaking this is
-not true, we are inducting on the even part of the degree, the $2^{n}$
-part. As long as the new polynomial has an $n'<n$ we can utilize
-our induction hypothesis.}\\
-
-Let's check everything our induction hypothesis requires. 
-\begin{enumerate}
-\item Real valued coefficients: Because the $G_{t}(x)$ is symmetric the
-coefficients of $G_{t}(x)$ multiplied by values from the integers
-may be related to the coefficients of the original polynomial which
-are real. 
-\item Lesser degree: $G_{t}(x)$ is constructed such that it will be \char`\"{}less
-than'' the degree of the original polynomial.\footnote{see previous footnote} 
-\end{enumerate}
-Since the criterion for the induction hypothesis is satisfied we know
-that $G_{t}(x)$ has at least one complex root, so 
-\[
--(x_{1}+x_{2})+sx_{1}x_{2}
-\]
-must be complex. In order to figure out whether $x_{1}$ or $x_{2}$
-is complex we need to analyze $-(x_{1}+x_{2})+sx_{1}x_{2}$. In identifying
-that $-(x_{1}+x_{2})+sx_{1}x_{2}$ is complex we did not consider
-$s$ at all. Thus, whether or not $x_{1}$ or $x_{2}$ is complex
-does not depend on $s$. So if $s=0$ then 
-\[
--(x_{1}+x_{2})
-\]
-must be complex. So $x_{1}+x_{2}$ must be complex. Now let's assume
-$x_{1}=u+iv$ and $x_{2}=z+iw$, then if $x_{1}+x_{2}$ is real valued
-we must have $iv=iw$ in other words the imaginary parts must cancel
-out. Then: 
-\begin{align*}
-x_{1}x_{2} & =(u+iv)(z+iw)\\
- & =(u+iv)(z-iv)\\
- & =uz-ivu+izu-i^{2}v^{2}\\
- & =uz+v^{2}+i(vz-uv)
-\end{align*}
-which is complex unless $vz=uv\Rightarrow z=u$ for $v\neq0$.
-
-In order to identify if $x_{1}$ or $x_{2}$ is our complex root we
-would need to use the induction hypothesis again, this will be detailed
-further in the paper.
-
-\paragraph*{Back to the proof}
-
-We have a very similar situation for the generalized proof. $G_{t}(x)$
-is constructed so that the coefficients are symmetric. This stems
-from the fact that 
-\[
-y_{t,i,j}=x_{i}+x_{j}+tx_{i}x_{j}
-\]
-is symmetric in the $x_{i},x_{j}$. If we then multiply all the combinations
-of $x-y_{t,i,j}$, where $i<j$ then we will have polynomial that
-is symmetric in all the $x_{i}$'s.
-
-Since the coefficients are symmetric and we can add and multiply them
-in the usual way then by Viete's formulas we can express the additive
-and multiplicative combinations of the $x_{1},x_{2},\ldots x_{d}$
-as elementary symmetric polynomials\footnote{By the Fundamental Theorem of Symmetric Polynomials},
-just as we did in the examples. These elementary symmetric polynomials,
-have coefficients which are integer valued. Additionally, the elementary
-symmetric polynomials relate to the coefficients of the original polynomial.
-The coefficients of $R(x)$ are real, therefore the elementary symmetric
-polynomials are real. Since the elementary symmetric polynomials have
-coefficients which are integer valued and consist of additive and
-multiplicative combinations of the $x_{1},x_{2},\ldots x_{d}$, the
-elementary symmetric polynomials must also real. From which it follows
-that the coefficients of $G_{t}(x)$ must therefore be real-valued.\\
-
-Put another way we related the coefficients of $G_{t}(x)$ to the
-coefficients of our original polynomial, $R(x)$. Since the coefficients
-of $R(x)$ are real, the coefficients of $G_{t}(x)$ must be real.
-Note that the coefficients of $G_{t}(x)$ are additive and multiplicative
-combinations of $x_{1},x_{2},\ldots x_{d}$ multiplied by some integer.
-\\
-
-Thus the coefficients of $G_{t}(x)$ are real. In order to use the
-induction hypothesis we need to figure out the degree of $G_{t}(x)$.
-
-\subsubsection*{Degree of $G_{t}(x)$}
-
-How many terms there are in $G_{t}(x)$?
-
-There are $d-1$ terms that have $i=1$, then there are $d-2$ terms
-that have $i=2$, because $i<j$. So there are $d-3$ terms that have
-$i=3$ and so on. 
-\[
-G_{t}(x)=\underbrace{(x-y_{s,1,2})(x-y_{s,1,3})\cdots(x-y_{s,1,d})}_{d-1}\underbrace{(x-y_{s,2,3})\cdots(x-y_{s,2,d})}_{d-2}\cdots(x-y_{s,d-1,d})
-\]
-
-Thus I have a decreasing sequence, since I am trying to find the degree
-of $G_{t}(x)$ I take the $d-1$ terms and add them to $d-2$ terms,
-so on and so forth. This gives a familiar series: 
-\[
-1+2+3+4+\cdots+(d-2)+(d-1)
-\]
-
-The trick for finding the sum of this sequence is often attributed
-to Gauss. First define: 
-\[
-S_{n}=1+2+3+4+\cdots+(d-2)+(d-1)
-\]
-
-then rewrite $S_{n}$ as 
-\[
-S_{n}=(d-1)+(d-2)+\cdots+4+3+2+1
-\]
-
-add $S_{n}$ to itself, but I need to be clever here, take notice
-of how the additive terms were grouped 
-\[
-2S_{n}=(1+(d-1))+(2+(d-2))+(3+(d-3))+\cdots((d-2)+2)+((d-1)+1)
-\]
-
-Perform the arithmetic inside each set of parenthesis 
-\[
-2S_{n}=d+d+d+\cdots+d+d
-\]
-
-Recall that there were $d-1$ terms in $S_{n}$ and I did nothing
-to alter that since I paired up each component: 
-\[
-2S_{n}=\underbrace{d+d+d+\cdots+d+d}_{d-1}
-\]
-
-A model to make multiplication understandable is that multiplication
-is repeated addition, applying that model here: 
-\[
-2S_{n}=d(d-1)
-\]
-
-Which results in: 
-\[
-S_{n}=\frac{d(d-1)}{2}
-\]
-
-So the sum of the series $S_{n}=1+2+3+4+\cdots+(d-2)+(d-1)$ is $\frac{d(d-1)}{2}$.
-Recall that 
-\[
-d=2^{n}q
-\]
-so 
-\[
-\frac{d(d-1)}{2}=\frac{2^{n}q(d-1)}{2}=2^{n-1}q(d-1)
-\]
-but $q(d-1)$ is an odd number so 
-\[
-2^{n-1}q(d-1)=2^{n-1}q'
-\]
-
-Thus $G_{t}(x)$ has real coefficients and a degree less than or equal
-to $2^{n-1}q'$, therefore I can apply the induction hypothesis.
-
-
-%$y_{s,1,1} = 2x_1 + s x_1^2$ and $y_{s,1,2} = x_1 +x_2 + s x_1 x_2$ and $y_{s,2,2} = 2x_2 + s x_2^2$.  Therefore 
-%\begin{align*}
-%G_s(x) &= (x-y_{s,1,1})(x-y_{s,1,2})(x-y_{s,2,2}) \\
-%&= x^3 \\
-%& \hspace{1em} -(s(x_1^2+x_1 x_2+x_2^2 \\
-%& \hspace{10em} +3(x_1+x_2))x^2 \\
-%& \hspace*{1em} + (s^2(x_1 x_2^3 + x_1^3 x_2) \\
-%& \hspace{9em} + s(x_1^3 +x_2^3 \\
-%& \hspace{15em} + 5(x_1 x_2^2 + x_1^2 x_2)) \\
-%& \hspace{23em} +2(x_1^2+x_2^2) + 8x_1 x_2)x \\
-%& \hspace*{1em} -s^3 x_1^3 x_2^3 \\
-%& \hspace{5em} - 3s^2(x_1^2x_2^3 + x_1^3 x_2^2) \\
-%& \hspace{14em} -2s(x_1 x_2^3 + 4x_1^2 x_2^2 + x_1^3 x_2) \\
-%& \hspace{26em} -4(x_1 x_2^2 + x_1^2 x_2)
-%\end{align*}
-
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% Maybe include? probably not
-%\section*{So What? An argument for the Fundamental Theorem of Algebra}  
-%The Fundamental Theorem of Algebra states that there is at least one complex root.  What if there was not?  In other words let's suppose that every equation has a solution, and the solution is not in the complex numbers, where would it be?
-%\subsection*{A tour of different fields}
-%\emph{Take readers on a tour of ordered and non-ordered fields}
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
